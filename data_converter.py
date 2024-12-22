@@ -8,6 +8,7 @@ from datetime import datetime
 from rdflib import Graph, URIRef, Literal, Namespace
 
 kaggle_dataset = "rounakbanik/the-movies-dataset"
+log_file = "./outputLogs/converterLogs.txt"
 output_folder = "dataset_processed"
 jsonMovieData = []
 startTime = datetime.now()
@@ -377,6 +378,11 @@ def writeToJson(outputFile: str):
         logging.error(f"Trying to write to JSON file : {e}")
         print(f"An error occurred while writing to the file: {e}")
 
+# TODO: Function to write Processed JSON data to RDF Database
+
+def writeToRdf():
+    print("")
+
 # Function to iterate through each downloaded file in cache folder and invoke relevant functions
 
 def list_files_in_folder(folder_path):
@@ -425,6 +431,12 @@ def list_files_in_folder(folder_path):
 
 # Calculate and display statistics of conversion
 
+def clearLogFile():
+    with open(log_file,'w') as file:
+        file.truncate(16)
+        file.close()
+    print()
+
 def calculateTotalTime(typeFlag:str):  
     endTime = datetime.now()
     delta = endTime-startTime
@@ -454,7 +466,7 @@ def main():
     calculateTotalTime("final")
 
 if __name__=="__main__":
-    log_file = "./outputLogs/converterLogs.txt"
+    clearLogFile()
     logging.basicConfig(
         filename=log_file,
         level=logging.DEBUG,  # Set logging level (e.g., DEBUG, INFO, WARNING, ERROR, CRITICAL)
