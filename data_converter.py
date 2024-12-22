@@ -13,6 +13,8 @@ jsonMovieData = []
 startTime = datetime.now()
 endTime = datetime.now()
 
+# Functions to read each individual CSV file and add relevant parameters to JSON data variable
+ 
 def readCredits(filePath: str):
     try:
         with open(filePath, mode='r', encoding='utf-8') as file:
@@ -20,7 +22,7 @@ def readCredits(filePath: str):
             csv_reader = csv.reader(file)
             headers = next(csv_reader, None)
             print("Credits Read with headers : ",headers)
-            logging.info("Credits headers : ",headers)
+            logging.info(f"Credits headers : {headers}")
             creditsCount = 0
             for row in tqdm(csv_reader, desc="Reading Credits"):
                 creditsCount = creditsCount+1
@@ -41,7 +43,7 @@ def readCredits(filePath: str):
                     }
                     jsonMovieData.append(movie_data)
             print("Credits Entries read : ",creditsCount)
-            logging.info("Credits count : ",creditsCount)
+            logging.info(f"Credits count : {creditsCount}")
 
     except FileNotFoundError:
         logging.error(f"Credits error : {e}")
@@ -57,7 +59,7 @@ def readKeyWords(filePath: str):
             csv_reader = csv.reader(file)
             headers = next(csv_reader, None)
             print("KeyWords Read with headers : ",headers)
-            logging.info("KeyWords headers : ",headers)
+            logging.info(f"KeyWords headers : {headers}")
             keywordsCount = 0
             for row in tqdm(csv_reader, desc="Reading KeyWords"):
                 keywordsCount = keywordsCount+1
@@ -73,15 +75,15 @@ def readKeyWords(filePath: str):
                 for item in jsonMovieData:
                     if item['_id']==_id:
                         foundFlag = True
-                        item['keywords'] = keywords
+                        item['hasKeywords'] = keywords
                 if foundFlag==False:
                     movie_data = {
                         '_id' : _id,
-                        'keywords' : keywords
+                        'hasKeywords' : keywords
                     }
                     jsonMovieData.append(movie_data)
             print("Keywords Entries read : ",keywordsCount)
-            logging.info("KeyWords count : ",keywordsCount)
+            logging.info(f"KeyWords count : {keywordsCount}")
 
     except FileNotFoundError:
         logging.error(f"KeyWords error : {e}")
@@ -97,7 +99,7 @@ def readLinks(filePath:str):
             csv_reader = csv.reader(file)
             headers = next(csv_reader, None)
             print("Links Read with headers : ",headers)
-            logging.info("Links headers : ",headers)
+            logging.info(f"Links headers : {headers}")
             linksCount = 0
             for row in tqdm(csv_reader, desc="Reading Links"):
                 linksCount = linksCount+1
@@ -118,7 +120,7 @@ def readLinks(filePath:str):
                     }
                     jsonMovieData.append(movie_data)
             print("Links Entries read : ",linksCount)
-            logging.info("Links count : ",linksCount)
+            logging.info(f"Links count : {linksCount}")
 
 
     except FileNotFoundError:
@@ -135,7 +137,7 @@ def readMetaData(filePath:str):
             csv_reader = csv.reader(file)
             headers = next(csv_reader, None)
             print("MetaData Read with headers : ",headers)
-            logging.info("MetaData headers : ",headers)
+            logging.info(f"MetaData headers : {headers}")
             duplicateOverwrites = 0
             metaDataCount = 0
             object_corrector_flag = False
@@ -181,26 +183,26 @@ def readMetaData(filePath:str):
                             duplicateOverwrites = duplicateOverwrites+1
                         item['isAdult'] = adult
                         item['partOfCollections'] = collectionDataList
-                        item['budget'] = budget
-                        item['genres'] = genresList
-                        item['originalLanguage'] = originalLang
-                        item['originalTitle'] = originalTitle
-                        item['overview'] = overview
+                        item['hasBudget'] = budget
+                        item['ofGenre'] = genresList
+                        item['hasOriginalLanguage'] = originalLang
+                        item['hasOriginalTitle'] = originalTitle
+                        item['hasOverview'] = overview
                 if foundFlag==False:
                     movie_data = {
                         '_id' : _id,
                         'isAdult' : adult,
                         'partOfCollections' : collectionDataList,
-                        'budget' : budget,
-                        'genres' : genresList,
-                        'originalLanguage' : originalLang,
-                        'originalTitle' : originalTitle,
-                        'overview' : overview
+                        'hasBudget' : budget,
+                        'ofGenre' : genresList,
+                        'hasOriginalLanguage' : originalLang,
+                        'hasOriginalTitle' : originalTitle,
+                        'hasOverview' : overview
                     }
                     jsonMovieData.append(movie_data)
             print("Duplicate MetaData Count : ", duplicateOverwrites)
             print("MetaData Entries read : ",metaDataCount)
-            logging.info("MetaData count : ",metaDataCount)
+            logging.info(f"MetaData count : {metaDataCount}")
 
     except FileNotFoundError:
         logging.error(f"MetaData error : {e}")
@@ -216,7 +218,7 @@ def readRatings(filePath:str):
             csv_reader = csv.reader(file)
             headers = next(csv_reader, None)
             print("Ratings Read with headers : ",headers)
-            logging.info("Ratings headers : ",headers)
+            logging.info(f"Ratings headers : {headers}")
             ratingsCount = 0
             for row in tqdm(csv_reader, desc="Reading Ratings"):
                 ratingsCount = ratingsCount+1
@@ -226,19 +228,19 @@ def readRatings(filePath:str):
                 timeStamp = row[3]
                 foundFlag = False
                 for item in jsonMovieData:
-                    if (item['_id']==_id) and ('rating' in item.keys()):
+                    if (item['_id']==_id) and ('hasRating' in item.keys()):
                         foundFlag = True
                         temp_rating = item['rating']
                         temp_rating.append(rating)
-                        item['rating'] = temp_rating
+                        item['hasRating'] = temp_rating
                 if foundFlag==False:
                     movie_data = {
                         '_id' : _id,
-                        'rating' : [rating]
+                        'hasRating' : [rating]
                     }
                     jsonMovieData.append(movie_data)
             print("Rating Entries read : ",ratingsCount)
-            logging.info("Ratings count : ",ratingsCount)
+            logging.info(f"Ratings count : {ratingsCount}")
 
     except FileNotFoundError:
         logging.error(f"Ratings error : {e}")
@@ -252,6 +254,7 @@ def printSampleJsonData(printType:str):
     if printType=='value':
         print("\nSample Data : ", end=None)
         print(json.dumps(sampleData,indent=4))
+        logging.info(f"Sample Data : {json.dumps(sampleData, indent=4)}")
     else:
         typesData = {}
         keys = list(sampleData.keys())
@@ -259,6 +262,106 @@ def printSampleJsonData(printType:str):
             typesData[key] = str(type(sampleData[key]))
         print("Data Types : ", end=None)
         print(json.dumps(typesData, indent=4), end="\n\n")
+        logging.info(f"Data Types : {json.dumps(typesData, indent=4)}")
+
+# Functions to process JSON data and simplify parameters
+
+def processCredits():
+    newJsonData = []
+    logging.info("Begin Credits Processing....")
+    for item in tqdm(jsonMovieData, desc="Processing Credits Data...."):
+        if 'castList' in item.keys():
+            castList = []
+            if isinstance(item['castList'],str):
+                castList = json.loads(str(item['castList']).replace("'",'"'))
+            else:
+                castList = item['castList']
+            castFin = []
+            for cast in castList:
+                actor = str(cast['name'])
+                if actor not in castFin:
+                    castFin.append(actor)
+            item['actedBy'] = castFin
+            item = item.pop('castList')
+        if 'crewList' in item.keys():
+            crewList = []
+            if isinstance(item['crewList'],str):
+                crewList = json.dumps(str(item['crewList']).replace("'",'"'))
+            else:
+                crewList = item['crewList']
+            # Multiple types of Crews available
+            directors = []
+            writers = []
+            producers = []
+            artists = []
+            editors = []
+            sounds = []
+            visualEffects = []
+            lighting = []
+            supportCrew = []
+            for crew in crewList:
+                name = str(crew['name'])
+                department = str(crew['department']).strip()         # Directing, Writing, Production, Art, Editing, Sound, Visual Effects, Crew, Lighting, ' '
+                if department=='Directing':
+                    if name not in directors:
+                        directors.append(name)
+                elif department=='Writing':
+                    if name not in writers:
+                        writers.append(name)
+                elif department=='Production':
+                    if name not in producers:
+                        producers.append(name)
+                elif department=='Art':
+                    if name not in artists:
+                        artists.append(name)
+                elif department=='Editing':
+                    if name not in editors:
+                        editors.append(name)
+                elif department=='Sound':
+                    if name not in sounds:
+                        sounds.append(name)
+                elif department=='Visual Effects':
+                    if name not in visualEffects:
+                        visualEffects.append(name)
+                elif department=='Lighting':
+                    if name not in lighting:
+                        lighting.append(name)
+                else:
+                    if name not in supportCrew:
+                        supportCrew.appen(name)
+            item['directedBy'] = directors
+            item['writtenBy'] = writers
+            item['producedBy'] = producers
+            item['supportingArtists'] = artists
+            item['editedBy'] = editors
+            item['soundsBy'] = sounds
+            item['visualEffectsBy'] = visualEffects
+            item['lightingBy'] = lighting
+            item.pop('crewList')
+        newJsonData.append(item)
+    print(f"Old ({len(jsonMovieData)}) -> Processed ({len(newJsonData)})")
+    logging.info("Complete Credits Processing....")
+    logging.info(f"Dropped {len(jsonMovieData)-len(newJsonData)} Items....")
+    jsonMovieData = newJsonData
+    printSampleJsonData(printType='dataType')
+
+def processRatings():
+    newJsonData = []
+    logging.info("Begin Ratings Processing....")
+    for item in tqdm(jsonMovieData, desc="Processing Ratings Data...."):
+        avg_rating = 0.0
+        ratings = item['hasRating']
+        if len(ratings>0):
+            for value in ratings:
+                avg_rating = avg_rating+value
+            avg_rating = avg_rating/len(ratings)
+        item['hasAverageRating'] = round(avg_rating, ndigits=2)
+        newJsonData.append(item)
+    logging.info("Complete Ratings Processing....")
+    logging.info(f"Dropped {len(jsonMovieData)-len(newJsonData)} Items")
+    jsonMovieData = newJsonData
+
+# Function to Write JSON data to JSON file for temporary storage
 
 def writeToJson(outputFile: str):
     try:
@@ -273,6 +376,8 @@ def writeToJson(outputFile: str):
     except Exception as e:
         logging.error(f"Trying to write to JSON file : {e}")
         print(f"An error occurred while writing to the file: {e}")
+
+# Function to iterate through each downloaded file in cache folder and invoke relevant functions
 
 def list_files_in_folder(folder_path):
     file_names = []
@@ -290,6 +395,7 @@ def list_files_in_folder(folder_path):
                     logging.info("Reading Credits")
                     readCredits(filePath=filePath)
                     logging.info("Reading Credits Completed")
+                    processCredits()
                 elif 'keywords.csv' in file:
                     logging.info("Reading Keywords")
                     readKeyWords(filePath=filePath)
@@ -307,6 +413,7 @@ def list_files_in_folder(folder_path):
                     logging.info("Reading Ratings")
                     readRatings(filePath=filePath)
                     logging.info("Reading Ratings Completed")
+                    processRatings()
                 print("Current Json Structure : ", end=None)
                 printSampleJsonData('types')
                 calculateTotalTime("final")
@@ -315,6 +422,8 @@ def list_files_in_folder(folder_path):
     output_file_path = os.path.join(output_folder,"JsonData.json")
     writeToJson(outputFile=output_file_path)
     print("\nFiles Processed : ", file_names)     
+
+# Calculate and display statistics of conversion
 
 def calculateTotalTime(typeFlag:str):  
     endTime = datetime.now()

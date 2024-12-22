@@ -9,3 +9,8 @@ The data is loaded from a kaggle dataset named [The Movies Dataset by Rounakbani
 ## Data Conversion
 The CSV files loaded from kaggle are first converted to RDF files since the project requires that the graph be presented as an application on an RDF Database.
 The [`data_converter.py`](./data_converter.py) is used to convert the data
+
+
+## RDF Structure
+The processed data is planned to be in RDF Dataset format with each entity having the below expected structure : 
+![RDF Data Structure](./KnowledgeGraphStructure.png)
