@@ -9,17 +9,29 @@ WHERE {
 # Please Refer Readme for Dataset URL
 # RDF Converstion is still in progress and converted data is not entirely reliable yet
 
-# This gets all films in the same genre (genres from movies_metadata.rdf)
-sameGenreQuery = ""
+# This gets all films containing given string in title. Return only films have the given string with hasOriginalTitle predicate
+givenTitleQuery = ""
 
-# This gets all ratings for the film (rating from ratings.rdf)
-allRatingsQuery = ""
+# This gets all films containing given genre. Return only films have the given genre with ofGenre predicate
+givenGenreQuery = ""
 
-# This gets all films in the same collection (belongs_to_collection from movies_metadata.rdf)
-sameCollectionQuery = ""
+# This gets all films in the given collection. Return only films have the given collection with partOfCollections predicate
+givenCollectionQuery = ""
 
-# This gets all films in the same category of Adult Movie or not (adult from movies_metadata.rdf)
-sameAdultCatQuery = ""
+# This gets all films in the given category of Adult Movie or not. Return only films have the given True/False value for isAdult predicate
+givenAdultCatQuery = ""
 
-# This gets all films with similar keywords (keywords from keywords.rdf)
-sameKeyWordsQuery = ""
+# This gets all films with given keyword. Return only films have the given keyword with hasKeywords predicate
+givenKeyWordsQuery = ""
+
+# This gets all films containing given actor. Return only films have the given actor with actedBy predicate
+givenActorQuery = ""
+
+# This gets all films containing given director. Return only films have the given director with directedBy predicate
+givenDirectorQuery = ""
+
+# This gets all films containing given producer. Return only films have the given producer with producedBy predicate
+givenProducerQuery = ""
+
+# This gets all films containing given writer. Return only films have the given writer with writtenBy predicate
+givenWriterQuery = ""

@@ -553,6 +553,7 @@ def list_files_in_folder(folder_path):
     printSampleJsonData('types')
     # output_file_path = os.path.join(output_folder,"JsonData.json")
     # writeToJson(outputFile=output_file_path)
+    checkMissingKeys('hasKeywords')
     output_file_path = os.path.join(output_folder,"MovieData.rdf")
     writeToRdf(output_file_path)
     print("\nFiles Processed : ", file_names)     
