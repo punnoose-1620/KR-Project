@@ -1,106 +1,168 @@
-2024-12-21 14:24:06,749 - INFO - Program started....
-2024-12-21 14:24:06,869 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
-2024-12-21 14:26:39,733 - INFO - Program started....
-2024-12-21 14:26:39,860 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
-2024-12-21 14:26:40,615 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
-2024-12-21 14:26:40,622 - INFO - Dataset Downloaded....
+2024-12-23 00:06:07,069 - INFO - Program started....
+2024-12-23 00:06:07,172 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
+2024-12-23 00:06:08,095 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
+2024-12-23 00:06:08,104 - INFO - Dataset Downloaded....
 
-2024-12-21 14:33:57,654 - INFO - Program started....
-2024-12-21 14:33:57,781 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
-2024-12-21 14:33:58,392 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
-2024-12-21 14:33:58,402 - INFO - Dataset Downloaded....
-
-2024-12-21 14:40:06,637 - INFO - Program started....
-2024-12-21 14:40:06,764 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
-2024-12-21 14:40:07,440 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
-2024-12-21 14:40:07,443 - INFO - Dataset Downloaded....
-
-2024-12-21 15:12:27,640 - INFO - Program started....
-2024-12-21 15:12:27,780 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
-2024-12-21 15:12:28,086 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
-2024-12-21 15:12:28,103 - INFO - Dataset Downloaded....
-
-2024-12-21 15:33:39,381 - INFO - Program started....
-2024-12-21 15:33:39,488 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
-2024-12-21 15:33:39,844 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
-2024-12-21 15:33:39,852 - INFO - Dataset Downloaded....
-
-2024-12-21 15:34:05,107 - INFO - Program started....
-2024-12-21 15:34:05,207 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
-2024-12-21 15:34:05,506 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
-2024-12-21 15:34:05,510 - INFO - Dataset Downloaded....
-
-2024-12-21 16:07:28,293 - INFO - Program started....
-2024-12-21 16:07:28,396 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
-2024-12-21 16:07:28,662 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
-2024-12-21 16:07:28,666 - INFO - Dataset Downloaded....
-
-2024-12-21 16:12:46,634 - INFO - Program started....
-2024-12-21 16:12:46,735 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
-2024-12-21 16:12:47,070 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
-2024-12-21 16:12:47,085 - INFO - Dataset Downloaded....
-
-2024-12-21 16:22:07,582 - INFO - Program finished....
-2024-12-21 16:29:11,736 - INFO - Program started....
-2024-12-21 16:29:11,842 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
-2024-12-21 16:29:12,164 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
-2024-12-21 16:29:12,172 - INFO - Dataset Downloaded....
-
-2024-12-21 21:07:16,955 - INFO - Program started....
-2024-12-21 21:07:17,062 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
-2024-12-21 21:07:17,958 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
-2024-12-21 21:07:17,976 - INFO - Dataset Downloaded....
-
-2024-12-21 21:07:17,979 - INFO - Reading Credits
-2024-12-21 21:07:17,980 - INFO - Credits file opened....
-2024-12-21 21:07:57,574 - INFO - Reading Credits Completed
-2024-12-21 21:07:57,574 - INFO - Calculating Total Elapsed Time....
-2024-12-21 21:07:57,574 - INFO - Elapsed Time : 0 hours, 1 minutes, -19.38 seconds
-2024-12-21 21:07:57,575 - INFO - Reading Keywords
-2024-12-21 21:07:57,575 - INFO - KeyWords file opened....
-2024-12-21 21:09:19,009 - INFO - Reading Keywords Completed
-2024-12-21 21:09:19,011 - INFO - Calculating Total Elapsed Time....
-2024-12-21 21:09:19,011 - INFO - Elapsed Time : 0 hours, 2 minutes, 2.057 seconds
-2024-12-21 21:09:19,011 - INFO - Reading Links
-2024-12-21 21:09:19,011 - INFO - Links file opened....
-2024-12-21 21:12:11,051 - INFO - Reading Links Completed
-2024-12-21 21:12:11,051 - INFO - Calculating Total Elapsed Time....
-2024-12-21 21:12:11,051 - INFO - Elapsed Time : 0 hours, 5 minutes, -5.903 seconds
-2024-12-21 21:12:11,051 - INFO - Reading MetaData
-2024-12-21 21:12:11,052 - INFO - MetaData file opened....
-2024-12-21 21:17:27,808 - INFO - Program started....
-2024-12-21 21:17:27,916 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
-2024-12-21 21:17:28,678 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
-2024-12-21 21:17:28,681 - INFO - Dataset Downloaded....
-
-2024-12-21 21:17:28,681 - INFO - Reading Credits
-2024-12-21 21:17:28,682 - INFO - Credits file opened....
-2024-12-21 21:17:28,682 - INFO - Credits headers : ['cast', 'crew', 'id']
-2024-12-21 21:18:08,807 - INFO - Credits count : 45476
-2024-12-21 21:18:08,807 - INFO - Reading Credits Completed
-2024-12-21 21:18:08,807 - INFO - Calculating Total Elapsed Time....
-2024-12-21 21:18:08,807 - INFO - Elapsed Time : 0 hours, 1 minutes, -19.001 seconds
-2024-12-21 21:18:08,807 - INFO - Reading Keywords
-2024-12-21 21:18:08,807 - INFO - KeyWords file opened....
-2024-12-21 21:18:08,807 - INFO - KeyWords headers : ['id', 'keywords']
-2024-12-21 21:19:29,142 - INFO - KeyWords count : 46419
-2024-12-21 21:19:29,142 - INFO - Reading Keywords Completed
-2024-12-21 21:19:29,142 - INFO - Calculating Total Elapsed Time....
-2024-12-21 21:19:29,142 - INFO - Elapsed Time : 0 hours, 2 minutes, 1.334 seconds
-2024-12-21 21:19:29,142 - INFO - Reading Links
-2024-12-21 21:19:29,142 - INFO - Links file opened....
-2024-12-21 21:19:29,142 - INFO - Links headers : ['movieId', 'imdbId', 'tmdbId']
-2024-12-21 21:22:20,818 - INFO - Links count : 45843
-2024-12-21 21:22:20,818 - INFO - Reading Links Completed
-2024-12-21 21:22:20,818 - INFO - Calculating Total Elapsed Time....
-2024-12-21 21:22:20,818 - INFO - Elapsed Time : 0 hours, 5 minutes, -6.99 seconds
-2024-12-21 21:22:20,818 - INFO - Reading MetaData
-2024-12-21 21:22:20,822 - INFO - MetaData file opened....
-2024-12-21 21:22:20,823 - INFO - MetaData headers : ['adult', 'belongs_to_collection', 'budget', 'genres', 'homepage', 'id', 'imdb_id', 'original_language', 'original_title', 'overview', 'popularity', 'poster_path', 'production_companies', 'production_countries', 'release_date', 'revenue', 'runtime', 'spoken_languages', 'status', 'tagline', 'title', 'video', 'vote_average', 'vote_count']
-2024-12-21 21:27:01,865 - INFO - MetaData count : 45466
-2024-12-21 21:27:01,867 - INFO - Reading MetaData Completed
-2024-12-21 21:27:01,867 - INFO - Calculating Total Elapsed Time....
-2024-12-21 21:27:01,867 - INFO - Elapsed Time : 0 hours, 10 minutes, -25.941 seconds
-2024-12-21 21:27:01,867 - INFO - Reading Ratings
-2024-12-21 21:27:01,872 - INFO - Ratings file opened....
-2024-12-21 21:27:01,872 - INFO - Ratings headers : ['userId', 'movieId', 'rating', 'timestamp']
+2024-12-23 00:06:08,105 - INFO - Reading Credits
+2024-12-23 00:06:08,105 - INFO - Credits file opened....
+2024-12-23 00:06:08,106 - INFO - Credits headers : ['cast', 'crew', 'id']
+2024-12-23 00:06:48,184 - INFO - Credits count : 45476
+2024-12-23 00:06:48,184 - INFO - Reading Credits Completed
+2024-12-23 00:06:48,184 - INFO - Begin Credits Processing....
+2024-12-23 00:06:48,187 - WARNING - 0 items found in movies without the key castList
+2024-12-23 00:06:48,194 - WARNING - 0 items found in movies without the key crewList
+2024-12-23 00:06:50,047 - INFO - Complete Credits Processing....
+2024-12-23 00:06:50,047 - INFO - Dropped 0 Items....
+2024-12-23 00:06:50,047 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>"
+}
+2024-12-23 00:06:50,047 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>"
+}
+2024-12-23 00:06:50,047 - INFO - Reading Keywords
+2024-12-23 00:06:50,048 - INFO - KeyWords file opened....
+2024-12-23 00:06:50,055 - INFO - KeyWords headers : ['id', 'keywords']
+2024-12-23 00:09:31,938 - INFO - KeyWords count : 46419
+2024-12-23 00:09:31,938 - INFO - Reading Keywords Completed
+2024-12-23 00:09:31,939 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>"
+}
+2024-12-23 00:09:31,939 - INFO - Reading Links
+2024-12-23 00:09:31,939 - INFO - Links file opened....
+2024-12-23 00:09:31,940 - INFO - Links headers : ['movieId', 'imdbId', 'tmdbId']
+2024-12-23 00:13:26,577 - INFO - Links count : 45843
+2024-12-23 00:13:26,577 - INFO - Reading Links Completed
+2024-12-23 00:13:26,577 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>",
+    "imdbId": "<class 'str'>",
+    "tmdbId": "<class 'str'>"
+}
+2024-12-23 00:13:26,577 - INFO - Reading MetaData
+2024-12-23 00:13:26,577 - INFO - MetaData file opened....
+2024-12-23 00:13:26,584 - INFO - MetaData headers : ['adult', 'belongs_to_collection', 'budget', 'genres', 'homepage', 'id', 'imdb_id', 'original_language', 'original_title', 'overview', 'popularity', 'poster_path', 'production_companies', 'production_countries', 'release_date', 'revenue', 'runtime', 'spoken_languages', 'status', 'tagline', 'title', 'video', 'vote_average', 'vote_count']
+2024-12-23 00:18:36,675 - INFO - MetaData count : 45466
+2024-12-23 00:18:36,675 - INFO - Reading MetaData Completed
+2024-12-23 00:18:36,675 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>",
+    "imdbId": "<class 'str'>",
+    "tmdbId": "<class 'str'>",
+    "isAdult": "<class 'str'>",
+    "partOfCollections": "<class 'list'>",
+    "hasBudget": "<class 'str'>",
+    "ofGenre": "<class 'list'>",
+    "hasOriginalLanguage": "<class 'str'>",
+    "hasOriginalTitle": "<class 'str'>",
+    "hasOverview": "<class 'str'>"
+}
+2024-12-23 00:18:36,675 - INFO - Reading Ratings
+2024-12-23 00:18:36,676 - INFO - Ratings file opened....
+2024-12-23 00:18:36,682 - INFO - Ratings headers : ['userId', 'movieId', 'rating', 'timestamp']
+2024-12-23 00:19:01,521 - DEBUG - Ratings object created with rating data based on ID....
+2024-12-23 00:19:01,560 - DEBUG - Ratings added to movie data....
+2024-12-23 00:19:01,560 - INFO - Ratings count : 26024289
+2024-12-23 00:19:01,560 - INFO - Reading Ratings Completed
+2024-12-23 00:19:01,560 - INFO - Begin Ratings Processing....
+2024-12-23 00:19:01,571 - WARNING - 38529 items found in movies without the key hasRating
+2024-12-23 00:19:10,053 - INFO - Complete Ratings Processing....
+2024-12-23 00:19:10,054 - INFO - Dropped 0 Items
+2024-12-23 00:19:10,067 - WARNING - 38529 items found in movies without the key hasAverageRating
+2024-12-23 00:19:10,067 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>",
+    "imdbId": "<class 'str'>",
+    "tmdbId": "<class 'str'>",
+    "isAdult": "<class 'str'>",
+    "partOfCollections": "<class 'list'>",
+    "hasBudget": "<class 'str'>",
+    "ofGenre": "<class 'list'>",
+    "hasOriginalLanguage": "<class 'str'>",
+    "hasOriginalTitle": "<class 'str'>",
+    "hasOverview": "<class 'str'>",
+    "hasAverageRating": "<class 'float'>"
+}
+2024-12-23 00:19:10,069 - INFO - Calculating Total Elapsed Time....
+2024-12-23 00:19:10,069 - INFO - Elapsed Time : 0 hours, 13 minutes, 3.001 seconds
+2024-12-23 00:19:10,069 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>",
+    "imdbId": "<class 'str'>",
+    "tmdbId": "<class 'str'>",
+    "isAdult": "<class 'str'>",
+    "partOfCollections": "<class 'list'>",
+    "hasBudget": "<class 'str'>",
+    "ofGenre": "<class 'list'>",
+    "hasOriginalLanguage": "<class 'str'>",
+    "hasOriginalTitle": "<class 'str'>",
+    "hasOverview": "<class 'str'>",
+    "hasAverageRating": "<class 'float'>"
+}
+2024-12-23 00:19:12,441 - INFO - Written to JSON File....
+2024-12-23 00:19:12,441 - INFO - Calculating Total Elapsed Time....
+2024-12-23 00:19:12,441 - INFO - Elapsed Time : 0 hours, 13 minutes, 5.374 seconds
+2024-12-23 00:19:12,441 - INFO - Program finished....

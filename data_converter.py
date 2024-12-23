@@ -221,25 +221,28 @@ def readRatings(filePath:str):
             print("Ratings Read with headers : ",headers)
             logging.info(f"Ratings headers : {headers}")
             ratingsCount = 0
+            ratingsObject = {}
             for row in tqdm(csv_reader, desc="Reading Ratings"):
+                ratingsKeys = ratingsObject.keys()
                 ratingsCount = ratingsCount+1
                 userId = row[0]
                 _id = row[1]
                 rating = row[2]
                 timeStamp = row[3]
                 foundFlag = False
-                for item in jsonMovieData:
-                    if (item['_id']==_id) and ('hasRating' in item.keys()):
-                        foundFlag = True
-                        temp_rating = item['rating']
-                        temp_rating.append(rating)
-                        item['hasRating'] = temp_rating
-                if foundFlag==False:
-                    movie_data = {
-                        '_id' : _id,
-                        'hasRating' : [rating]
-                    }
-                    jsonMovieData.append(movie_data)
+                if _id not in ratingsKeys:
+                    ratingsObject[_id] = [rating]
+                else:
+                    ratingsObject[_id].append(rating)
+            logging.debug("Ratings object created with rating data based on ID....")
+            # Add rating from ratingsObject to jsonMovieData
+            for item in jsonMovieData:
+                movieId = item['_id']
+                if movieId in ratingsObject.keys():
+                    rats = ratingsObject[movieId]
+                    item['hasRating'] = rats
+                    ratingsObject.pop(movieId)
+            logging.debug("Ratings added to movie data....")
             print("Rating Entries read : ",ratingsCount)
             logging.info(f"Ratings count : {ratingsCount}")
 
@@ -249,6 +252,14 @@ def readRatings(filePath:str):
     except Exception as e:
         logging.error(f"Ratings error : {e}")
         print(f"An error occurred: {e}")
+
+def checkMissingKeys(key:str):
+    count = 0
+    for item in jsonMovieData:
+        if key not in item.keys():
+            count = count+1
+    print(f"{count} items without {key}")
+    logging.warning(f"{count} items found in movies without the key {key}")
 
 def printSampleJsonData(printType:str):
     sampleData = jsonMovieData[0]
@@ -267,77 +278,159 @@ def printSampleJsonData(printType:str):
 
 # Functions to process JSON data and simplify parameters
 
+def getCastNames(stringVal:str):
+    names = []
+    splitByKey = stringVal.split("'name': '")[1:]
+    for item in splitByKey:
+        splitByQuote = item.split("'")
+        names.append(splitByQuote[0])
+    return names
+
+def getCrewNames(StringVal:str):
+    names = []
+    departments = []
+    categorisation = {
+        'directedBy': [],
+        'writtenBy': [],
+        'producedBy': [],
+        'supportingArtists': [],
+        'editedBy': [],
+        'soundsBy': [],
+        'visualEffectsBy': [],
+        'lightingBy': []
+    }
+    splitByDept = StringVal.split("'department':")[1:]
+    splitByName = StringVal.split("'name':")[1:]
+    length = len(splitByDept)
+    if len(splitByDept)==len(splitByName):
+        for i in range(length):
+            deptPre = splitByDept[i]
+            namePre = splitByName[i]
+            if deptPre[0]=="'":
+                departments.append("Empty")
+            else:
+                deptPost = deptPre.split("',")[0].replace("'","").strip()
+                departments.append(deptPost)
+            if namePre[0]=="'":
+                names.append("Empty")
+            else:
+                namePost = namePre.split("',")[0].replace("'","").strip()
+                names.append(namePost)
+    if len(departments)==len(names):
+        for i in range(len(departments)):
+            dept = departments[i]
+            name = names[i]
+            if 'Empty' not in name:
+                if dept=='Directing':
+                    if name not in categorisation['directedBy']:
+                        categorisation['directedBy'].append(name)
+                elif dept=='Writing':
+                    if name not in categorisation['writtenBy']:
+                        categorisation['writtenBy'].append(name)
+                elif dept=='Production':
+                    if name not in categorisation['producedBy']:
+                        categorisation['producedBy'].append(name)
+                elif dept=='Art':
+                    if name not in categorisation['supportingArtists']:
+                        categorisation['supportingArtists'].append(name)
+                elif dept=='Editing':
+                    if name not in categorisation['editedBy']:
+                        categorisation['editedBy'].append(name)
+                elif dept=='Sound':
+                    if name not in categorisation['soundsBy']:
+                        categorisation['soundsBy'].append(name)
+                elif dept=='Visual Effects':
+                    if name not in categorisation['visualEffectsBy']:
+                        categorisation['visualEffectsBy'].append(name)
+                elif dept=='Lighting':
+                    if name not in categorisation['lightingBy']:
+                        categorisation['lightingBy'].append(name)
+                else:
+                    if name not in categorisation['supportingArtists']:
+                        categorisation['supportingArtists'].append(name)
+    return categorisation
+
 def processCredits():
     newJsonData = []
+    castFin = []
+    global jsonMovieData
     logging.info("Begin Credits Processing....")
+    checkMissingKeys('castList')
+    checkMissingKeys('crewList')
     for item in tqdm(jsonMovieData, desc="Processing Credits Data...."):
         if 'castList' in item.keys():
             castList = []
             if isinstance(item['castList'],str):
-                castList = json.loads(str(item['castList']).replace("'",'"'))
+                castFin = getCastNames(item['castList'])
             else:
                 castList = item['castList']
-            castFin = []
             for cast in castList:
+                if isinstance(cast, str):
+                    logging.debug(f"Cast item : {cast}")
                 actor = str(cast['name'])
                 if actor not in castFin:
                     castFin.append(actor)
             item['actedBy'] = castFin
-            item = item.pop('castList')
+            item.pop('castList')
         if 'crewList' in item.keys():
             crewList = []
+            crewData = {}
             if isinstance(item['crewList'],str):
-                crewList = json.dumps(str(item['crewList']).replace("'",'"'))
+                crewData = getCrewNames(item['crewList'])
             else:
                 crewList = item['crewList']
             # Multiple types of Crews available
-            directors = []
-            writers = []
-            producers = []
-            artists = []
-            editors = []
-            sounds = []
-            visualEffects = []
-            lighting = []
-            supportCrew = []
-            for crew in crewList:
-                name = str(crew['name'])
-                department = str(crew['department']).strip()         # Directing, Writing, Production, Art, Editing, Sound, Visual Effects, Crew, Lighting, ' '
-                if department=='Directing':
-                    if name not in directors:
-                        directors.append(name)
-                elif department=='Writing':
-                    if name not in writers:
-                        writers.append(name)
-                elif department=='Production':
-                    if name not in producers:
-                        producers.append(name)
-                elif department=='Art':
-                    if name not in artists:
-                        artists.append(name)
-                elif department=='Editing':
-                    if name not in editors:
-                        editors.append(name)
-                elif department=='Sound':
-                    if name not in sounds:
-                        sounds.append(name)
-                elif department=='Visual Effects':
-                    if name not in visualEffects:
-                        visualEffects.append(name)
-                elif department=='Lighting':
-                    if name not in lighting:
-                        lighting.append(name)
-                else:
-                    if name not in supportCrew:
-                        supportCrew.appen(name)
-            item['directedBy'] = directors
-            item['writtenBy'] = writers
-            item['producedBy'] = producers
-            item['supportingArtists'] = artists
-            item['editedBy'] = editors
-            item['soundsBy'] = sounds
-            item['visualEffectsBy'] = visualEffects
-            item['lightingBy'] = lighting
+            if len(crewList)>0:
+                directors = []
+                writers = []
+                producers = []
+                artists = []
+                editors = []
+                sounds = []
+                visualEffects = []
+                lighting = []
+                supportCrew = []
+                for crew in crewList:
+                    name = str(crew['name'])
+                    department = str(crew['department']).strip()         # Directing, Writing, Production, Art, Editing, Sound, Visual Effects, Crew, Lighting, ' '
+                    if department=='Directing':
+                        if name not in directors:
+                            directors.append(name)
+                    elif department=='Writing':
+                        if name not in writers:
+                            writers.append(name)
+                    elif department=='Production':
+                        if name not in producers:
+                            producers.append(name)
+                    elif department=='Art':
+                        if name not in artists:
+                            artists.append(name)
+                    elif department=='Editing':
+                        if name not in editors:
+                            editors.append(name)
+                    elif department=='Sound':
+                        if name not in sounds:
+                            sounds.append(name)
+                    elif department=='Visual Effects':
+                        if name not in visualEffects:
+                            visualEffects.append(name)
+                    elif department=='Lighting':
+                        if name not in lighting:
+                            lighting.append(name)
+                    else:
+                        if name not in supportCrew:
+                            supportCrew.appen(name)
+                item['directedBy'] = directors
+                item['writtenBy'] = writers
+                item['producedBy'] = producers
+                item['supportingArtists'] = artists
+                item['editedBy'] = editors
+                item['soundsBy'] = sounds
+                item['visualEffectsBy'] = visualEffects
+                item['lightingBy'] = lighting
+            else:
+                for key in crewData.keys():
+                    item[key] = crewData[key]
             item.pop('crewList')
         newJsonData.append(item)
     print(f"Old ({len(jsonMovieData)}) -> Processed ({len(newJsonData)})")
@@ -348,18 +441,23 @@ def processCredits():
 
 def processRatings():
     newJsonData = []
+    global jsonMovieData
     logging.info("Begin Ratings Processing....")
+    checkMissingKeys('hasRating')
     for item in tqdm(jsonMovieData, desc="Processing Ratings Data...."):
         avg_rating = 0.0
-        ratings = item['hasRating']
-        if len(ratings>0):
-            for value in ratings:
-                avg_rating = avg_rating+value
-            avg_rating = avg_rating/len(ratings)
-        item['hasAverageRating'] = round(avg_rating, ndigits=2)
+        if 'hasRating' in item.keys():
+            ratings = item['hasRating']
+            if len(ratings)>0:
+                for value in ratings:
+                    avg_rating = avg_rating+float(value)
+                avg_rating = avg_rating/len(ratings)
+            item['hasAverageRating'] = round(avg_rating, ndigits=2)
+            item.pop('hasRating')
         newJsonData.append(item)
     logging.info("Complete Ratings Processing....")
     logging.info(f"Dropped {len(jsonMovieData)-len(newJsonData)} Items")
+    checkMissingKeys('hasAverageRating')
     jsonMovieData = newJsonData
 
 # Function to Write JSON data to JSON file for temporary storage
@@ -387,6 +485,7 @@ def writeToRdf():
 
 def list_files_in_folder(folder_path):
     file_names = []
+    global jsonMovieData
     if not os.path.exists(folder_path):
         logging.warning(f"Trying to open invalid folder {folder_path}")
         print(f"The folder '{folder_path}' does not exist.")
@@ -415,14 +514,13 @@ def list_files_in_folder(folder_path):
                     readMetaData(filePath=filePath)
                     logging.info("Reading MetaData Completed")
                 elif 'ratings.csv' in file:
-                    # print("Ratings Pending")
                     logging.info("Reading Ratings")
                     readRatings(filePath=filePath)
                     logging.info("Reading Ratings Completed")
                     processRatings()
                 print("Current Json Structure : ", end=None)
                 printSampleJsonData('types')
-                calculateTotalTime("final")
+        calculateTotalTime("final")
     print("Unified Data Count : ",len(jsonMovieData))
     printSampleJsonData('types')
     output_file_path = os.path.join(output_folder,"JsonData.json")
@@ -430,12 +528,6 @@ def list_files_in_folder(folder_path):
     print("\nFiles Processed : ", file_names)     
 
 # Calculate and display statistics of conversion
-
-def clearLogFile():
-    with open(log_file,'w') as file:
-        file.truncate(16)
-        file.close()
-    print()
 
 def calculateTotalTime(typeFlag:str):  
     endTime = datetime.now()
@@ -466,7 +558,6 @@ def main():
     calculateTotalTime("final")
 
 if __name__=="__main__":
-    clearLogFile()
     logging.basicConfig(
         filename=log_file,
         level=logging.DEBUG,  # Set logging level (e.g., DEBUG, INFO, WARNING, ERROR, CRITICAL)
