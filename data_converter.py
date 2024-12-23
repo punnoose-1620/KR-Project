@@ -478,8 +478,36 @@ def writeToJson(outputFile: str):
 
 # TODO: Function to write Processed JSON data to RDF Database
 
-def writeToRdf():
-    print("")
+def writeToRdf(outputFile: str):
+    logging.info("Begin Creating RDF Graph....")
+    # Create an RDF graph
+    graph = Graph()
+    temp = {}
+    # Define a namespace for the properties
+    ns = Namespace("http://example.org/property/")
+    for item in tqdm(jsonMovieData, desc="Writing Data to RDF File...."):
+        # Create a unique URI for each individual using the "_id"
+        subject = URIRef(f"http://example.org/movie/{item['_id']}")
+
+        for key,value in item.items():
+            if value=="Empty":
+                value = ""
+            predicate = ns[key]         # Using Key as Property Name
+            obj = Literal('')           # Create a Dummy value
+            if isinstance(value,list):
+                for listItem in value:
+                    graph.add((subject, predicate, Literal(listItem)))
+                continue
+            else:
+                obj = Literal(value)
+            graph.add((subject, predicate, obj))
+    # Serialize the graph to an RDF file
+    # outputFile = os.path.join(output_folder,'moviesGraph.rdf')
+    logging.info("RDF Graph Created....")
+    logging.info("Begin Writing to RDF File....")
+    graph.serialize(destination=outputFile, format='turtle')
+    print(f"RDF data has been written to {outputFile}")
+    logging.info("Completed Writing to RDF File....")
 
 # Function to iterate through each downloaded file in cache folder and invoke relevant functions
 
@@ -523,8 +551,10 @@ def list_files_in_folder(folder_path):
         calculateTotalTime("final")
     print("Unified Data Count : ",len(jsonMovieData))
     printSampleJsonData('types')
-    output_file_path = os.path.join(output_folder,"JsonData.json")
-    writeToJson(outputFile=output_file_path)
+    # output_file_path = os.path.join(output_folder,"JsonData.json")
+    # writeToJson(outputFile=output_file_path)
+    output_file_path = os.path.join(output_folder,"MovieData.rdf")
+    writeToRdf(output_file_path)
     print("\nFiles Processed : ", file_names)     
 
 # Calculate and display statistics of conversion

@@ -1,19 +1,19 @@
-2024-12-23 00:06:07,069 - INFO - Program started....
-2024-12-23 00:06:07,172 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
-2024-12-23 00:06:08,095 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
-2024-12-23 00:06:08,104 - INFO - Dataset Downloaded....
+2024-12-23 10:58:43,195 - INFO - Program started....
+2024-12-23 10:58:43,297 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
+2024-12-23 10:58:43,683 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
+2024-12-23 10:58:43,689 - INFO - Dataset Downloaded....
 
-2024-12-23 00:06:08,105 - INFO - Reading Credits
-2024-12-23 00:06:08,105 - INFO - Credits file opened....
-2024-12-23 00:06:08,106 - INFO - Credits headers : ['cast', 'crew', 'id']
-2024-12-23 00:06:48,184 - INFO - Credits count : 45476
-2024-12-23 00:06:48,184 - INFO - Reading Credits Completed
-2024-12-23 00:06:48,184 - INFO - Begin Credits Processing....
-2024-12-23 00:06:48,187 - WARNING - 0 items found in movies without the key castList
-2024-12-23 00:06:48,194 - WARNING - 0 items found in movies without the key crewList
-2024-12-23 00:06:50,047 - INFO - Complete Credits Processing....
-2024-12-23 00:06:50,047 - INFO - Dropped 0 Items....
-2024-12-23 00:06:50,047 - INFO - Data Types : {
+2024-12-23 10:58:43,690 - INFO - Reading Credits
+2024-12-23 10:58:43,690 - INFO - Credits file opened....
+2024-12-23 10:58:43,690 - INFO - Credits headers : ['cast', 'crew', 'id']
+2024-12-23 10:59:23,459 - INFO - Credits count : 45476
+2024-12-23 10:59:23,459 - INFO - Reading Credits Completed
+2024-12-23 10:59:23,459 - INFO - Begin Credits Processing....
+2024-12-23 10:59:23,462 - WARNING - 0 items found in movies without the key castList
+2024-12-23 10:59:23,470 - WARNING - 0 items found in movies without the key crewList
+2024-12-23 10:59:25,263 - INFO - Complete Credits Processing....
+2024-12-23 10:59:25,263 - INFO - Dropped 0 Items....
+2024-12-23 10:59:25,264 - INFO - Data Types : {
     "_id": "<class 'str'>",
     "actedBy": "<class 'list'>",
     "directedBy": "<class 'list'>",
@@ -25,7 +25,7 @@
     "visualEffectsBy": "<class 'list'>",
     "lightingBy": "<class 'list'>"
 }
-2024-12-23 00:06:50,047 - INFO - Data Types : {
+2024-12-23 10:59:25,264 - INFO - Data Types : {
     "_id": "<class 'str'>",
     "actedBy": "<class 'list'>",
     "directedBy": "<class 'list'>",
@@ -37,12 +37,12 @@
     "visualEffectsBy": "<class 'list'>",
     "lightingBy": "<class 'list'>"
 }
-2024-12-23 00:06:50,047 - INFO - Reading Keywords
-2024-12-23 00:06:50,048 - INFO - KeyWords file opened....
-2024-12-23 00:06:50,055 - INFO - KeyWords headers : ['id', 'keywords']
-2024-12-23 00:09:31,938 - INFO - KeyWords count : 46419
-2024-12-23 00:09:31,938 - INFO - Reading Keywords Completed
-2024-12-23 00:09:31,939 - INFO - Data Types : {
+2024-12-23 10:59:25,264 - INFO - Reading Keywords
+2024-12-23 10:59:25,265 - INFO - KeyWords file opened....
+2024-12-23 10:59:25,265 - INFO - KeyWords headers : ['id', 'keywords']
+2024-12-23 11:02:07,265 - INFO - KeyWords count : 46419
+2024-12-23 11:02:07,265 - INFO - Reading Keywords Completed
+2024-12-23 11:02:07,266 - INFO - Data Types : {
     "_id": "<class 'str'>",
     "actedBy": "<class 'list'>",
     "directedBy": "<class 'list'>",
@@ -55,12 +55,12 @@
     "lightingBy": "<class 'list'>",
     "hasKeywords": "<class 'list'>"
 }
-2024-12-23 00:09:31,939 - INFO - Reading Links
-2024-12-23 00:09:31,939 - INFO - Links file opened....
-2024-12-23 00:09:31,940 - INFO - Links headers : ['movieId', 'imdbId', 'tmdbId']
-2024-12-23 00:13:26,577 - INFO - Links count : 45843
-2024-12-23 00:13:26,577 - INFO - Reading Links Completed
-2024-12-23 00:13:26,577 - INFO - Data Types : {
+2024-12-23 11:02:07,266 - INFO - Reading Links
+2024-12-23 11:02:07,266 - INFO - Links file opened....
+2024-12-23 11:02:07,266 - INFO - Links headers : ['movieId', 'imdbId', 'tmdbId']
+2024-12-23 11:06:06,213 - INFO - Links count : 45843
+2024-12-23 11:06:06,213 - INFO - Reading Links Completed
+2024-12-23 11:06:06,213 - INFO - Data Types : {
     "_id": "<class 'str'>",
     "actedBy": "<class 'list'>",
     "directedBy": "<class 'list'>",
@@ -75,12 +75,12 @@
     "imdbId": "<class 'str'>",
     "tmdbId": "<class 'str'>"
 }
-2024-12-23 00:13:26,577 - INFO - Reading MetaData
-2024-12-23 00:13:26,577 - INFO - MetaData file opened....
-2024-12-23 00:13:26,584 - INFO - MetaData headers : ['adult', 'belongs_to_collection', 'budget', 'genres', 'homepage', 'id', 'imdb_id', 'original_language', 'original_title', 'overview', 'popularity', 'poster_path', 'production_companies', 'production_countries', 'release_date', 'revenue', 'runtime', 'spoken_languages', 'status', 'tagline', 'title', 'video', 'vote_average', 'vote_count']
-2024-12-23 00:18:36,675 - INFO - MetaData count : 45466
-2024-12-23 00:18:36,675 - INFO - Reading MetaData Completed
-2024-12-23 00:18:36,675 - INFO - Data Types : {
+2024-12-23 11:06:06,213 - INFO - Reading MetaData
+2024-12-23 11:06:06,213 - INFO - MetaData file opened....
+2024-12-23 11:06:06,213 - INFO - MetaData headers : ['adult', 'belongs_to_collection', 'budget', 'genres', 'homepage', 'id', 'imdb_id', 'original_language', 'original_title', 'overview', 'popularity', 'poster_path', 'production_companies', 'production_countries', 'release_date', 'revenue', 'runtime', 'spoken_languages', 'status', 'tagline', 'title', 'video', 'vote_average', 'vote_count']
+2024-12-23 11:11:11,860 - INFO - MetaData count : 45466
+2024-12-23 11:11:11,860 - INFO - Reading MetaData Completed
+2024-12-23 11:11:11,860 - INFO - Data Types : {
     "_id": "<class 'str'>",
     "actedBy": "<class 'list'>",
     "directedBy": "<class 'list'>",
@@ -102,19 +102,19 @@
     "hasOriginalTitle": "<class 'str'>",
     "hasOverview": "<class 'str'>"
 }
-2024-12-23 00:18:36,675 - INFO - Reading Ratings
-2024-12-23 00:18:36,676 - INFO - Ratings file opened....
-2024-12-23 00:18:36,682 - INFO - Ratings headers : ['userId', 'movieId', 'rating', 'timestamp']
-2024-12-23 00:19:01,521 - DEBUG - Ratings object created with rating data based on ID....
-2024-12-23 00:19:01,560 - DEBUG - Ratings added to movie data....
-2024-12-23 00:19:01,560 - INFO - Ratings count : 26024289
-2024-12-23 00:19:01,560 - INFO - Reading Ratings Completed
-2024-12-23 00:19:01,560 - INFO - Begin Ratings Processing....
-2024-12-23 00:19:01,571 - WARNING - 38529 items found in movies without the key hasRating
-2024-12-23 00:19:10,053 - INFO - Complete Ratings Processing....
-2024-12-23 00:19:10,054 - INFO - Dropped 0 Items
-2024-12-23 00:19:10,067 - WARNING - 38529 items found in movies without the key hasAverageRating
-2024-12-23 00:19:10,067 - INFO - Data Types : {
+2024-12-23 11:11:11,860 - INFO - Reading Ratings
+2024-12-23 11:11:11,861 - INFO - Ratings file opened....
+2024-12-23 11:11:11,861 - INFO - Ratings headers : ['userId', 'movieId', 'rating', 'timestamp']
+2024-12-23 11:11:42,501 - DEBUG - Ratings object created with rating data based on ID....
+2024-12-23 11:11:42,599 - DEBUG - Ratings added to movie data....
+2024-12-23 11:11:42,599 - INFO - Ratings count : 26024289
+2024-12-23 11:11:42,600 - INFO - Reading Ratings Completed
+2024-12-23 11:11:42,600 - INFO - Begin Ratings Processing....
+2024-12-23 11:11:42,616 - WARNING - 38529 items found in movies without the key hasRating
+2024-12-23 11:11:55,989 - INFO - Complete Ratings Processing....
+2024-12-23 11:11:55,989 - INFO - Dropped 0 Items
+2024-12-23 11:11:56,001 - WARNING - 38529 items found in movies without the key hasAverageRating
+2024-12-23 11:11:56,003 - INFO - Data Types : {
     "_id": "<class 'str'>",
     "actedBy": "<class 'list'>",
     "directedBy": "<class 'list'>",
@@ -137,9 +137,9 @@
     "hasOverview": "<class 'str'>",
     "hasAverageRating": "<class 'float'>"
 }
-2024-12-23 00:19:10,069 - INFO - Calculating Total Elapsed Time....
-2024-12-23 00:19:10,069 - INFO - Elapsed Time : 0 hours, 13 minutes, 3.001 seconds
-2024-12-23 00:19:10,069 - INFO - Data Types : {
+2024-12-23 11:11:56,003 - INFO - Calculating Total Elapsed Time....
+2024-12-23 11:11:56,003 - INFO - Elapsed Time : 0 hours, 13 minutes, 12.808 seconds
+2024-12-23 11:11:56,003 - INFO - Data Types : {
     "_id": "<class 'str'>",
     "actedBy": "<class 'list'>",
     "directedBy": "<class 'list'>",
@@ -162,7 +162,10 @@
     "hasOverview": "<class 'str'>",
     "hasAverageRating": "<class 'float'>"
 }
-2024-12-23 00:19:12,441 - INFO - Written to JSON File....
-2024-12-23 00:19:12,441 - INFO - Calculating Total Elapsed Time....
-2024-12-23 00:19:12,441 - INFO - Elapsed Time : 0 hours, 13 minutes, 5.374 seconds
-2024-12-23 00:19:12,441 - INFO - Program finished....
+2024-12-23 11:11:56,003 - INFO - Begin Creating RDF Graph....
+2024-12-23 11:12:27,500 - INFO - RDF Graph Created....
+2024-12-23 11:12:27,500 - INFO - Begin Writing to RDF File....
+2024-12-23 11:13:13,954 - INFO - Completed Writing to RDF File....
+2024-12-23 11:13:13,955 - INFO - Calculating Total Elapsed Time....
+2024-12-23 11:13:13,955 - INFO - Elapsed Time : 0 hours, 15 minutes, -29.24 seconds
+2024-12-23 11:13:13,955 - INFO - Program finished....
