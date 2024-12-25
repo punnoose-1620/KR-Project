@@ -1,6 +1,8 @@
 from queries import *
 from rdflib import Graph
 
+
+
 def query_rdf_file(rdf_file, sparql_query):
     """
     Reads an RDF file, runs a SPARQL query, and prints the results.
@@ -11,15 +13,16 @@ def query_rdf_file(rdf_file, sparql_query):
     # Load the RDF file into a graph
     graph = Graph()
     graph.parse(rdf_file, format="turtle")  # Adjust format if needed (e.g., 'xml', 'ntriples')
-
+    # print(f"Loaded {len(graph)} triples.")
+    # for s, p, o in graph:
+    #     print(f"{s} -- {p} -- {o}")
     # Run the SPARQL query
     results = graph.query(sparql_query)
-
     # Print results
     for result in results:
-        print(result)
-
+        print(result['title'])
+   
     print("Query executed successfully.")
 
 rdfFile = "./dataset_processed/MovieData.rdf"
-query_rdf_file(rdf_file=rdfFile, sparql_query=example_query)
+query_rdf_file(rdf_file=rdfFile, sparql_query=givenDirectorQuery)

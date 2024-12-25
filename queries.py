@@ -28,7 +28,14 @@ givenKeyWordsQuery = ""
 givenActorQuery = ""
 
 # This gets all films containing given director. Return only films have the given director with directedBy predicate
-givenDirectorQuery = ""
+givenDirectorQuery = """ PREFIX ns1: <http://example.org/ns1/>
+
+SELECT ?movie ?title
+WHERE {
+    ?movie ns1:directedBy "Yahoo Serious" ;
+           ns1:hasOriginalTitle ?title .
+}
+  """
 
 # This gets all films containing given producer. Return only films have the given producer with producedBy predicate
 givenProducerQuery = ""
