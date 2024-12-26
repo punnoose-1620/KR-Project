@@ -5,6 +5,8 @@ kaggleDataset = "rounakbanik/the-movies-dataset"
 dataConverterOutputFolder = "dataset_processed"
 dataConverterLog = "./outputLogs/converterLogs.txt"
 dataConverterOutputRdf = "MovieData.rdf"
+queryTesterLog = "./outputLogs/queryTesterLog.txt"
+
 rdfFile = "./dataset_processed/MovieData.rdf"
 sampleNameSpace = "http://example.org/property/"
 subjectRefUri = "http://example.org/movie/"

@@ -28,11 +28,11 @@ givenKeyWordsQuery = ""
 givenActorQuery = ""
 
 # This gets all films containing given director. Return only films have the given director with directedBy predicate
-givenDirectorQuery = """ PREFIX ns1: <http://example.org/ns1/>
+givenDirectorQuery = """ PREFIX ns1: <http://example.org/property/>
 
 SELECT ?movie ?title
 WHERE {
-    ?movie ns1:directedBy "Yahoo Serious" ;
+    ?movie ns1:directedBy "Neil Jordan" ;
            ns1:hasOriginalTitle ?title .
 }
   """

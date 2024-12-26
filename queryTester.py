@@ -1,11 +1,11 @@
 # To run with log, use the below command
 # python .\queryTester.py > .\outputLogs\queryTestOutput.txt
 
+import logging
+from tqdm import tqdm
 from queries import *
 from constants import *
 from rdflib import Graph
-
-
 
 def query_rdf_file(rdf_file, sparql_query):
     """
@@ -16,16 +16,33 @@ def query_rdf_file(rdf_file, sparql_query):
     """
     # Load the RDF file into a graph
     graph = Graph()
+    logging.info("Graph Loaded....")
+    
     graph.parse(rdf_file, format="turtle")  # Adjust format if needed (e.g., 'xml', 'ntriples')
-    # print(f"Loaded {len(graph)} triples.")
+    print("Loaded Graph Size : ", len(graph))
+    logging.info(f"Graph of length {len(graph)} Parsed....")
+    # logging.info("Subject : Predicate : Object")
     # for s, p, o in graph:
-    #     print(f"{s} -- {p} -- {o}")
+    #     logging.info(f"{s} : {p} : {o}")
+    
     # Run the SPARQL query
     results = graph.query(sparql_query)
+    logging.info(f"Query : {sparql_query}")
+    logging.info(f"Results of length {len(results)} obtained from Query")
+    
     # Print results
-    for result in results:
+    print("Results size : ",len(results))
+    for result in tqdm(results, desc="Parsing Results...."):
         print(result['title'])
-   
     print("Query executed successfully.")
 
-query_rdf_file(rdf_file=rdfFile, sparql_query=example_query)
+if __name__=="__main__":
+    logging.basicConfig(
+        filename=queryTesterLog,
+        level=logging.DEBUG,  # Set logging level (e.g., DEBUG, INFO, WARNING, ERROR, CRITICAL)
+        format="%(asctime)s - %(levelname)s - %(message)s",
+        force=True
+    )
+    logging.info("Query Tester Started....")
+    query_rdf_file(rdf_file=rdfFile, sparql_query=givenDirectorQuery)
+    logging.info("Query Tester Finished....")

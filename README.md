@@ -21,8 +21,8 @@ The processed data is saved in RDF Dataset format with each entity having the be
 
 ## Queries
 The Queries to be run to attain each data from the RDF database is described in the [`queries.py`](./queries.py) script. These queries can be individually tested using the [`queryTester.py`](./queryTester.py) script instead of trying it out on the live version. 
-To test each query, alter the sparql_query parameter value in line 25 of the [`queryTester.py`](./queryTester.py) script to whatever your query variable name is (as declared in the [`queries.py`](./queries.py) file).
-The referenced line 25 is as follows : 
+To test each query, alter the sparql_query parameter value in line 47 of the [`queryTester.py`](./queryTester.py) script to whatever your query variable name is (as declared in the [`queries.py`](./queries.py) file).
+The referenced line 47 is as follows : 
 `query_rdf_file(rdf_file=rdfFile, sparql_query=example_query)`
 
 ## Constants
