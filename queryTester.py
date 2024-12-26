@@ -1,4 +1,8 @@
+# To run with log, use the below command
+# python .\queryTester.py > .\outputLogs\queryTestOutput.txt
+
 from queries import *
+from constants import *
 from rdflib import Graph
 
 
@@ -24,5 +28,4 @@ def query_rdf_file(rdf_file, sparql_query):
    
     print("Query executed successfully.")
 
-rdfFile = "./dataset_processed/MovieData.rdf"
-query_rdf_file(rdf_file=rdfFile, sparql_query=givenDirectorQuery)
+query_rdf_file(rdf_file=rdfFile, sparql_query=example_query)

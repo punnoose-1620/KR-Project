@@ -24,3 +24,17 @@ The Queries to be run to attain each data from the RDF database is described in 
 To test each query, alter the sparql_query parameter value in line 25 of the [`queryTester.py`](./queryTester.py) script to whatever your query variable name is (as declared in the [`queries.py`](./queries.py) file).
 The referenced line 25 is as follows : 
 `query_rdf_file(rdf_file=rdfFile, sparql_query=example_query)`
+
+## Constants
+All constant values used throughout the project, such as path to files, Keys used for predicates, Keys used in response JSON data, parameter enums, etc are available in the [`constants.py`](./constants.py) file.
+These values are meant to not be changed and kept constant throughout the entire funcioning.
+
+## Controllers
+All functions that are required to run queries based on input values is written in the file [`controllers.py`](./controllers.py). All necessary handlers such as type castings, error handlers, return type alterations, data filtering, sorting, all happens within the functions defined in this folder and provides additional layer of safety to the back-end.
+The functions here 
+- take the input passed by the user
+- process it if necessary
+- run queries related to each input
+- order/filter/merge response data
+- convert the data to json
+- return resulting data.

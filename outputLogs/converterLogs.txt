@@ -170,3 +170,176 @@
 2024-12-23 16:18:56,404 - INFO - Calculating Total Elapsed Time....
 2024-12-23 16:18:56,404 - INFO - Elapsed Time : 0 hours, 14 minutes, -18.214 seconds
 2024-12-23 16:18:56,404 - INFO - Program finished....
+2024-12-26 02:36:41,752 - INFO - Program started....
+2024-12-26 02:36:41,875 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
+2024-12-26 02:36:44,565 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
+2024-12-26 02:36:44,578 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
+2024-12-26 02:36:46,418 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/download/rounakbanik/the-movies-dataset?dataset_version_number=7 HTTP/11" 302 0
+2024-12-26 02:36:46,418 - DEBUG - Starting new HTTPS connection (1): storage.googleapis.com:443
+2024-12-26 02:36:49,104 - DEBUG - https://storage.googleapis.com:443 "GET /kaggle-data-sets/3405/6663/bundle/archive.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcp-kaggle-com%40kaggle-161607.iam.gserviceaccount.com%2F20241226%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20241226T013646Z&X-Goog-Expires=259200&X-Goog-SignedHeaders=host&X-Goog-Signature=b60ebbbe24383fca2ebef75d5b896eeb4600cc415d39293beed6618752fadeaf8d6b613d13fd739697948e3b4e7d4c2e055d044559a50de9e8504840c2fa5c12c76c8726a397227abe341418485146ae8242dc568bcc56442604a94478df0852b5285677a24d734db05082a3f1ceeecf959af3568b0131a915267ced04c963b343ab8067a9ac9438556f826b325cc5b492deb6aea60a603a80949717f306aaa64d6a14d1e8334f018a0bb4ab6bbd0190f513554f8889d6f189fea8280042b11f59c1b47108d8aaf59d933dfd6c0153399053db1d1d6261eaccc845abffd38f8031e9b7e6d982ebdc09a4215a9db1549b591e9a43ff074e991762d5d800a90e49 HTTP/11" 200 238862293
+2024-12-26 02:37:07,601 - INFO - Dataset Downloaded....
+
+2024-12-26 02:37:07,603 - INFO - Reading Credits
+2024-12-26 02:37:07,603 - INFO - Credits file opened....
+2024-12-26 02:37:07,603 - INFO - Credits headers : ['cast', 'crew', 'id']
+2024-12-26 02:37:49,466 - INFO - Credits count : 45476
+2024-12-26 02:37:49,466 - INFO - Reading Credits Completed
+2024-12-26 02:37:49,466 - INFO - Begin Credits Processing....
+2024-12-26 02:37:49,470 - WARNING - 0 items found in movies without the key castList
+2024-12-26 02:37:49,473 - WARNING - 0 items found in movies without the key crewList
+2024-12-26 02:37:51,309 - INFO - Complete Credits Processing....
+2024-12-26 02:37:51,309 - INFO - Dropped 0 Items....
+2024-12-26 02:37:51,313 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>"
+}
+2024-12-26 02:37:51,313 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>"
+}
+2024-12-26 02:37:51,313 - INFO - Reading Keywords
+2024-12-26 02:37:51,313 - INFO - KeyWords file opened....
+2024-12-26 02:37:51,313 - INFO - KeyWords headers : ['id', 'keywords']
+2024-12-26 02:40:16,554 - INFO - KeyWords count : 46419
+2024-12-26 02:40:16,554 - INFO - Reading Keywords Completed
+2024-12-26 02:40:16,554 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>"
+}
+2024-12-26 02:40:16,554 - INFO - Reading Links
+2024-12-26 02:40:16,554 - INFO - Links file opened....
+2024-12-26 02:40:16,554 - INFO - Links headers : ['movieId', 'imdbId', 'tmdbId']
+2024-12-26 02:43:51,792 - INFO - Links count : 45843
+2024-12-26 02:43:51,792 - INFO - Reading Links Completed
+2024-12-26 02:43:51,792 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>",
+    "imdbId": "<class 'str'>",
+    "tmdbId": "<class 'str'>"
+}
+2024-12-26 02:43:51,808 - INFO - Reading MetaData
+2024-12-26 02:43:51,808 - INFO - MetaData file opened....
+2024-12-26 02:43:51,808 - INFO - MetaData headers : ['adult', 'belongs_to_collection', 'budget', 'genres', 'homepage', 'id', 'imdb_id', 'original_language', 'original_title', 'overview', 'popularity', 'poster_path', 'production_companies', 'production_countries', 'release_date', 'revenue', 'runtime', 'spoken_languages', 'status', 'tagline', 'title', 'video', 'vote_average', 'vote_count']
+2024-12-26 02:49:16,809 - INFO - MetaData count : 45466
+2024-12-26 02:49:16,809 - INFO - Reading MetaData Completed
+2024-12-26 02:49:16,809 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>",
+    "imdbId": "<class 'str'>",
+    "tmdbId": "<class 'str'>",
+    "isAdult": "<class 'str'>",
+    "partOfCollections": "<class 'list'>",
+    "hasBudget": "<class 'str'>",
+    "ofGenre": "<class 'list'>",
+    "hasOriginalLanguage": "<class 'str'>",
+    "hasOriginalTitle": "<class 'str'>",
+    "hasOverview": "<class 'str'>"
+}
+2024-12-26 02:49:16,809 - INFO - Reading Ratings
+2024-12-26 02:49:16,809 - INFO - Ratings file opened....
+2024-12-26 02:49:16,809 - INFO - Ratings headers : ['userId', 'movieId', 'rating', 'timestamp']
+2024-12-26 02:49:43,548 - DEBUG - Ratings object created with rating data based on ID....
+2024-12-26 02:49:43,548 - ERROR - Ratings error : unhashable type: 'dict_keys'
+2024-12-26 02:49:45,485 - INFO - Reading Ratings Completed
+2024-12-26 02:49:45,485 - INFO - Begin Ratings Processing....
+2024-12-26 02:49:45,485 - WARNING - 83644 items found in movies without the key hasRating
+2024-12-26 02:49:45,516 - INFO - Complete Ratings Processing....
+2024-12-26 02:49:45,516 - INFO - Dropped 0 Items
+2024-12-26 02:49:45,536 - WARNING - 83644 items found in movies without the key hasAverageRating
+2024-12-26 02:49:45,537 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>",
+    "imdbId": "<class 'str'>",
+    "tmdbId": "<class 'str'>",
+    "isAdult": "<class 'str'>",
+    "partOfCollections": "<class 'list'>",
+    "hasBudget": "<class 'str'>",
+    "ofGenre": "<class 'list'>",
+    "hasOriginalLanguage": "<class 'str'>",
+    "hasOriginalTitle": "<class 'str'>",
+    "hasOverview": "<class 'str'>"
+}
+2024-12-26 02:49:45,537 - INFO - Calculating Total Elapsed Time....
+2024-12-26 02:49:45,537 - INFO - Elapsed Time : 0 hours, 13 minutes, 3.788 seconds
+2024-12-26 02:49:45,537 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>",
+    "imdbId": "<class 'str'>",
+    "tmdbId": "<class 'str'>",
+    "isAdult": "<class 'str'>",
+    "partOfCollections": "<class 'list'>",
+    "hasBudget": "<class 'str'>",
+    "ofGenre": "<class 'list'>",
+    "hasOriginalLanguage": "<class 'str'>",
+    "hasOriginalTitle": "<class 'str'>",
+    "hasOverview": "<class 'str'>"
+}
+2024-12-26 02:49:45,547 - WARNING - 38212 items found in movies without the key hasKeywords
+2024-12-26 02:49:45,547 - INFO - Begin Creating RDF Graph....
+2024-12-26 02:50:17,503 - INFO - RDF Graph Created....
+2024-12-26 02:50:17,503 - INFO - Begin Writing to RDF File....
+2024-12-26 02:51:01,670 - INFO - Completed Writing to RDF File....
+2024-12-26 02:51:01,670 - INFO - Calculating Total Elapsed Time....
+2024-12-26 02:51:01,670 - INFO - Elapsed Time : 0 hours, 14 minutes, 19.92 seconds
+2024-12-26 02:51:01,670 - INFO - Program finished....
