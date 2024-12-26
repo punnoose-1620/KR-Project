@@ -1,15 +1,15 @@
+# To run data converter with runtime logs, use the command given below
+# python .\data_converter.py > .\outputLogs\converterOutput.txt
 import os
 import csv
 import json
 import logging
 import kagglehub
 from tqdm import tqdm
+from constants import *
 from datetime import datetime
 from rdflib import Graph, URIRef, Literal, Namespace
 
-kaggle_dataset = "rounakbanik/the-movies-dataset"
-log_file = "./outputLogs/converterLogs.txt"
-output_folder = "dataset_processed"
 jsonMovieData = []
 startTime = datetime.now()
 endTime = datetime.now()
@@ -76,11 +76,11 @@ def readKeyWords(filePath: str):
                 for item in jsonMovieData:
                     if item['_id']==_id:
                         foundFlag = True
-                        item['hasKeywords'] = keywords
+                        item[keywordsKey] = keywords
                 if foundFlag==False:
                     movie_data = {
                         '_id' : _id,
-                        'hasKeywords' : keywords
+                        keywordsKey : keywords
                     }
                     jsonMovieData.append(movie_data)
             print("Keywords Entries read : ",keywordsCount)
@@ -111,13 +111,13 @@ def readLinks(filePath:str):
                 for item in jsonMovieData:
                     if item['_id']==_id:
                         foundFlag = True
-                        item['imdbId'] = imdbId
-                        item['tmdbId'] = tmdbId
+                        item[imdbIdKey] = imdbId
+                        item[tmdbIdKey] = tmdbId
                 if foundFlag==False:
                     movie_data = {
                         '_id' : _id,
-                        'imdbId' : imdbId,
-                        'tmdbId' : tmdbId
+                        imdbIdKey : imdbId,
+                        tmdbIdKey : tmdbId
                     }
                     jsonMovieData.append(movie_data)
             print("Links Entries read : ",linksCount)
@@ -180,25 +180,25 @@ def readMetaData(filePath:str):
                 for item in jsonMovieData:
                     if item['_id']==_id:
                         foundFlag = True
-                        if 'isAdult' in item.keys():
+                        if adultKey in item.keys():
                             duplicateOverwrites = duplicateOverwrites+1
-                        item['isAdult'] = adult
-                        item['partOfCollections'] = collectionDataList
-                        item['hasBudget'] = budget
-                        item['ofGenre'] = genresList
-                        item['hasOriginalLanguage'] = originalLang
-                        item['hasOriginalTitle'] = originalTitle
-                        item['hasOverview'] = overview
+                        item[adultKey] = adult
+                        item[collectionsKey] = collectionDataList
+                        item[budgetKey] = budget
+                        item[genreKey] = genresList
+                        item[languageKey] = originalLang
+                        item[titleKey] = originalTitle
+                        item[overviewKey] = overview
                 if foundFlag==False:
                     movie_data = {
                         '_id' : _id,
-                        'isAdult' : adult,
-                        'partOfCollections' : collectionDataList,
-                        'hasBudget' : budget,
-                        'ofGenre' : genresList,
-                        'hasOriginalLanguage' : originalLang,
-                        'hasOriginalTitle' : originalTitle,
-                        'hasOverview' : overview
+                        adultKey : adult,
+                        collectionsKey : collectionDataList,
+                        budgetKey : budget,
+                        genreKey : genresList,
+                        languageKey : originalLang,
+                        titleKey : originalTitle,
+                        overviewKey : overview
                     }
                     jsonMovieData.append(movie_data)
             print("Duplicate MetaData Count : ", duplicateOverwrites)
@@ -240,7 +240,7 @@ def readRatings(filePath:str):
                 movieId = item['_id']
                 if movieId in ratingsObject.keys():
                     rats = ratingsObject[movieId]
-                    item['hasRating'] = rats
+                    item[ratingsKeys] = rats
                     ratingsObject.pop(movieId)
             logging.debug("Ratings added to movie data....")
             print("Rating Entries read : ",ratingsCount)
@@ -290,14 +290,14 @@ def getCrewNames(StringVal:str):
     names = []
     departments = []
     categorisation = {
-        'directedBy': [],
-        'writtenBy': [],
-        'producedBy': [],
-        'supportingArtists': [],
-        'editedBy': [],
-        'soundsBy': [],
-        'visualEffectsBy': [],
-        'lightingBy': []
+        directorKey: [],
+        writerKey: [],
+        producerKey: [],
+        supportingArtistKey: [],
+        editorKey: [],
+        soundsKey: [],
+        visualEffectsKey: [],
+        lightingKey: []
     }
     splitByDept = StringVal.split("'department':")[1:]
     splitByName = StringVal.split("'name':")[1:]
@@ -322,32 +322,32 @@ def getCrewNames(StringVal:str):
             name = names[i]
             if 'Empty' not in name:
                 if dept=='Directing':
-                    if name not in categorisation['directedBy']:
-                        categorisation['directedBy'].append(name)
+                    if name not in categorisation[directorKey]:
+                        categorisation[directorKey].append(name)
                 elif dept=='Writing':
-                    if name not in categorisation['writtenBy']:
-                        categorisation['writtenBy'].append(name)
+                    if name not in categorisation[writerKey]:
+                        categorisation[writerKey].append(name)
                 elif dept=='Production':
-                    if name not in categorisation['producedBy']:
-                        categorisation['producedBy'].append(name)
+                    if name not in categorisation[producerKey]:
+                        categorisation[producerKey].append(name)
                 elif dept=='Art':
-                    if name not in categorisation['supportingArtists']:
-                        categorisation['supportingArtists'].append(name)
+                    if name not in categorisation[supportingArtistKey]:
+                        categorisation[supportingArtistKey].append(name)
                 elif dept=='Editing':
-                    if name not in categorisation['editedBy']:
-                        categorisation['editedBy'].append(name)
+                    if name not in categorisation[editorKey]:
+                        categorisation[editorKey].append(name)
                 elif dept=='Sound':
-                    if name not in categorisation['soundsBy']:
-                        categorisation['soundsBy'].append(name)
+                    if name not in categorisation[soundsKey]:
+                        categorisation[soundsKey].append(name)
                 elif dept=='Visual Effects':
-                    if name not in categorisation['visualEffectsBy']:
-                        categorisation['visualEffectsBy'].append(name)
+                    if name not in categorisation[visualEffectsKey]:
+                        categorisation[visualEffectsKey].append(name)
                 elif dept=='Lighting':
-                    if name not in categorisation['lightingBy']:
-                        categorisation['lightingBy'].append(name)
+                    if name not in categorisation[lightingKey]:
+                        categorisation[lightingKey].append(name)
                 else:
-                    if name not in categorisation['supportingArtists']:
-                        categorisation['supportingArtists'].append(name)
+                    if name not in categorisation[supportingArtistKey]:
+                        categorisation[supportingArtistKey].append(name)
     return categorisation
 
 def processCredits():
@@ -370,7 +370,7 @@ def processCredits():
                 actor = str(cast['name'])
                 if actor not in castFin:
                     castFin.append(actor)
-            item['actedBy'] = castFin
+            item[actorKey] = castFin
             item.pop('castList')
         if 'crewList' in item.keys():
             crewList = []
@@ -420,14 +420,14 @@ def processCredits():
                     else:
                         if name not in supportCrew:
                             supportCrew.appen(name)
-                item['directedBy'] = directors
-                item['writtenBy'] = writers
-                item['producedBy'] = producers
-                item['supportingArtists'] = artists
-                item['editedBy'] = editors
-                item['soundsBy'] = sounds
-                item['visualEffectsBy'] = visualEffects
-                item['lightingBy'] = lighting
+                item[directorKey] = directors
+                item[writerKey] = writers
+                item[producerKey] = producers
+                item[supportingArtistKey] = artists
+                item[editorKey] = editors
+                item[soundsKey] = sounds
+                item[visualEffectsKey] = visualEffects
+                item[lightingKey] = lighting
             else:
                 for key in crewData.keys():
                     item[key] = crewData[key]
@@ -452,12 +452,12 @@ def processRatings():
                 for value in ratings:
                     avg_rating = avg_rating+float(value)
                 avg_rating = avg_rating/len(ratings)
-            item['hasAverageRating'] = round(avg_rating, ndigits=2)
+            item[averateRatingKey] = round(avg_rating, ndigits=2)
             item.pop('hasRating')
         newJsonData.append(item)
     logging.info("Complete Ratings Processing....")
     logging.info(f"Dropped {len(jsonMovieData)-len(newJsonData)} Items")
-    checkMissingKeys('hasAverageRating')
+    checkMissingKeys(averateRatingKey)
     jsonMovieData = newJsonData
 
 # Function to Write JSON data to JSON file for temporary storage
@@ -484,10 +484,10 @@ def writeToRdf(outputFile: str):
     graph = Graph()
     temp = {}
     # Define a namespace for the properties
-    ns = Namespace("http://example.org/property/")
+    ns = Namespace(sampleNameSpace)
     for item in tqdm(jsonMovieData, desc="Writing Data to RDF File...."):
         # Create a unique URI for each individual using the "_id"
-        subject = URIRef(f"http://example.org/movie/{item['_id']}")
+        subject = URIRef(subjectRefUri+str(item['_id']))
 
         for key,value in item.items():
             if value=="Empty":
@@ -501,8 +501,6 @@ def writeToRdf(outputFile: str):
             else:
                 obj = Literal(value)
             graph.add((subject, predicate, obj))
-    # Serialize the graph to an RDF file
-    # outputFile = os.path.join(output_folder,'moviesGraph.rdf')
     logging.info("RDF Graph Created....")
     logging.info("Begin Writing to RDF File....")
     graph.serialize(destination=outputFile, format='turtle')
@@ -551,10 +549,8 @@ def list_files_in_folder(folder_path):
         calculateTotalTime("final")
     print("Unified Data Count : ",len(jsonMovieData))
     printSampleJsonData('types')
-    # output_file_path = os.path.join(output_folder,"JsonData.json")
-    # writeToJson(outputFile=output_file_path)
     checkMissingKeys('hasKeywords')
-    output_file_path = os.path.join(output_folder,"MovieData.rdf")
+    output_file_path = os.path.join(dataConverterOutputFolder,dataConverterOutputRdf)
     writeToRdf(output_file_path)
     print("\nFiles Processed : ", file_names)     
 
@@ -581,7 +577,7 @@ def calculateTotalTime(typeFlag:str):
 def main():
     logging.info("Program started....")
     # Get Files from Kaggle
-    path = kagglehub.dataset_download(kaggle_dataset)
+    path = kagglehub.dataset_download(kaggleDataset)
     logging.info("Dataset Downloaded....\n")
     print("Path to dataset temporary files:", path)
 
@@ -590,7 +586,7 @@ def main():
 
 if __name__=="__main__":
     logging.basicConfig(
-        filename=log_file,
+        filename=dataConverterLog,
         level=logging.DEBUG,  # Set logging level (e.g., DEBUG, INFO, WARNING, ERROR, CRITICAL)
         format="%(asctime)s - %(levelname)s - %(message)s",
         force=True
