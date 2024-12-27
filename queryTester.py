@@ -44,5 +44,5 @@ if __name__=="__main__":
         force=True
     )
     logging.info("Query Tester Started....")
-    query_rdf_file(rdf_file=rdfFile, sparql_query=givenDirectorQuery)
+    query_rdf_file(rdf_file=rdfFile, sparql_query=getFilmByActor_Query("Andrew Tiernan"))
     logging.info("Query Tester Finished....")
