@@ -1,3 +1,6 @@
+
+from constants import *
+
 example_query = """
 PREFIX ex: <http://example.org/>
 SELECT ?subject ?predicate ?object
@@ -5,7 +8,7 @@ WHERE {
     ?subject ?predicate ?object .
 }
 """
-
+director = "Neil Jordan"
 # Please Refer Readme for Dataset URL
 # RDF Converstion is still in progress and converted data is not entirely reliable yet
 
@@ -28,13 +31,13 @@ givenKeyWordsQuery = ""
 givenActorQuery = ""
 
 # This gets all films containing given director. Return only films have the given director with directedBy predicate
-givenDirectorQuery = """ PREFIX ns1: <http://example.org/property/>
+givenDirectorQuery = f""" PREFIX ns1: <{sampleNameSpace}>
 
 SELECT ?movie ?title
-WHERE {
-    ?movie ns1:directedBy "Neil Jordan" ;
-           ns1:hasOriginalTitle ?title .
-}
+WHERE {{
+    ?movie ns1:{directorKey}  "{director}"   ;
+           ns1:{titleKey} ?title .
+}}
   """
 
 # This gets all films containing given producer. Return only films have the given producer with producedBy predicate

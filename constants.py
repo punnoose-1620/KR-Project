@@ -60,3 +60,6 @@ soundsRole = 'SOUNDS'
 visualEffectsRole = 'VISUALS'
 lightingRole = 'LIGHTING'
 rolesList = ['ACTOR', 'DIRECTOR', 'WRITER', 'PRODUCER', 'ARTIST', 'EDITOR', 'SOUNDS', 'VISUALS', 'LIGHTING']
+
+# search values
+
