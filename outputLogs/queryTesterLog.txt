@@ -199,3 +199,137 @@ SELECT ?movie ?predicate ?object
     
 2024-12-30 00:25:51,228 - INFO - Results of length 1082 obtained from Query
 2024-12-30 00:25:51,397 - INFO - Query Tester Finished....
+2024-12-30 00:38:55,120 - INFO - Query Tester Started....
+2024-12-30 00:38:55,120 - INFO - Graph Loaded....
+2024-12-30 00:39:46,761 - INFO - Graph of length 1505023 Parsed....
+2024-12-30 00:39:46,865 - INFO - Query :  PREFIX ns1: <http://example.org/property/>
+
+SELECT ?movie ?title
+  WHERE {
+      ?movie ns1:actedBy  "Andrew Tiernan"   ;
+            ns1:hasOriginalTitle ?title .
+  }
+    
+2024-12-30 00:39:46,865 - INFO - Results of length 18 obtained from Query
+2024-12-30 00:40:43,500 - INFO - Query Tester Started....
+2024-12-30 00:40:43,503 - INFO - Graph Loaded....
+2024-12-30 00:41:33,576 - INFO - Graph of length 1505023 Parsed....
+2024-12-30 00:41:33,744 - INFO - Query :  PREFIX ns1: <http://example.org/property/>
+
+SELECT ?movie ?title
+  WHERE {
+      ?movie ns1:actedBy  "Andrew Tiernan"   ;
+            ns1:hasOriginalTitle ?title .
+  }
+    
+2024-12-30 00:41:33,746 - INFO - Results of length 18 obtained from Query
+2024-12-30 00:41:33,766 - INFO - Query Tester Finished....
+2024-12-30 00:45:25,670 - INFO - Query Tester Started....
+2024-12-30 00:45:25,670 - INFO - Graph Loaded....
+2024-12-30 00:46:25,648 - INFO - Graph of length 1505023 Parsed....
+2024-12-30 00:46:25,768 - INFO - Query :  PREFIX ns1: <http://example.org/property/>
+
+SELECT ?movie ?title ?actor
+  WHERE {
+      ?movie ns1:actedBy  "Andrew Tiernan"   ;
+            ns1:actedBy ?actor ;
+            ns1:hasOriginalTitle ?title .
+  }
+    
+2024-12-30 00:46:25,784 - INFO - Results of length 492 obtained from Query
+2024-12-30 00:46:25,849 - INFO - Query Tester Finished....
+2024-12-30 00:50:18,235 - INFO - Query Tester Started....
+2024-12-30 00:50:18,235 - INFO - Graph Loaded....
+2024-12-30 00:51:14,963 - INFO - Graph of length 1505023 Parsed....
+2024-12-30 00:51:15,099 - INFO - Query :  PREFIX ns1: <http://example.org/property/>
+
+SELECT ?movie ?title ?actor
+  WHERE {
+      ?movie ns1:actedBy  "Andrew Tiernan"   ;
+            ns1:actedBy ?actor ;
+            ns1:hasOriginalTitle ?title .
+  }
+    
+2024-12-30 00:51:15,121 - INFO - Results of length 492 obtained from Query
+2024-12-30 00:51:15,220 - INFO - Query Tester Finished....
+2024-12-30 00:53:52,858 - INFO - Query Tester Started....
+2024-12-30 00:53:52,859 - INFO - Graph Loaded....
+2024-12-30 00:54:44,386 - INFO - Graph of length 1505023 Parsed....
+2024-12-30 00:54:44,498 - INFO - Query :  PREFIX ns1: <http://example.org/property/>
+
+SELECT ?movie ?title ?actor
+  WHERE {
+      ?movie ns1:actedBy  "Andrew Tiernan"   ;
+            ns1:actedBy ?actor ;
+            ns1:hasOriginalTitle ?title .
+  }
+    
+2024-12-30 00:54:44,520 - INFO - Results of length 492 obtained from Query
+2024-12-30 00:54:44,596 - INFO - Query Tester Finished....
+2024-12-30 01:10:12,493 - INFO - Query Tester Started....
+2024-12-30 01:10:12,493 - INFO - Graph Loaded....
+2024-12-30 01:11:03,036 - INFO - Graph of length 1505023 Parsed....
+2024-12-30 01:11:03,151 - INFO - Query :  PREFIX ns1: <http://example.org/property/>
+
+SELECT ?movie ?title ?actor
+  WHERE {
+      ?movie ns1:actedBy  "Andrew Tiernan"   ;
+            ns1:actedBy ?actor ;
+            ns1:hasOriginalTitle ?title .
+  }
+    
+2024-12-30 01:11:03,171 - INFO - Results of length 492 obtained from Query
+2024-12-30 01:12:28,193 - INFO - Query Tester Started....
+2024-12-30 01:12:28,193 - INFO - Graph Loaded....
+2024-12-30 01:13:23,937 - INFO - Graph of length 1505023 Parsed....
+2024-12-30 01:13:24,049 - INFO - Query :  PREFIX ns1: <http://example.org/property/>
+
+SELECT ?movie ?title ?actor
+  WHERE {
+      ?movie ns1:actedBy  "Andrew Tiernan"   ;
+            ns1:actedBy ?actor ;
+            ns1:hasOriginalTitle ?title .
+  }
+    
+2024-12-30 01:13:24,065 - INFO - Results of length 492 obtained from Query
+2024-12-30 01:13:52,388 - INFO - Query Tester Started....
+2024-12-30 01:13:52,388 - INFO - Graph Loaded....
+2024-12-30 01:14:43,082 - INFO - Graph of length 1505023 Parsed....
+2024-12-30 01:14:43,207 - INFO - Query :  PREFIX ns1: <http://example.org/property/>
+
+SELECT ?movie ?title ?actor
+  WHERE {
+      ?movie ns1:actedBy  "Andrew Tiernan"   ;
+            ns1:actedBy ?actor ;
+            ns1:hasOriginalTitle ?title .
+  }
+    
+2024-12-30 01:14:43,222 - INFO - Results of length 492 obtained from Query
+2024-12-30 01:17:16,798 - INFO - Query Tester Started....
+2024-12-30 01:17:16,798 - INFO - Graph Loaded....
+2024-12-30 01:18:09,118 - INFO - Graph of length 1505023 Parsed....
+2024-12-30 01:18:09,273 - INFO - Query :  PREFIX ns1: <http://example.org/property/>
+
+SELECT ?movie ?title ?actor
+  WHERE {
+      ?movie ns1:actedBy  "Andrew Tiernan"   ;
+            ns1:actedBy ?actor ;
+            ns1:hasOriginalTitle ?title .
+  }
+    
+2024-12-30 01:18:09,294 - INFO - Results of length 492 obtained from Query
+2024-12-30 01:18:09,324 - INFO - Query Tester Finished....
+2024-12-30 01:20:26,543 - INFO - Query Tester Started....
+2024-12-30 01:20:26,543 - INFO - Graph Loaded....
+2024-12-30 01:21:17,197 - INFO - Graph of length 1505023 Parsed....
+2024-12-30 01:21:17,358 - INFO - Query :  PREFIX ns1: <http://example.org/property/>
+
+SELECT ?movie ?title ?actor
+  WHERE {
+      ?movie ns1:actedBy  "Andrew Tiernan"   ;
+            ns1:actedBy ?actor ;
+            ns1:hasOriginalTitle ?title .
+  }
+    
+2024-12-30 01:21:17,380 - INFO - Results of length 492 obtained from Query
+2024-12-30 01:21:17,411 - INFO - Query Tester Finished....

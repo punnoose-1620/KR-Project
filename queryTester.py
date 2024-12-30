@@ -18,7 +18,7 @@ def resultsToJson(query_results):
     json_objects = []
 
     # Iterate through the SPARQL results
-    for result in query_results:
+    for result in tqdm(query_results, desc="Creating JSON...."):
         # Create a dictionary for each result
         json_obj = {}
         for var in result.labels.keys():
@@ -27,17 +27,49 @@ def resultsToJson(query_results):
                 json_obj[var] = str(value)  # Convert RDF terms to strings
 
         json_objects.append(json_obj)
-        print("Converted Data Sample : ",json.dumps(json_objects[0], indent=4))
-    return json_objects
+
+    unified_json = {}
+    for item in tqdm(json_objects, desc="Unifying JSON based on ID...."):
+        itemId = str(item['movie']).split('/')[-1]
+        ref_keys = list(item.keys())
+        ref_keys.remove('movie')
+        if itemId in unified_json.keys():
+            itemVal = unified_json[itemId]
+            for key in ref_keys:
+                if item[key]!=itemVal[key]:
+                    if not isinstance(itemVal[key],list):
+                        itemVal[key] = [itemVal[key]]
+                    itemVal[key].append(item[key])
+            unified_json[itemId] = itemVal
+        else:
+            itemVal = {
+                '_id': itemId,
+            }
+            for key in ref_keys:
+                itemVal[key] = item[key]
+            unified_json[itemId] = itemVal
+        # print("Converted Data Sample : ",json.dumps(json_objects[0], indent=4))
+    finalizedJson = []
+    for key in tqdm(unified_json.keys(), desc="Finalizing JSON Conversion"):
+        value = unified_json[key]
+        finalizedJson.append(value)
+    print("Converted Data Sample : ",json.dumps(finalizedJson[0], indent=4))
+    return finalizedJson
 
 def checkKeyValue(queryResults, key:str, value:str):
     existsCount = 0
+    uniqueMovies = []
+    existsIds = []
     if len(queryResults)>0:
         for item in tqdm(queryResults, desc="Checking response queries...."):
             tempValue = str(item[key])
+            movieId = (item['movie']).split("/")[-1]
+            if movieId not in uniqueMovies:uniqueMovies.append(movieId)
             if value in tempValue:
+                if movieId not in existsIds:
+                    existsIds.append(movieId)
                 existsCount = existsCount+1
-    print(f"Result Length : Length of items with Value in Key\n{len(queryResults)}          : {existsCount}")
+    print(f"Result Length : Length of items with Value in Key\n{len(uniqueMovies)}          : {len(existsIds)}")
 
 def query_rdf_file(rdf_file, sparql_query):
     """
@@ -67,7 +99,7 @@ def query_rdf_file(rdf_file, sparql_query):
     # for result in tqdm(results, desc="Parsing Results...."):
         # print(result)
     if len(results)>0:
-        checkKeyValue("title", "Andrew Tiernan")
+        checkKeyValue(results, "actor", "Andrew Tiernan")
         jsonData = resultsToJson(results)
     print("Query executed successfully.")
 
