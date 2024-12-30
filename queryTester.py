@@ -9,14 +9,7 @@ from constants import *
 from rdflib import Graph
 
 def resultsToJson(query_results):
-    """
-    Converts SPARQL query results into a list of JSON objects.
-    
-    :param query_results: SPARQL query results from rdflib's `Graph.query` method.
-    :return: List of JSON objects with predicate as keys and object as values.
-    """
     json_objects = []
-
     # Iterate through the SPARQL results
     for result in tqdm(query_results, desc="Creating JSON...."):
         # Create a dictionary for each result
@@ -28,7 +21,7 @@ def resultsToJson(query_results):
 
         json_objects.append(json_obj)
 
-    unified_json = {}
+    unified_json = {}           # values are of format { movieId: movieDetailsObject }
     for item in tqdm(json_objects, desc="Unifying JSON based on ID...."):
         itemId = str(item['movie']).split('/')[-1]
         ref_keys = list(item.keys())
@@ -49,10 +42,12 @@ def resultsToJson(query_results):
                 itemVal[key] = item[key]
             unified_json[itemId] = itemVal
         # print("Converted Data Sample : ",json.dumps(json_objects[0], indent=4))
-    finalizedJson = []
+    
+    finalizedJson = []          # values are of format [movieDetailsObject1, movieDetailsObject2,....]
     for key in tqdm(unified_json.keys(), desc="Finalizing JSON Conversion"):
         value = unified_json[key]
         finalizedJson.append(value)
+
     print("Converted Data Sample : ",json.dumps(finalizedJson[0], indent=4))
     return finalizedJson
 
