@@ -182,7 +182,7 @@ def getMovieByGenre(genre: str):
     movies = resultsToJson(mainSearchResult)
     return {searchResultMovies: movies}
 
-def getMoviewDetails(_id: str):
+def getMovieDetails(_id: str):
     mainSearchResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmById(_id=_id))
     movies = resultsToJson(mainSearchResult)
     if len(movies)>1:
