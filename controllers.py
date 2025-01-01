@@ -97,11 +97,9 @@ def getMovieByName(name: str):
 def getMoviesByPersonBasic(name:str, role:str,queryType:str=similarQuery):
     returnObject = {}
     movies = []
-    # TODO: Get movies for Exact Person and add to movies
     movies = getMovieByName(name, role)
     returnObject[searchResultMovies] = movies
     if queryType==searchQuery:
-        # TODO: Get Person with similar names
         additionalNames = name.split(' ')
         for item in additionalNames:
             tempMovies = []
@@ -112,26 +110,34 @@ def getMoviesByPersonBasic(name:str, role:str,queryType:str=similarQuery):
     return returnObject
 
 def getMoviesByPerson(name: str, role:str=actorRole):         # Roles: ACTOR, DIRECTOR, WRITER, PRODUCER, ARTIST, EDITOR, SOUNDS, VISUALS, LIGHTING
-    # TODO: Gets movies for the exact name specified
     movies = []
     if role==actorRole:
-        print()
+        moviesByPersonResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmByActor_Query(name))
+        movies = resultsToJson(moviesByPersonResult)
     elif role==directorRole:
-        print()
+        moviesByPersonResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmByDirector_Query(name))
+        movies = resultsToJson(moviesByPersonResult)
     elif role==writerRole:
-        print()
+        moviesByPersonResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmByWriter_Query(name))
+        movies = resultsToJson(moviesByPersonResult)
     elif role==producerRole:
-        print()
+        moviesByPersonResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmByProducer_Query(name))
+        movies = resultsToJson(moviesByPersonResult)
     elif role==supportingArtistRole:
-        print()
+        moviesByPersonResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmBySupportingArtist(name))
+        movies = resultsToJson(moviesByPersonResult)
     elif role==editorRole:
-        print()
+        moviesByPersonResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmByEditor(name))
+        movies = resultsToJson(moviesByPersonResult)
     elif role==soundsRole:
-        print()
+        moviesByPersonResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmBySounds(name))
+        movies = resultsToJson(moviesByPersonResult)
     elif role==visualEffectsRole:
-        print()
+        moviesByPersonResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmByVisualEffects(name))
+        movies = resultsToJson(moviesByPersonResult)
     elif role==lightingRole:
-        print()
+        moviesByPersonResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmByLighting(name))
+        movies = resultsToJson(moviesByPersonResult)
     return movies
 
 def getMovieByKeyWords(words: list):
@@ -139,33 +145,47 @@ def getMovieByKeyWords(words: list):
     for word in words:
         if word not in keywordsToIgnore:
             # TODO: Get Movies with this word and append to movies
-            print()
-    return movies
+            wordSearchResults = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmByKeyword_Query(keyword=word))
+            wordSearchJson = resultsToJson(wordSearchResults)
+            for movie in wordSearchJson:
+                if movie not in movies:
+                    movies.append(movie)
+    return {searchResultMovies: movies}
 
 def getMovieByCollection(name: str, queryType:str=similarQuery):
     returnObject = {}
     movies = []
-    # TODO: Get movies under exact collection name
+    mainSearchResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmByCollection_Query(collectionName=name))
+    movies = resultsToJson(mainSearchResult)
     returnObject[searchResultMovies] = movies
     if queryType==searchQuery:
         tempMovies = []
-        # TODO: Get movies with similar collection names
+        for item in name.split(' '):
+            additionalSearchResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmByCollection_Query(collectionName=item))
+            additionalSearchJson = resultsToJson(additionalSearchResult)
+            for film in additionalSearchJson:
+                if film not in tempMovies:
+                    tempMovies.append(film)
         if len(tempMovies)>0:
             returnObject[similarMovies] = tempMovies
-        print()
-    print()
+    return returnObject
 
 def getAdultMovies(flag:bool = False):
     movies = []
-    # TODO: Get movies from the same Adult Category
-    return movies
+    mainSearchResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmByAdultCat_Query(adultFlag=flag))
+    movies = resultsToJson(mainSearchResult)
+    return {searchResultMovies: movies}
 
 def getMovieByGenre(genre: str):
     movies = []
-    # TODO: Get movies from given genre into movies list
-    return movies
+    mainSearchResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmByGenre_Query(genre=genre))
+    movies = resultsToJson(mainSearchResult)
+    return {searchResultMovies: movies}
 
-def getMoviewDetails(_id: str):
-    movieDetails = {}
-    # TODO: Get details of movies with given ID
-    return movieDetails
+def getMovieDetails(_id: str):
+    mainSearchResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmById(_id=_id))
+    movies = resultsToJson(mainSearchResult)
+    if len(movies)>1:
+        return {searchResultMovies: movies}
+    else:
+        return movies[0]

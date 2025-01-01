@@ -115,6 +115,66 @@ WHERE {{
 }}"""
   return givenProducerQuery
 
+# This gets all films containing given supporting artist
+def getFilmBySupportingArtist(artist:str):
+  givenArtistQuery = f""" PREFIX ns1: <{sampleNameSpace}>
+
+SELECT DISTINCT ?movie ?predicate ?object
+WHERE {{
+    ?movie ns1:{supportingArtistKey} ?artist ;
+           ?predicate ?object .
+    FILTER(CONTAINS(LCASE(?artist), LCASE("{artist}")))
+}}"""
+  return givenArtistQuery
+
+# This gets all films containing given editor
+def getFilmByEditor(editor:str):
+  givenEditorQuery = f""" PREFIX ns1: <{sampleNameSpace}>
+
+SELECT DISTINCT ?movie ?predicate ?object
+WHERE {{
+    ?movie ns1:{editorKey} ?editor ;
+           ?predicate ?object .
+    FILTER(CONTAINS(LCASE(?editor), LCASE("{editor}")))
+}}"""
+  return givenEditorQuery
+
+# This gets all films containing given supporting artist
+def getFilmBySounds(soundArtist:str):
+  givenSoundArtistQuery =  f""" PREFIX ns1: <{sampleNameSpace}>
+
+SELECT DISTINCT ?movie ?predicate ?object
+WHERE {{
+    ?movie ns1:{soundsKey} ?artist ;
+           ?predicate ?object .
+    FILTER(CONTAINS(LCASE(?artist), LCASE("{soundArtist}")))
+}}"""
+  return givenSoundArtistQuery
+
+# This gets all films containing given supporting artist
+def getFilmByVisualEffects(visualEffectsArtist:str):
+  givenVisualEffectsArtistQuery = f""" PREFIX ns1: <{sampleNameSpace}>
+
+SELECT DISTINCT ?movie ?predicate ?object
+WHERE {{
+    ?movie ns1:{visualEffectsKey} ?artist ;
+           ?predicate ?object .
+    FILTER(CONTAINS(LCASE(?artist), LCASE("{visualEffectsArtist}")))
+}}"""
+  return givenVisualEffectsArtistQuery
+
+# This gets all films containing given supporting artist
+def getFilmByLighting(LightingArtist:str):
+  givenLightingArtistQuery =f""" PREFIX ns1: <{sampleNameSpace}>
+
+SELECT DISTINCT ?movie ?predicate ?object
+WHERE {{
+    ?movie ns1:{lightingKey} ?artist ;
+           ?predicate ?object .
+    FILTER(CONTAINS(LCASE(?artist), LCASE("{LightingArtist}")))
+}}"""
+  return givenLightingArtistQuery
+
 # This gets all films containing given writer. Return only films have the given writer with writtenBy predicate
 def getFilmByWriter_Query(writer:str):
   givenWriterQuery = f""" PREFIX ns1: <{sampleNameSpace}>
@@ -126,3 +186,15 @@ WHERE {{
     FILTER(CONTAINS(LCASE(?writer), LCASE("{writer}")))
 }}"""
   return givenWriterQuery
+
+# This gets all details of the film containing given ID
+def getFilmById(_id:str):
+  givenIdQuery = f""" PREFIX ns1: <{sampleNameSpace}>
+
+SELECT DISTINCT ?movie ?predicate ?object
+WHERE {{
+    ?movie ns1:_id ?id ;
+           ?predicate ?object .
+    FILTER(CONTAINS(LCASE(?id), LCASE("{_id}")))
+}}"""
+  return givenIdQuery

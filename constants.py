@@ -64,3 +64,12 @@ rolesList = ['ACTOR', 'DIRECTOR', 'WRITER', 'PRODUCER', 'ARTIST', 'EDITOR', 'SOU
 # search values
 
 search_producer='Celestia'
+
+# Values for API Endpoint
+origins = ['*']
+
+methods = ['*']
+
+headers = ['*']
+
+allow_credentials = True
