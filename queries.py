@@ -115,6 +115,31 @@ WHERE {{
 }}"""
   return givenProducerQuery
 
+# This gets all films containing given supporting artist
+def getFilmBySupportingArtist(artist:str):
+  givenArtistQuery = ""
+  return givenArtistQuery
+
+# This gets all films containing given editor
+def getFilmByEditor(editor:str):
+  givenEditorQuery = ""
+  return givenEditorQuery
+
+# This gets all films containing given supporting artist
+def getFilmBySounds(soundArtist:str):
+  givenSoundArtistQuery = ""
+  return givenSoundArtistQuery
+
+# This gets all films containing given supporting artist
+def getFilmByVisualEffects(visualEffectsArtist:str):
+  givenVisualEffectsArtistQuery = ""
+  return givenVisualEffectsArtistQuery
+
+# This gets all films containing given supporting artist
+def getFilmByLighting(LightingArtist:str):
+  givenLightingArtistQuery = ""
+  return givenLightingArtistQuery
+
 # This gets all films containing given writer. Return only films have the given writer with writtenBy predicate
 def getFilmByWriter_Query(writer:str):
   givenWriterQuery = f""" PREFIX ns1: <{sampleNameSpace}>
@@ -126,3 +151,8 @@ WHERE {{
     FILTER(CONTAINS(LCASE(?writer), LCASE("{writer}")))
 }}"""
   return givenWriterQuery
+
+# This gets all details of the film containing given ID
+def getFilmById(_id:str):
+  givenIdQuery = ""
+  return givenIdQuery
