@@ -347,3 +347,15 @@ WHERE {
     FILTER(CONTAINS(LCASE(?producer), LCASE("Celestia")))
 }
 2025-01-01 15:19:57,162 - INFO - Results of length 1562 obtained from Query
+2025-01-01 16:02:24,338 - INFO - Query Tester Started....
+2025-01-01 16:02:24,339 - INFO - Graph Loaded....
+2025-01-01 16:03:02,807 - INFO - Graph of length 1505023 Parsed....
+2025-01-01 16:03:02,962 - INFO - Query :  PREFIX ns1: <http://example.org/property/>
+
+SELECT DISTINCT ?movie ?predicate ?object
+WHERE {
+    ?movie ns1:producedBy ?producer ;
+           ?predicate ?object .
+    FILTER(CONTAINS(LCASE(?producer), LCASE("Celestia")))
+}
+2025-01-01 16:08:05,577 - INFO - Results of length 1562 obtained from Query
