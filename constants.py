@@ -6,6 +6,7 @@ dataConverterOutputFolder = "dataset_processed"
 dataConverterLog = "./outputLogs/converterLogs.txt"
 dataConverterOutputRdf = "MovieData.rdf"
 queryTesterLog = "./outputLogs/queryTesterLog.txt"
+endpointLog = "./outputLogs/backendLogs.txt"
 
 rdfFile = "./dataset_processed/MovieData.rdf"
 sampleNameSpace = "http://example.org/property/"
@@ -66,6 +67,8 @@ rolesList = ['ACTOR', 'DIRECTOR', 'WRITER', 'PRODUCER', 'ARTIST', 'EDITOR', 'SOU
 search_producer='Celestia'
 
 # Values for API Endpoint
+portNumber = 5000
+ipAddress = "127.0.0.1"
 origins = ['*']
 
 methods = ['*']

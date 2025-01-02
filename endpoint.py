@@ -10,15 +10,15 @@
 # python -m uvicorn main:app --port 5000 --reload
 
 import json
+import socket
+import uvicorn
+import logging
 from classes import *
 from constants import *
 from controllers import *
-import logging
-import sys
-import uvicorn
-from fastapi.encoders import jsonable_encoder
-from fastapi.responses import JSONResponse
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
+from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
@@ -27,7 +27,26 @@ app = FastAPI(
 )
 
 if __name__ == '__main__':
-    uvicorn.run('endpoint:app', port=5000, reload=True, workers=1)  # , host='192.168.0.84'
+    hostname = socket.gethostname()
+    ipAddress = socket.gethostbyname(hostname)
+    log_config = uvicorn.config.LOGGING_CONFIG
+    # log_config["formatters"]["access"]["fmt"] = "%(asctime)s - %(levelname)s - %(message)s"
+    uvicorn.run(
+        'endpoint:app', 
+        port=portNumber, 
+        reload=True, 
+        workers=1, 
+        host=ipAddress,
+        log_config=log_config
+        )
+    logging.basicConfig(
+        filename=endpointLog,
+        level=logging.DEBUG,  # Set logging level (e.g., DEBUG, INFO, WARNING, ERROR, CRITICAL)
+        format="%(asctime)s - %(levelname)s - %(message)s",
+        force=True
+    )
+    logging.info("Backend API Endpoint Initialized....")
+    logging.info(f"Base Url : https://{ipAddress}:{portNumber}/")
 
 app.add_middleware(
     CORSMiddleware,
@@ -39,35 +58,56 @@ app.add_middleware(
 
 @app.get("/search-by-name")
 def searchByName(input: NameFromUser):
+    logging.info("Search By Name Invoked....")
+    logging.info(f"Search By Name Input Data : {json.dumps(input.getJson(), indent=4)}")
     result = getMovieByName(name=input.name)
+    logging.info(f"Search By Name Response Data : {json.dumps(result, indent=4)}")
     return json.dumps(result, indent=4)
 
 @app.get("/search-by-person")
 def searchByPerson(input: PersonFromUser):
+    logging.info("Search By Person Invoked....")
+    logging.info(f"Search By Person Input Data : {json.dumps(input.getJson(), indent=4)}")
     result = getMoviesByPersonBasic(name=input.person, role=input.role, queryType=input.queryType)
+    logging.info(f"Search By Person Response Data : {json.dumps(result, indent=4)}")
     return json.dumps(result, indent=4)
 
 @app.get("/search-by-keyword")
 def searchByKeyWord(input: KeyWordsFromUser):
+    logging.info("Search By Keyword Invoked....")
+    logging.info(f"Search By Keyword Input Data : {json.dumps(input.getJson(), indent=4)}")
     result = getMovieByKeyWords(words=input.keywords)
+    logging.info(f"Search By Keyword Response Data : {json.dumps(result, indent=4)}")
     return json.dumps(result, indent=4)
 
 @app.get("/search-by-collection")
 def searchByCollection(input: NameFromUser):
+    logging.info("Search By Collection Invoked....")
+    logging.info(f"Search By Collection Input Data : {json.dumps(input.getJson(), indent=4)}")
     result = getMovieByCollection(name=input.name)
+    logging.info(f"Search By Collection Response Data : {json.dumps(result, indent=4)}")
     return json.dumps(result, indent=4)
 
 @app.get("/search-by-adult-category")
 def searchByAdultCategory(input: FlagFromUser):
+    logging.info("Search By Adult Category Invoked....")
+    logging.info(f"Search By Adult Category Input Data : {json.dumps(input.getJson(), indent=4)}")
     result = getAdultMovies(flag=input.flag)
+    logging.info(f"Search By Adult Category Response Data : {json.dumps(result, indent=4)}")
     return json.dumps(result, indent=4)
 
 @app.get("/search-by-genre")
 def searchByGenre(input: NameFromUser):
+    logging.info("Search By Genre Invoked....")
+    logging.info(f"Search By Genre Input Data : {json.dumps(input.getJson(), indent=4)}")
     result = getMovieByGenre(genre=input.name)
+    logging.info(f"Search By Genre Response Data : {json.dumps(result, indent=4)}")
     return json.dumps(result, indent=4)
 
 @app.get("/get-movie-details")
 def getDetails(input: IdFromUser):
+    logging.info("Get Movie Details Invoked....")
+    logging.info(f"Get Movie Details Input Data : {json.dumps(input.getJson(), indent=4)}")
     result = getMovieDetails(_id=input.movieId)
+    logging.info(f"Get Movie Details Response Data : {json.dumps(result, indent=4)}")
     return json.dumps(result, indent=4)

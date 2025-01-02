@@ -2,21 +2,17 @@ import json
 from queries import *
 from tqdm import tqdm
 from constants import *
-from rdflib import Graph
+from rdflib import Graph, query
 # This file has functions required to execute queries and get required movies
 
 def runRdfQuery(rdf_file, sparql_query):
     # Load the RDF file into a graph
     graph = Graph()
-    # logging.info("Graph Loaded....")
     
     graph.parse(rdf_file, format="turtle")  # Adjust format if needed (e.g., 'xml', 'ntriples')
-    # logging.info(f"Graph of length {len(graph)} Parsed....")
     
     # Run the SPARQL query
-    results = graph.query(sparql_query)
-    # logging.info(f"Query : {sparql_query}")
-    # logging.info(f"Results of length {len(results)} obtained from Query")
+    results = graph.query(sparql_query)\
     
     # Print results
     if len(results)>0:
@@ -30,12 +26,13 @@ def resultsToJson(query_results):
     for result in tqdm(query_results, desc="Creating JSON...."):
         # Create a dictionary for each result
         json_obj = {}
-        for var in result.labels.keys():
-            value = result[var]
-            if value is not None:
-                json_obj[var] = str(value)  # Convert RDF terms to strings
+        if not isinstance(result, dict):
+            for var in result.labels.keys():
+                value = result[var]
+                if value is not None:
+                    json_obj[var] = str(value)  # Convert RDF terms to strings
 
-        json_objects.append(json_obj)
+            json_objects.append(json_obj)
 
     unified_json = {}           # values are of format { movieId: movieDetailsObject }
     for item in tqdm(json_objects, desc="Unifying JSON based on ID...."):
