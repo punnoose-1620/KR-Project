@@ -17,7 +17,7 @@ Additionally, the files with the name **Output** in them like [converterOutput.t
 
 ## RDF Structure
 The processed data is saved in RDF Dataset format with each entity having the below expected structure : 
-![RDF Data Structure](./KnowledgeGraphStructure.png)
+![RDF Data Structure](./ReferenceImages/KnowledgeGraphStructure.png)
 
 ## Queries
 The Queries to be run to attain each data from the RDF database is described in the [`queries.py`](./queries.py) script. These queries can be individually tested using the [`queryTester.py`](./queryTester.py) script instead of trying it out on the live version. 
@@ -38,3 +38,11 @@ The functions here
 - order/filter/merge response data
 - convert the data to json
 - return resulting data.
+
+## API End Points
+All API endpoints have been declared in the [`endpoint.py`](./endpoint.py) file and can be run using the code `python endpoint.py`.
+The endpoints are created using FastAPI and logging has been added so that every call would add logs to the log file [`backendLogs.txt`](./outputLogs/backendLogs.txt). The log file only gets updated after the program is closed so it would be a post-completion log rather than a live log. The live log is available on the terminal when running the file.
+Additionally, all IP Address and Port related settings have been scripted directly into the endpoint file and needn't be inferred or mentioned when running it.
+
+## Web Page
+Please add notes on the web page construction, and additional details after/during completion.

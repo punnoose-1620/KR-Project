@@ -1,0 +1,504 @@
+<mxfile host="Electron" modified="2025-01-03T13:57:36.916Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="0o4ICIOhpW8pBG3jS0fV" version="21.2.1" type="device">
+  <diagram name="Page-1" id="-eFBun0efD_s1hL-Qg9A">
+    <mxGraphModel dx="829" dy="1585" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-1" value="Search Entry Field" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="80" width="440" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-2" value="Search Button" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="faXPlhrB0LCnAuaDLHLx-5" target="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="300" />
+              <mxPoint x="880" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-5" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="240" width="720" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-6" value="Movie Poster" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="250" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-7" value="Result Movie Title" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="260" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-8" value="Movie Release Year" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="315" width="125" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-9" value="Original Language" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="285" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="faXPlhrB0LCnAuaDLHLx-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="970" y="350" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="880" y="440" />
+              <mxPoint x="880" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-10" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="380" width="720" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-11" value="Movie Poster" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="390" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-12" value="Result Movie Title" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="400" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-13" value="Movie Release Year" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="455" width="125" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-14" value="Original Language" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="425" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="faXPlhrB0LCnAuaDLHLx-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="970" y="350" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="880" y="580" />
+              <mxPoint x="880" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-15" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="520" width="720" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-16" value="Movie Poster" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="530" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-17" value="Result Movie Title" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="540" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-18" value="Movie Release Year" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="595" width="125" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-19" value="Original Language" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="565" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-20" value="Home Page" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="800" height="640" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-21" value="Search Results" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-20">
+          <mxGeometry x="40" y="140" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-22" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#B3B3B3;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="80" y="210" as="sourcePoint" />
+            <mxPoint x="800" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-40" value="Movie Details Page" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="970" y="30" width="790" height="2530" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-76" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="740" y="510" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-77" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="750" y="650" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-46" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="50" width="210" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-47" value="&lt;h1&gt;Movie Title (Release Year)&lt;/h1&gt;&lt;p&gt;Genre1, Genre2, Genre3&lt;/p&gt;&lt;p&gt;Part of &lt;b&gt;SampleName&lt;/b&gt; Collection&lt;/p&gt;&lt;p&gt;Movie Overview&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Lorem Ipsum&lt;/strong&gt; is simply dummy text of the printing and &lt;br&gt;typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy&lt;br&gt; text ever since the 1500s, when an unknown printer took a galley of &lt;br&gt;type and scrambled it to make a type specimen book. It has survived not &lt;br&gt;only five centuries, but also the leap into electronic typesetting, &lt;br&gt;remaining essentially unchanged. It was popularised in the 1960s with &lt;br&gt;the release of Letraset sheets containing Lorem Ipsum passages, and more&lt;br&gt; recently with desktop publishing software like Aldus PageMaker &lt;br&gt;including versions of Lorem Ipsum.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="270" y="50" width="480" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-48" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#B3B3B3;" edge="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="350" as="sourcePoint" />
+            <mxPoint x="750" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-49" value="Language" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="370" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-50" value="English" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="310" y="370" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-51" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;:&lt;/font&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="280" y="370" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-58" value="Budget" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="410" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-59" value="350 million" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="310" y="410" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-60" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;:&lt;/font&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="280" y="410" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-62" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;4.5 / 5&lt;/font&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="700" y="50" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-63" value="Movies of the Same Collection" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="450" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-64" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#B3B3B3;" edge="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="490" as="sourcePoint" />
+            <mxPoint x="750" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-65" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="510" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-66" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="40" y="650" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-68" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="170" y="510" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-69" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="180" y="650" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-70" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="310" y="510" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-71" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="320" y="650" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-72" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="450" y="510" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-73" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="460" y="650" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-74" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="600" y="510" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-75" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="610" y="650" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-78" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="740" y="770" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-79" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="750" y="910" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-80" value="Movies of the Same Genre" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="710" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-81" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#B3B3B3;" edge="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="750" as="sourcePoint" />
+            <mxPoint x="750" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-82" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="770" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-83" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="40" y="910" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-84" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="170" y="770" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-85" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="180" y="910" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-86" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="310" y="770" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-87" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="320" y="910" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-88" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="450" y="770" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-89" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="460" y="910" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-90" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="600" y="770" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-91" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="610" y="910" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-106" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="740" y="1030" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-107" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="750" y="1170" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-108" value="Movies of the Same Actors" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="970" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-109" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#B3B3B3;" edge="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="1010" as="sourcePoint" />
+            <mxPoint x="750" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-110" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="1030" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-111" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="40" y="1170" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-112" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="170" y="1030" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-113" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="180" y="1170" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-114" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="310" y="1030" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-115" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="320" y="1170" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-116" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="450" y="1030" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-117" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="460" y="1170" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-118" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="600" y="1030" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-119" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="610" y="1170" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-120" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="740" y="1290" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-121" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="750" y="1430" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-122" value="Movies of the Same Director" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="1230" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-123" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#B3B3B3;" edge="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="1270" as="sourcePoint" />
+            <mxPoint x="750" y="1270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-124" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="1290" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-125" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="40" y="1430" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-126" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="170" y="1290" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-127" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="180" y="1430" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-128" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="310" y="1290" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-129" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="320" y="1430" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-130" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="450" y="1290" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-131" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="460" y="1430" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-132" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="600" y="1290" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-133" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="610" y="1430" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-134" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="740" y="1550" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-135" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="750" y="1690" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-136" value="Movies of the Same Producer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="1490" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-137" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#B3B3B3;" edge="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="1530" as="sourcePoint" />
+            <mxPoint x="750" y="1530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-138" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="1550" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-139" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="40" y="1690" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-140" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="170" y="1550" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-141" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="180" y="1690" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-142" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="310" y="1550" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-143" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="320" y="1690" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-144" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="450" y="1550" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-145" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="460" y="1690" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-146" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="600" y="1550" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-147" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="610" y="1690" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-148" value="&lt;b&gt;18+&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="170" y="290" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-149" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="740" y="1810" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-150" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="750" y="1950" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-151" value="Movies of the Same Writer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="1750" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-152" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#B3B3B3;" edge="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="1790" as="sourcePoint" />
+            <mxPoint x="750" y="1790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-153" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="1810" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-154" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="40" y="1950" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-155" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="170" y="1810" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-156" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="180" y="1950" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-157" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="310" y="1810" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-158" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="320" y="1950" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-159" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="450" y="1810" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-160" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="460" y="1950" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-161" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="600" y="1810" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-162" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="610" y="1950" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-163" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="740" y="2070" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-164" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="750" y="2210" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-165" value="Movies of the Same Supporting Artists" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="2010" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-166" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#B3B3B3;" edge="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="2050" as="sourcePoint" />
+            <mxPoint x="750" y="2050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-167" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="2070" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-168" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="40" y="2210" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-169" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="170" y="2070" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-170" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="180" y="2210" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-171" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="310" y="2070" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-172" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="320" y="2210" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-173" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="450" y="2070" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-174" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="460" y="2210" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-175" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="600" y="2070" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-176" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="610" y="2210" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-177" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="740" y="2330" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-178" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="750" y="2470" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-179" value="Movies of the Same Adult Category" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="2270" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-180" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#B3B3B3;" edge="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="2310" as="sourcePoint" />
+            <mxPoint x="750" y="2310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-181" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="30" y="2330" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-182" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="40" y="2470" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-183" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="170" y="2330" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-184" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="180" y="2470" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-185" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="310" y="2330" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-186" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="320" y="2470" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-187" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="450" y="2330" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-188" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="460" y="2470" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-189" value="Movie Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="600" y="2330" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-190" value="Movie Name" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="610" y="2470" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-191" value="Home&lt;br&gt;Icon" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="faXPlhrB0LCnAuaDLHLx-40">
+          <mxGeometry x="40" y="60" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="faXPlhrB0LCnAuaDLHLx-192" value="Webpage Design" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry y="-30" width="1860" height="2630" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

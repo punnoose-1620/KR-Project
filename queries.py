@@ -12,8 +12,6 @@ WHERE {
 # RDF Converstion is still in progress and converted data is not entirely reliable yet
 
 # This gets all films containing given string in title. Return only films have the given string with hasOriginalTitle predicate
-
-
 def getFilmByTitle_Query(title:str):
   givenTitleQuery = f""" PREFIX ns1: <{sampleNameSpace}>
 
@@ -25,10 +23,7 @@ WHERE {{
 }}"""
   return givenTitleQuery
 
-
-
 # This gets all films containing given genre. Return only films have the given genre with ofGenre predicate
-
 def getFilmByGenre_Query(genre:str):
   givenGenreQuery =f""" PREFIX ns1: <{sampleNameSpace}>
 
@@ -41,8 +36,6 @@ WHERE {{
   return givenGenreQuery
 
 # This gets all films in the given collection. Return only films have the given collection with partOfCollections predicate
-
-
 def getFilmByCollection_Query(collectionName:str):
   givenCollectionQuery = f""" PREFIX ns1: <{sampleNameSpace}>
 
