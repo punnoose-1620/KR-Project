@@ -56,7 +56,7 @@ app.add_middleware(
     allow_headers=headers,
 )
 
-@app.get("/search-by-name")
+@app.post("/search-by-name")
 def searchByName(input: NameFromUser):
     logging.info("Search By Name Invoked....")
     logging.info(f"Search By Name Input Data : {json.dumps(input.getJson(), indent=4)}")

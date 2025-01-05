@@ -1,0 +1,85 @@
+:root {
+    --primary-color: #1F2937; /* Dark Blue */
+    --secondary-color: #FFC107; /* Gold */
+    --background-color: #F5F5F5; /* Light Gray */
+    --text-primary: #212121; /* Black */
+    --text-secondary: #757575; /* Medium Gray */
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.empty-state-search {
+    font-size: large;
+    font-style: italic;
+    color: #757575;
+}
+
+.container {
+    padding: 2rem;
+}
+
+.search-section {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.search-section input[type="text"] {
+    padding: 0.5rem;
+    width: 300px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+.search-section button {
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.movie-card {
+    display: flex;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.movie-card img {
+    width: 100px;
+    height: 150px;
+    margin-right: 1rem;
+    border-radius: 5px;
+}
+
+.movie-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.movie-year, .movie-language {
+    color: var(--text-secondary);
+    margin-bottom: 0.3rem;
+}

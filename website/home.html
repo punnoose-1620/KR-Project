@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <script>
+        loadingflag = false;
+
+        async function getSearchResults(stringVal) {
+            searchUrl = "http://192.168.0.171:5000/search-by-name";
+            bodyData = {
+                'name': stringVal,
+                'queryType': ''
+            };
+            try {
+                loadingflag = true;
+                const response = await fetch(searchUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(bodyData)
+                });
+                loadingflag = false;
+                if(!response.ok) {
+                    throw new Error(`HTTP Error! Status: ${response.status}`)
+                }
+                else {
+                    const data = await response.json();
+                    console.log(JSON.stringify(data, null, 2))
+                }
+
+            }
+            catch(error) {
+                console.log("Error : ", error)
+            }
+        }
+
+        function goToMovieDetails(id) {
+            url="./movieDetails.html"
+            window.open(url, '_self')
+        }
+
+        function searchButtonClick() {
+            getSearchResults('Jain');
+        }
+    </script>
+
+    <!-- Home Page -->
+    <header>
+        <h1>Movie Suggestion System</h1>
+    </header>
+
+    <div class="container">
+        <div class="search-section">
+            <input type="text" placeholder="Search for a movie...">
+            <button onclick="searchButtonClick()">Search</button>
+        </div>
+
+        <div id="searchResultsContainer"></div>
+
+        <!-- Add more movie cards as needed -->
+    </div>
+
+    <script>
+        var movies = [
+            {
+                "_id": 1234,
+                "title": "Sample Movie Title",
+                "actor": ['actor_1', 'actor_2', 'actor_3'],
+                "genres": ['genre_1', 'genre_2', 'genre_3'],
+                "originalLanguage": 'en',
+                "releaseYear": 2020
+            }
+        ]
+        const searchResultsContainer = document.getElementById('searchResultsContainer');
+        if(movies.length>0) {
+            movies.forEach(element => {
+            const div = document.createElement('div');
+            div.className = 'movie-card';
+            // div.onclick = goToMovieDetails(1234);
+            div.innerHTML = `
+                <img src="{item.poster}" alt="Movie Poster">
+                <div class="movie-details">
+                    <div class="movie-title">${element.title}</div>
+                    <div class="movie-year">Release Year: ${element.releaseYear}</div>
+                    <div class="movie-language">Language: ${element.originalLanguage}</div>
+                </div>
+            `;
+            searchResultsContainer.appendChild(div);
+        });
+        }
+        else {
+            const div = document.createElement('div');
+            div.className = "empty-state-search"
+            div.innerHTML = `
+                <div> </div>
+                    You have no results to be displayed for this search
+                <div> </div>
+            `
+        }
+    </script>
+</body>
+</html>

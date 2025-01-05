@@ -74,7 +74,7 @@ def orderMoviesByRating(movies: list, tag:str=ascendingOrder):       # Tags: ASC
     print()
 
 def getMovieByName(name: str):
-    initialMoviesResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmByTitle_Query(item))
+    initialMoviesResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmByTitle_Query(name))
     initialMovieJson = resultsToJson(initialMoviesResult)
     additionalNames = name.split(' ')
     additionalMovies = []
