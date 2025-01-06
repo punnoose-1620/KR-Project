@@ -21,6 +21,7 @@
             };
             try {
                 loadingflag = true;
+                toggleSpinner(true)
                 const response = await fetch(searchUrl, {
                     method: 'POST',
                     headers: {
@@ -29,6 +30,7 @@
                     body: JSON.stringify(bodyData)
                 });
                 loadingflag = false;
+                toggleSpinner(false)
                 if(!response.ok) {
                     throw new Error(`HTTP Error! Status: ${response.status}`)
                 }
@@ -40,6 +42,15 @@
             }
             catch(error) {
                 console.log("Error : ", error)
+            }
+        }
+
+        function toggleSpinner(show){
+            const spinner = document.getElementById('loadingSpinner');
+            if (show) {
+                spinner.style.display = 'block';
+            } else {
+                spinner.style.display = 'none';
             }
         }
 
@@ -62,7 +73,16 @@
         <div class="search-section">
             <input type="text" placeholder="Search for a movie...">
             <button onclick="searchButtonClick()">Search</button>
+
+           
         </div>
+        <!-- <div id="loadingSpinner" class="spinner-border text-warning" role="status">
+            <span class="sr-only"></span>
+          </div> -->
+          <div id="loadingSpinner" class="spinner-border text-warning mx-auto d-block mt-3" role="status" style="display: none;">
+            <span class="sr-only"></span>
+          </div>
+       
 
         <div id="searchResultsContainer"></div>
 
@@ -82,12 +102,13 @@
         ]
         const searchResultsContainer = document.getElementById('searchResultsContainer');
         if(movies.length>0) {
+           
             movies.forEach(element => {
             const div = document.createElement('div');
             div.className = 'movie-card';
             div.onclick= function(){
                 window.location.href = `moviedetails.html?id=${element._id}`;
-
+              
             };
             //div.onclick = goToMovieDetails(1234);
             div.innerHTML = `
@@ -100,6 +121,7 @@
             `;
             searchResultsContainer.appendChild(div);
         });
+        toggleSpinner(false)
         }
         else {
             const div = document.createElement('div');
@@ -108,7 +130,9 @@
                 <div> </div>
                     You have no results to be displayed for this search
                 <div> </div>
-            `
+          
+                `
+                toggleSpinner(false);       
         }
 
    
