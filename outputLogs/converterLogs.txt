@@ -343,3 +343,176 @@
 2024-12-26 02:51:01,670 - INFO - Calculating Total Elapsed Time....
 2024-12-26 02:51:01,670 - INFO - Elapsed Time : 0 hours, 14 minutes, 19.92 seconds
 2024-12-26 02:51:01,670 - INFO - Program finished....
+2025-01-06 22:06:34,992 - INFO - Program started....
+2025-01-06 22:06:35,153 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
+2025-01-06 22:06:35,519 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
+2025-01-06 22:06:35,525 - INFO - Dataset Downloaded....
+
+2025-01-06 22:06:35,527 - INFO - Reading Credits
+2025-01-06 22:06:35,531 - INFO - Credits file opened....
+2025-01-06 22:06:35,533 - INFO - Credits headers : ['cast', 'crew', 'id']
+2025-01-06 22:07:24,463 - INFO - Credits count : 45476
+2025-01-06 22:07:24,463 - INFO - Reading Credits Completed
+2025-01-06 22:07:24,463 - INFO - Begin Credits Processing....
+2025-01-06 22:07:24,463 - WARNING - 0 items found in movies without the key castList
+2025-01-06 22:07:24,468 - WARNING - 0 items found in movies without the key crewList
+2025-01-06 22:07:26,486 - INFO - Complete Credits Processing....
+2025-01-06 22:07:26,486 - INFO - Dropped 0 Items....
+2025-01-06 22:07:26,486 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>"
+}
+2025-01-06 22:07:26,502 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>"
+}
+2025-01-06 22:07:26,502 - INFO - Reading Keywords
+2025-01-06 22:07:26,510 - INFO - KeyWords file opened....
+2025-01-06 22:07:26,510 - INFO - KeyWords headers : ['id', 'keywords']
+2025-01-06 22:10:38,080 - INFO - KeyWords count : 46419
+2025-01-06 22:10:38,080 - INFO - Reading Keywords Completed
+2025-01-06 22:10:38,080 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>"
+}
+2025-01-06 22:10:38,080 - INFO - Reading Links
+2025-01-06 22:10:38,100 - INFO - Links file opened....
+2025-01-06 22:10:38,100 - INFO - Links headers : ['movieId', 'imdbId', 'tmdbId']
+2025-01-06 22:15:08,914 - INFO - Links count : 45843
+2025-01-06 22:15:08,915 - INFO - Reading Links Completed
+2025-01-06 22:15:08,917 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>",
+    "imdbId": "<class 'str'>",
+    "tmdbId": "<class 'str'>"
+}
+2025-01-06 22:15:08,921 - INFO - Reading MetaData
+2025-01-06 22:15:08,925 - INFO - MetaData file opened....
+2025-01-06 22:15:08,925 - INFO - MetaData headers : ['adult', 'belongs_to_collection', 'budget', 'genres', 'homepage', 'id', 'imdb_id', 'original_language', 'original_title', 'overview', 'popularity', 'poster_path', 'production_companies', 'production_countries', 'release_date', 'revenue', 'runtime', 'spoken_languages', 'status', 'tagline', 'title', 'video', 'vote_average', 'vote_count']
+2025-01-06 22:17:45,391 - ERROR - MetaData error : list index out of range
+2025-01-06 22:17:45,393 - INFO - Reading MetaData Completed
+2025-01-06 22:17:45,393 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>",
+    "imdbId": "<class 'str'>",
+    "tmdbId": "<class 'str'>",
+    "isAdult": "<class 'str'>",
+    "partOfCollections": "<class 'list'>",
+    "hasBudget": "<class 'str'>",
+    "ofGenre": "<class 'list'>",
+    "hasOriginalLanguage": "<class 'str'>",
+    "hasOriginalTitle": "<class 'str'>",
+    "hasOverview": "<class 'str'>",
+    "hasPoster": "<class 'str'>"
+}
+2025-01-06 22:17:45,393 - INFO - Reading Ratings
+2025-01-06 22:17:45,393 - INFO - Ratings file opened....
+2025-01-06 22:17:45,402 - INFO - Ratings headers : ['userId', 'movieId', 'rating', 'timestamp']
+2025-01-06 22:18:12,977 - DEBUG - Ratings object created with rating data based on ID....
+2025-01-06 22:18:12,979 - ERROR - Ratings error : unhashable type: 'dict_keys'
+2025-01-06 22:18:15,264 - INFO - Reading Ratings Completed
+2025-01-06 22:18:15,264 - INFO - Begin Ratings Processing....
+2025-01-06 22:18:15,279 - WARNING - 83640 items found in movies without the key hasRating
+2025-01-06 22:18:15,319 - INFO - Complete Ratings Processing....
+2025-01-06 22:18:15,319 - INFO - Dropped 0 Items
+2025-01-06 22:18:15,335 - WARNING - 83640 items found in movies without the key hasAverageRating
+2025-01-06 22:18:15,338 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>",
+    "imdbId": "<class 'str'>",
+    "tmdbId": "<class 'str'>",
+    "isAdult": "<class 'str'>",
+    "partOfCollections": "<class 'list'>",
+    "hasBudget": "<class 'str'>",
+    "ofGenre": "<class 'list'>",
+    "hasOriginalLanguage": "<class 'str'>",
+    "hasOriginalTitle": "<class 'str'>",
+    "hasOverview": "<class 'str'>",
+    "hasPoster": "<class 'str'>"
+}
+2025-01-06 22:18:15,338 - INFO - Calculating Total Elapsed Time....
+2025-01-06 22:18:15,338 - INFO - Elapsed Time : 0 hours, 12 minutes, -19.653 seconds
+2025-01-06 22:18:15,341 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>",
+    "imdbId": "<class 'str'>",
+    "tmdbId": "<class 'str'>",
+    "isAdult": "<class 'str'>",
+    "partOfCollections": "<class 'list'>",
+    "hasBudget": "<class 'str'>",
+    "ofGenre": "<class 'list'>",
+    "hasOriginalLanguage": "<class 'str'>",
+    "hasOriginalTitle": "<class 'str'>",
+    "hasOverview": "<class 'str'>",
+    "hasPoster": "<class 'str'>"
+}
+2025-01-06 22:18:15,354 - WARNING - 38208 items found in movies without the key hasKeywords
+2025-01-06 22:18:17,656 - INFO - Written to JSON File....
+2025-01-06 22:18:17,656 - INFO - Begin Creating RDF Graph....
+2025-01-06 22:18:44,036 - INFO - RDF Graph Created....
+2025-01-06 22:18:44,036 - INFO - Begin Writing to RDF File....
+2025-01-06 22:19:28,018 - INFO - Completed Writing to RDF File....
+2025-01-06 22:19:28,018 - INFO - Calculating Total Elapsed Time....
+2025-01-06 22:19:28,018 - INFO - Elapsed Time : 0 hours, 13 minutes, -6.974 seconds
+2025-01-06 22:19:28,018 - INFO - Program finished....

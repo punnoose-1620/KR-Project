@@ -176,6 +176,7 @@ def readMetaData(filePath:str):
                 originalLang = row[7]
                 originalTitle = row[8]
                 overview = row[9]
+                posterPath = row[11]
                 foundFlag = False
                 for item in jsonMovieData:
                     if item['_id']==_id:
@@ -189,6 +190,7 @@ def readMetaData(filePath:str):
                         item[languageKey] = originalLang
                         item[titleKey] = originalTitle
                         item[overviewKey] = overview
+                        item[posterKey] = posterPath
                 if foundFlag==False:
                     movie_data = {
                         '_id' : _id,
@@ -198,7 +200,8 @@ def readMetaData(filePath:str):
                         genreKey : genresList,
                         languageKey : originalLang,
                         titleKey : originalTitle,
-                        overviewKey : overview
+                        overviewKey : overview,
+                        posterKey: posterPath
                     }
                     jsonMovieData.append(movie_data)
             print("Duplicate MetaData Count : ", duplicateOverwrites)
@@ -476,7 +479,7 @@ def writeToJson(outputFile: str):
         logging.error(f"Trying to write to JSON file : {e}")
         print(f"An error occurred while writing to the file: {e}")
 
-# TODO: Function to write Processed JSON data to RDF Database
+# Function to write Processed JSON data to RDF Database
 
 def writeToRdf(outputFile: str):
     logging.info("Begin Creating RDF Graph....")
@@ -551,6 +554,8 @@ def list_files_in_folder(folder_path):
     printSampleJsonData('types')
     checkMissingKeys('hasKeywords')
     output_file_path = os.path.join(dataConverterOutputFolder,dataConverterOutputRdf)
+    outputJsonFilePath = os.path.join(dataConverterOutputFolder,dataConverterOutputJson)
+    writeToJson(outputJsonFilePath)
     writeToRdf(output_file_path)
     print("\nFiles Processed : ", file_names)     
 

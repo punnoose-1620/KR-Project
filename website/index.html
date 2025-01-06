@@ -66,6 +66,8 @@
 
         <div id="searchResultsContainer"></div>
 
+        <div id="search-loading"></div>
+
         <!-- Add more movie cards as needed -->
     </div>
 
@@ -85,11 +87,9 @@
             movies.forEach(element => {
             const div = document.createElement('div');
             div.className = 'movie-card';
-            div.onclick= function(){
-                window.location.href = `moviedetails.html?id=${element._id}`;
-
-            };
-            //div.onclick = goToMovieDetails(1234);
+            div.addEventListener('click', () => {
+                goToMovieDetails(element._id);
+            })
             div.innerHTML = `
                 <img src="{item.poster|| 'image/istockphoto-453554783-612x612.jpg'}" alt="">
                 <div class="movie-details">

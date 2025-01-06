@@ -5,6 +5,7 @@ kaggleDataset = "rounakbanik/the-movies-dataset"
 dataConverterOutputFolder = "dataset_processed"
 dataConverterLog = "./outputLogs/converterLogs.txt"
 dataConverterOutputRdf = "MovieData.rdf"
+dataConverterOutputJson = "MovieData.json"
 queryTesterLog = "./outputLogs/queryTesterLog.txt"
 endpointLog = "./outputLogs/backendLogs.txt"
 
@@ -32,6 +33,7 @@ genreKey = 'ofGenre'
 languageKey = 'hasOriginalLanguage'
 titleKey = 'hasOriginalTitle'
 overviewKey = 'hasOverview'
+posterKey = 'hasPoster'
 averateRatingKey = 'hasAverageRating'
 
 # These keywors will be ignored when finding similar results
