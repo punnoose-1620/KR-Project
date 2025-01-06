@@ -11,6 +11,9 @@ body {
     font-family: Arial, sans-serif;
     background-color: var(--background-color);
     color: var(--text-primary);
+    background-image: url("/image/pexels-tima-miroshnichenko-7991180.jpg");
+    background-size: cover; 
+    background-position: center;
 }
 
 header {
@@ -24,10 +27,12 @@ header {
     font-size: large;
     font-style: italic;
     color: #757575;
+    /* color: red; */
 }
 
 .container {
     padding: 2rem;
+    /* color: green; */
 }
 
 .search-section {
@@ -35,6 +40,7 @@ header {
     justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
+    /* color: #FFC107; */
 }
 
 .search-section input[type="text"] {
@@ -42,6 +48,7 @@ header {
     width: 300px;
     border: 1px solid var(--primary-color);
     border-radius: 5px;
+    /* color: blue; */
 }
 
 .search-section button {
@@ -51,15 +58,20 @@ header {
     border-radius: 5px;
     color: var(--primary-color);
     cursor: pointer;
+    /* color: violet; */
 }
 
 .movie-card {
     display: flex;
     background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 1rem;
+    border: 3px solid #ddd;
+    border-radius: 15px;
+    padding: 2rem;
     margin-bottom: 1rem;
+    /* color: burlywood; */
+    border-color:#757575;
+    width: fit-content;
+    box-shadow:inset;
 }
 
 .movie-card img {
@@ -67,19 +79,23 @@ header {
     height: 150px;
     margin-right: 1rem;
     border-radius: 5px;
+    /* color: crimson; */
 }
 
 .movie-details {
     display: flex;
     flex-direction: column;
+    /* color: darkblue; */
 }
 
 .movie-title {
     font-weight: bold;
     margin-bottom: 0.5rem;
+    /* color: darkslateblue; */
 }
 
 .movie-year, .movie-language {
     color: var(--text-secondary);
     margin-bottom: 0.3rem;
+    /* color: darkred9; */
 }

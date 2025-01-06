@@ -1,16 +1,24 @@
 .details-page {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 5rem;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 5px;
+    background-color:rgba(126, 124, 124, 0.663);
+
+    /* background-image: url("/image/istockphoto-453554783-612x612.jpg") */
 }
 
 .details-header {
+    width: fit-content;
+    padding: 27px;
+    align-items: center;
     display: flex;
     gap: 2rem;
     margin-bottom: 2rem;
+    border-radius: 10px;
+    background-color: #ddd;
 }
 
 .details-header img {
@@ -47,6 +55,7 @@
 
 .movie-grid-item {
     text-align: center;
+    padding: 5px;
 }
 
 .movie-grid-item img {
@@ -54,4 +63,30 @@
     height: 150px;
     margin-bottom: 0.5rem;
     border-radius: 5px;
+    padding: 5px;
 }
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    padding-bottom: 5px;
+}
+:root {
+    --primary-color: #1F2937; /* Dark Blue */
+    --secondary-color: #FFC107; /* Gold */
+    --background-color: #F5F5F5; /* Light Gray */
+    --text-primary: #212121; /* Black */
+    --text-secondary: #757575; /* Medium Gray */
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    background-image: url("/image/pexels-tima-miroshnichenko-7991180.jpg");
+    background-size: cover; 
+    background-position: center;
+}
+
