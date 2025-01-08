@@ -15,26 +15,210 @@
     <!-- Details Page -->
     <div class="details-page">
         <div class="details-header">
-            <img src="/image/istockphoto-453554783-612x612.jpg" alt="Movie Poster">
+            <img id="movie-poster" src="/image/istockphoto-453554783-612x612.jpg" alt="Movie Poster">
             <div class="details-content">
-                <h1>Movie Title (2022)</h1>
-                <div class="rating">4.5 / 5</div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac mauris a nisl malesuada aliquet.</p>
+                <h1 id="movie-title">Movie Title (2022)</h1>
+                <div id="movie-ratings" class="rating">4.5 / 5</div>
+                <p id="movie-overview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac mauris a nisl malesuada aliquet.</p>
             </div>
         </div>
 
         <div class="details-section">
             <h2>Movies of the Same Genre</h2>
-            <div class="movie-grid">
-                <div class="movie-grid-item">
-                    <img src="/image/istockphoto-453554783-612x612.jpg" alt="Movie Poster">
-                    <div>Movie Name</div>
-                </div>
-                <!-- Add more grid items as needed -->
-            </div>
+            <div id="genre-same" class="movie-grid"></div>
         </div>
 
+        <div class="details-section">
+            <h2>Movies of the Same Collection</h2>
+            <div id="collection-same" class="movie-grid"></div>
+        </div>
+
+        <div class="details-section">
+            <h2>Movies of the Same Category</h2>
+            <div id="adult-same" class="movie-grid"></div>
+        </div>
+
+        <div class="details-section">
+            <h2>Movies of the Same Artists</h2>
+            <div id="person-same" class="movie-grid"></div>
+        </div>
         <!-- Add more sections for collections, actors, directors, etc. -->
     </div>
+
+    <script>
+        currentMovieId = sessionStorage.getItem('_id');
+        loadingflag = false;
+
+        resultKey = "resultingMovies";
+        similarKey = "similarMovies";
+
+        titleKey = 'hasOriginalTitle';
+        adultKey = 'isAdult';
+        languageKey = 'hasOriginalLanguage';
+        posterKey = 'hasPoster';
+        overviewKey = 'hasOverview';
+        ratingsKey = 'hasAverageRating';
+        genreKey = 'ofGenre';
+        keywordsKey = 'hasKeywords';
+        collectionsKey = 'partOfCollections';
+        actorKey = 'actedBy'
+        
+        movieTitleElementId = 'movie-title';
+        movieRatingsElementId = 'movie-ratings';
+        movieOverviewElementId = 'movie-overview';
+        moviePosterElementId = 'movie-poster';
+
+        async function getSimilarResults(stringVal, callBase) {
+            persons = ['ACTOR', 'DIRECTOR', 'WRITER', 'PRODUCER', 'ARTIST', 'EDITOR', 'SOUNDS', 'VISUALS', 'LIGHTING'];
+            searchUrl = "http://192.168.0.171:5000/search-by-name";
+            bodyData = {
+                'name': stringVal,
+                'queryType': ''
+            };
+            if(callBase=='genre') {
+                searchUrl = "http://192.168.0.171:5000/search-by-genre";
+                bodyData = {
+                    'name': stringVal,
+                    'queryType': ''
+                };
+            }
+            else if(callBase=='collection') {
+                searchUrl = "http://192.168.0.171:5000/search-by-collection";
+                bodyData = {
+                    'name': stringVal,
+                    'queryType': ''
+                };
+            }
+            else if(callBase=='adult') {
+                searchUrl = "http://192.168.0.171:5000/search-by-adult-category";
+                bodyData = {
+                    'flag': (stringVal=="true"?true:false)
+                };
+            }
+            else if(callBase=='keyword') {
+                searchUrl = "http://192.168.0.171:5000/search-by-keyword";
+                bodyData = {
+                    'keywords': `${stringVal}`.split(' ')
+                };
+            }
+            else if(persons.includes(callBase)) {
+                searchUrl = "http://192.168.0.171:5000/search-by-person";
+                bodyData = {
+                    'person': stringVal,
+                    'role': callBase,
+                    'queryType': ''
+                };
+            }
+            try {
+                params = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(bodyData)
+                };
+                fetch(searchUrl, params).then(response => {
+                    if(!response.ok) {throw new Error(`HTTP Error! Status: ${response.status}`);}
+                    return response.json();
+                }).then(data => {
+                    console.log(`Response Data for similar ${callBase} : ${data}`);
+                    movies = JSON.parse(data)[resultKey];
+                    updateLayouts(movies, callBase)
+                });
+            }
+            catch(error) {
+                console.log(`Error while fetching based on  ${callBase} : ${error}`)
+            }
+        }
+
+        async function getMovieDetails(movieId) {
+            searchUrl = "http://192.168.0.171:5000/get-movie-details";
+            bodyData = {
+                'movieId': `${movieId}`
+            };
+            try {
+                params = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(bodyData)
+                };
+                fetch(searchUrl, params).then(response => {
+                    if(!response.ok) {throw new Error(`HTTP Error for Movie Data! Status: ${response.status}`);}
+                    return response.json();
+                }).then(data => {
+                    console.log(`Movie Data Response Data : ${data}`);
+                    movieDetails = JSON.parse(data)[resultKey];
+                    if(Array.isArray(movieDetails)) {
+                        updateMovieDetails(movieDetails[0]);
+                    }
+                    else {updateMovieDetails(movieDetails)}
+
+                    getSimilarResults(`${movieDetails[genreKey]}`, 'genre');
+                    getSimilarResults(`${movieDetails[collectionsKey]}`, 'collection');
+                    getSimilarResults(`${movieDetails[adultKey]}`, 'adult');
+                    if(!(movieDetails[keywordsKey] === undefined)) {getSimilarResults(`${movieDetails[keywordsKey][0]}`, 'keyword');}
+                    actor = movieDetails[actorKey];
+                    if(actor) { getSimilarResults(actor[0], 'ACTOR'); }
+                });
+            }
+            catch(error) {
+                console.log(`Error for Movie Data: ${error}`);
+            }
+        }
+
+        function updateMovieDetails(movieDetails) {
+            titleElement = document.getElementById(movieTitleElementId);
+            ratingsElement = document.getElementById(movieRatingsElementId);
+            overviewElement = document.getElementById(movieOverviewElementId);
+            posterElement = document.getElementById(moviePosterElementId);
+            titleElement.innerHTML = `${movieDetails[titleKey]}`;
+            if(movieDetails[ratingsKey]) {
+                ratingsElement.innerHTML = `${movieDetails[ratingsKey]}/5.0`;
+            }
+            else {
+                ratingsElement.innerHTML = "";
+            }
+            overviewElement.innerHTML = `${movieDetails[overviewKey]}`;
+            // posterElement.innerHTML = `${movieDetails[titleKey]}`;
+        }
+
+        function updateLayouts(movies, callBase) {
+            elementId = "";
+            if(callBase=='genre') {
+                elementId = 'genre-same';
+            }
+            else if(callBase=='collection') {
+                elementId = 'collection-same';
+            }
+            else if(callBase=='adult') {
+                elementId = 'adult-same';
+            }
+            else if(persons.includes(callBase)) {
+                elementId = 'person-same';
+            }
+            const containerDiv = document.getElementById(elementId);
+            containerDiv.replaceChildren();
+            movies.forEach(element => {
+                const div = document.createElement('div');
+                div.className = 'movie-grid-item';
+                div.addEventListener('click', () => {
+                    goToMovieDetails(element._id);
+                });
+                // element[posterKey]|| 
+                div.innerHTML = `
+                    <div class="movie-grid-item">
+                        <img src="./images/sampleMoviePoster.jpg" alt="Movie Poster">
+                        <div>${element[titleKey]}</div>
+                    </div>
+                `;
+                containerDiv.appendChild(div);
+            });
+            containerDiv.offsetWidth;
+        }
+
+        getMovieDetails(currentMovieId);
+    </script>
 </body>
 </html>

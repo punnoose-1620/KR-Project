@@ -22,47 +22,58 @@ def runRdfQuery(rdf_file, sparql_query):
 
 def resultsToJson(query_results):
     json_objects = []
-    # Iterate through the SPARQL results
-    for result in tqdm(query_results, desc="Creating JSON...."):
-        # Create a dictionary for each result
-        json_obj = {}
-        if not isinstance(result, dict):
-            for var in result.labels.keys():
-                value = result[var]
-                if value is not None:
-                    json_obj[var] = str(value)  # Convert RDF terms to strings
+    mergedJsons = []
 
-            json_objects.append(json_obj)
+    def convertRdfToSPOjson():
+        # Iterate through the SPARQL results
+        for result in tqdm(query_results, desc="Creating JSON...."):
+            # Create a dictionary for each result
+            json_obj = {}
+            testType = type(result)
+            if not isinstance(result, dict):
+                for var in result.labels.keys():
+                    value = result[var]
+                    if value is not None:
+                        json_obj[var] = str(value)  # Convert RDF terms to strings
 
-    unified_json = {}           # values are of format { movieId: movieDetailsObject }
-    for item in tqdm(json_objects, desc="Unifying JSON based on ID...."):
-        itemId = str(item['movie']).split('/')[-1]
-        ref_keys = list(item.keys())
-        ref_keys.remove('movie')
-        if itemId in unified_json.keys():
-            itemVal = unified_json[itemId]
-            for key in ref_keys:
-                if item[key]!=itemVal[key]:
-                    if not isinstance(itemVal[key],list):
-                        itemVal[key] = [itemVal[key]]
-                    itemVal[key].append(item[key])
-            unified_json[itemId] = itemVal
-        else:
-            itemVal = {
-                '_id': itemId,
-            }
-            for key in ref_keys:
-                itemVal[key] = item[key]
-            unified_json[itemId] = itemVal
-        # print("Converted Data Sample : ",json.dumps(json_objects[0], indent=4))
-    
-    finalizedJson = []          # values are of format [movieDetailsObject1, movieDetailsObject2,....]
-    for key in tqdm(unified_json.keys(), desc="Finalizing JSON Conversion"):
-        value = unified_json[key]
-        finalizedJson.append(value)
+                json_objects.append(json_obj)
+            else:
+                # print(f"Rdf Result Instance : {type(result)} : {result}")
+                mergedJsons.append(result)
 
-    # print("Converted Data Sample : ",json.dumps(finalizedJson[0], indent=4))
-    return finalizedJson
+    def unifySPOtoSingleObjects():
+        temp_object = {}
+        for item in json_objects:
+            movieId = str(item['movie']).split('/')[-1]
+            key = str(item['predicate']).split('/')[-1]
+            value = item['object']
+            # print(f"Sample Object : {movieId} : {key} : {value} : {temp_object}")
+            if '_id' in temp_object.keys():
+                if temp_object['_id']!=movieId:
+                    mergedJsons.append(temp_object)
+                    temp_object = {}
+            if key in temp_object.keys():
+                currentVal = temp_object[key]
+                if isinstance(currentVal,list):
+                    currentVal.append(value)
+                    temp_object[key] = currentVal
+                else:
+                    temp_object[key] = [temp_object[key], value]
+            temp_object[key] = value
+        if temp_object!={}:
+            mergedJsons.append(temp_object)
+
+    print("Rdf Query Result Count : ",len(query_results))
+    convertRdfToSPOjson()
+    print("First Json Conversion Count : ", len(json_objects))
+    if len(json_objects)>0:
+        print("Sample First Json : ",json.dumps(json_objects[0],indent=4))
+    unifySPOtoSingleObjects()
+    print("Unified Json Conversion Count : ", len(mergedJsons))
+    if len(mergedJsons)>0:
+        print("Sample Unified Json : ",json.dumps(mergedJsons[0],indent=4))
+    # mergeUnifiedObjectsToSingleJsonArr()
+    return mergedJsons
 
 def orderMoviesByRating(movies: list, tag:str=ascendingOrder):       # Tags: ASC, DESC
     itemKey = "avgRating"
@@ -83,7 +94,7 @@ def getMovieByName(name: str):
             additionalMoviesResult = runRdfQuery(rdf_file=rdfFile, sparql_query=getFilmByTitle_Query(item))
             additionaMoviesJson = resultsToJson(additionalMoviesResult)
             for item in additionaMoviesJson:
-                if item not in additionalMovies:
+                if item not in additionalMovies and item not in initialMovieJson:
                     additionalMovies.append(item)
     finalJson = {
         searchResultMovies: initialMovieJson,
@@ -94,7 +105,7 @@ def getMovieByName(name: str):
 def getMoviesByPersonBasic(name:str, role:str,queryType:str=similarQuery):
     returnObject = {}
     movies = []
-    movies = getMovieByName(name, role)
+    movies = getMoviesByPerson(name, role)
     returnObject[searchResultMovies] = movies
     if queryType==searchQuery:
         additionalNames = name.split(' ')
@@ -185,4 +196,4 @@ def getMovieDetails(_id: str):
     if len(movies)>1:
         return {searchResultMovies: movies}
     else:
-        return movies[0]
+        return {searchResultMovies: movies[0]}

@@ -60,11 +60,13 @@ app.add_middleware(
 def searchByName(input: NameFromUser):
     logging.info("Search By Name Invoked....")
     logging.info(f"Search By Name Input Data : {json.dumps(input.getJson(), indent=4)}")
+    print("Input Data : ",json.dumps(input.getJson()))
     result = getMovieByName(name=input.name)
+    print("Response Data : ",json.dumps(result))
     logging.info(f"Search By Name Response Data : {json.dumps(result, indent=4)}")
     return json.dumps(result, indent=4)
 
-@app.get("/search-by-person")
+@app.post("/search-by-person")
 def searchByPerson(input: PersonFromUser):
     logging.info("Search By Person Invoked....")
     logging.info(f"Search By Person Input Data : {json.dumps(input.getJson(), indent=4)}")
@@ -72,7 +74,7 @@ def searchByPerson(input: PersonFromUser):
     logging.info(f"Search By Person Response Data : {json.dumps(result, indent=4)}")
     return json.dumps(result, indent=4)
 
-@app.get("/search-by-keyword")
+@app.post("/search-by-keyword")
 def searchByKeyWord(input: KeyWordsFromUser):
     logging.info("Search By Keyword Invoked....")
     logging.info(f"Search By Keyword Input Data : {json.dumps(input.getJson(), indent=4)}")
@@ -80,7 +82,7 @@ def searchByKeyWord(input: KeyWordsFromUser):
     logging.info(f"Search By Keyword Response Data : {json.dumps(result, indent=4)}")
     return json.dumps(result, indent=4)
 
-@app.get("/search-by-collection")
+@app.post("/search-by-collection")
 def searchByCollection(input: NameFromUser):
     logging.info("Search By Collection Invoked....")
     logging.info(f"Search By Collection Input Data : {json.dumps(input.getJson(), indent=4)}")
@@ -88,7 +90,7 @@ def searchByCollection(input: NameFromUser):
     logging.info(f"Search By Collection Response Data : {json.dumps(result, indent=4)}")
     return json.dumps(result, indent=4)
 
-@app.get("/search-by-adult-category")
+@app.post("/search-by-adult-category")
 def searchByAdultCategory(input: FlagFromUser):
     logging.info("Search By Adult Category Invoked....")
     logging.info(f"Search By Adult Category Input Data : {json.dumps(input.getJson(), indent=4)}")
@@ -96,7 +98,7 @@ def searchByAdultCategory(input: FlagFromUser):
     logging.info(f"Search By Adult Category Response Data : {json.dumps(result, indent=4)}")
     return json.dumps(result, indent=4)
 
-@app.get("/search-by-genre")
+@app.post("/search-by-genre")
 def searchByGenre(input: NameFromUser):
     logging.info("Search By Genre Invoked....")
     logging.info(f"Search By Genre Input Data : {json.dumps(input.getJson(), indent=4)}")
@@ -104,7 +106,7 @@ def searchByGenre(input: NameFromUser):
     logging.info(f"Search By Genre Response Data : {json.dumps(result, indent=4)}")
     return json.dumps(result, indent=4)
 
-@app.get("/get-movie-details")
+@app.post("/get-movie-details")
 def getDetails(input: IdFromUser):
     logging.info("Get Movie Details Invoked....")
     logging.info(f"Get Movie Details Input Data : {json.dumps(input.getJson(), indent=4)}")

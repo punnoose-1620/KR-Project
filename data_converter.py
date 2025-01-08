@@ -468,7 +468,7 @@ def processRatings():
 def writeToJson(outputFile: str):
     try:
         with open(outputFile, mode='w', encoding='utf-8') as file:
-            json.dump(jsonMovieData, file, indent=4, ensure_ascii=False)
+            json.dump(jsonMovieData[:101], file, indent=4, ensure_ascii=False)
         logging.info("Written to JSON File....")
         print(f"JSON data has been written to {outputFile}")
 
@@ -488,7 +488,7 @@ def writeToRdf(outputFile: str):
     temp = {}
     # Define a namespace for the properties
     ns = Namespace(sampleNameSpace)
-    for item in tqdm(jsonMovieData, desc="Writing Data to RDF File...."):
+    for item in tqdm(jsonMovieData[:101], desc="Writing Data to RDF File...."):
         # Create a unique URI for each individual using the "_id"
         subject = URIRef(subjectRefUri+str(item['_id']))
 
@@ -509,6 +509,35 @@ def writeToRdf(outputFile: str):
     graph.serialize(destination=outputFile, format='turtle')
     print(f"RDF data has been written to {outputFile}")
     logging.info("Completed Writing to RDF File....")
+
+# Write data to a page for referring sample data
+
+def writeSampleData(outputFile: str):
+    if len(jsonMovieData)>0:
+        refKeys = []
+        for item in jsonMovieData:
+            jsonKeys = item.keys()
+            for keytemp in jsonKeys:
+                if keytemp not in refKeys:
+                    refKeys.append(keytemp)
+        sampleDataObject = {}
+        for key in tqdm(refKeys, desc='Writing Sample Data....'):
+            tempArr = []
+            for movie in jsonMovieData[:101]:
+                if key in movie:
+                    movieItem = movie[key]
+                    if isinstance(movieItem,list):
+                        for t_item in movieItem:
+                            if t_item not in tempArr:
+                                tempArr.append(t_item)
+                    elif movieItem not in tempArr:
+                        tempArr.append(movieItem)
+                sampleDataObject[key] = tempArr
+        try:
+            with open(outputFile, mode='w', encoding='utf-8') as file:
+                json.dump(sampleDataObject, file, indent=4, ensure_ascii=False)
+        except Exception as e:
+            print(f"Sample Data Error: Provided data is not JSON serializable. {e}")
 
 # Function to iterate through each downloaded file in cache folder and invoke relevant functions
 
@@ -551,12 +580,15 @@ def list_files_in_folder(folder_path):
                 printSampleJsonData('types')
         calculateTotalTime("final")
     print("Unified Data Count : ",len(jsonMovieData))
+    print("Final Data Count Taken : ",len(jsonMovieData[:101]))
     printSampleJsonData('types')
     checkMissingKeys('hasKeywords')
     output_file_path = os.path.join(dataConverterOutputFolder,dataConverterOutputRdf)
     outputJsonFilePath = os.path.join(dataConverterOutputFolder,dataConverterOutputJson)
+    outputSampleJsonFilePath = os.path.join(dataConverterOutputFolder,sampleDataFile)
     writeToJson(outputJsonFilePath)
     writeToRdf(output_file_path)
+    writeSampleData(outputSampleJsonFilePath)
     print("\nFiles Processed : ", file_names)     
 
 # Calculate and display statistics of conversion

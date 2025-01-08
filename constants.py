@@ -8,6 +8,7 @@ dataConverterOutputRdf = "MovieData.rdf"
 dataConverterOutputJson = "MovieData.json"
 queryTesterLog = "./outputLogs/queryTesterLog.txt"
 endpointLog = "./outputLogs/backendLogs.txt"
+sampleDataFile = "SampleData.json"
 
 rdfFile = "./dataset_processed/MovieData.rdf"
 sampleNameSpace = "http://example.org/property/"

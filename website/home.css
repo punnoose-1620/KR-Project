@@ -71,7 +71,7 @@ header {
     /* color: burlywood; */
     border-color:#757575;
     width: fit-content;
-    box-shadow:inset;
+    /* box-shadow:inset; */
 }
 
 .movie-card img {
