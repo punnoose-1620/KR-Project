@@ -8,7 +8,7 @@
 
 # To run as server on windows
 # python -m uvicorn main:app --port 5000 --reload
-
+import os
 import json
 import socket
 import uvicorn
@@ -16,15 +16,20 @@ import logging
 from classes import *
 from constants import *
 from controllers import *
+from pathlib import Path
 from fastapi import FastAPI
-from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse, HTMLResponse, FileResponse
 
 app = FastAPI(
     title="Knowledge Representation Project Server",
     summary="Python Server for the Knowledge Representation Project"
 )
+
+# Mount Website Directory
+# app.mount("/website", StaticFiles(directory='website/static'), name='static')
 
 if __name__ == '__main__':
     hostname = socket.gethostname()
@@ -55,6 +60,26 @@ app.add_middleware(
     allow_methods=methods,
     allow_headers=headers,
 )
+
+@app.get('/index.html', response_class=HTMLResponse)
+async def getIndexPage():
+    index_path = Path('./website/index.html')
+    html_content = index_path.read_text()
+    return HTMLResponse(content=html_content)
+
+@app.get('/home.css', response_class=FileResponse)
+async def getIndexPage():
+    return FileResponse(os.path.join("./website", "home.css"), media_type="text/css")
+
+@app.get('/movieDetails.html', response_class=HTMLResponse)
+async def getIndexPage():
+    index_path = Path('./website/movieDetails.html')
+    html_content = index_path.read_text()
+    return HTMLResponse(content=html_content)
+
+@app.get('/movieDetails.css', response_class=FileResponse)
+async def getIndexPage():
+    return FileResponse(os.path.join("./website", "movieDetails.css"), media_type="text/css")
 
 @app.post("/search-by-name")
 def searchByName(input: NameFromUser):
