@@ -85,8 +85,8 @@ body {
     font-family: Arial, sans-serif;
     background-color: var(--background-color);
     color: var(--text-primary);
-    background-image: url("/image/pexels-tima-miroshnichenko-7991180.jpg");
+    background-image: url("../image/pexels-tima-miroshnichenko-7991180.jpg");
     background-size: cover; 
-    background-position: center;
+    /* background-position: center; */
 }
 

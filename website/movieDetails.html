@@ -78,7 +78,7 @@
                 'queryType': ''
             };
             if(callBase=='genre') {
-                searchUrl = `${baseUrl}http://192.168.0.171:5000/search-by-genre`;
+                searchUrl = `${baseUrl}http://192.168.1.171:5000/search-by-genre`;
                 bodyData = {
                     'name': stringVal,
                     'queryType': ''
@@ -92,7 +92,7 @@
                 };
             }
             else if(callBase=='adult') {
-                searchUrl = "http://192.168.0.171:5000/search-by-adult-category";
+                searchUrl = "http://192.168.1.171:5000/search-by-adult-category";
                 bodyData = {
                     'flag': (stringVal=="true"?true:false)
                 };
