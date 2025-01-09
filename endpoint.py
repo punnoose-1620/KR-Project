@@ -137,6 +137,12 @@ def getDetails(input: IdFromUser):
     logging.info(f"Get Movie Details Input Data : {json.dumps(input.getJson(), indent=4)}")
     print("Get Movie Details Request Body : ",json.dumps(input.getJson(), indent=4))
     result = getMovieDetails(_id=input.movieId)
+    # Remove all results that don't have exact same id
+    resultMovies = result[searchResultMovies]
+    for item in resultMovies:
+        if str(item['_id'])!=input.movieId:
+            resultMovies.remove(item)
+    result[searchResultMovies] = resultMovies
     print("Get Movie Details Response : ",json.dumps(result, indent=4))
     logging.info(f"Get Movie Details Response Data : {json.dumps(result, indent=4)}")
     return json.dumps(result, indent=4)
