@@ -72,7 +72,7 @@ search_producer='Celestia'
 # Values for API Endpoint
 portNumber = 5000
 ipAddress = "127.0.0.1"
-origins = ['*']
+origins = ['*', 'https://kr-project-production.up.railway.app/']
 
 methods = ['*']
 

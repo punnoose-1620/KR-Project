@@ -23,22 +23,22 @@
             </div>
         </div>
 
-        <div class="details-section">
+        <div id="genre-same-container" class="details-section">
             <h2>Movies of the Same Genre</h2>
             <div id="genre-same" class="movie-grid"></div>
         </div>
 
-        <div class="details-section">
+        <div id="collection-same-container" class="details-section">
             <h2>Movies of the Same Collection</h2>
             <div id="collection-same" class="movie-grid"></div>
         </div>
 
-        <div class="details-section">
+        <div id="adult-same-container" class="details-section">
             <h2>Movies of the Same Category</h2>
             <div id="adult-same" class="movie-grid"></div>
         </div>
 
-        <div class="details-section">
+        <div id="person-same-container" class="details-section">
             <h2>Movies of the Same Artists</h2>
             <div id="person-same" class="movie-grid"></div>
         </div>
@@ -78,7 +78,7 @@
                 'queryType': ''
             };
             if(callBase=='genre') {
-                searchUrl = `${baseUrl}http://192.168.1.171:5000/search-by-genre`;
+                searchUrl = `${baseUrl}/search-by-genre`;
                 bodyData = {
                     'name': stringVal,
                     'queryType': ''
@@ -92,7 +92,7 @@
                 };
             }
             else if(callBase=='adult') {
-                searchUrl = "http://192.168.1.171:5000/search-by-adult-category";
+                searchUrl = `${baseUrl}/search-by-adult-category`;
                 bodyData = {
                     'flag': (stringVal=="true"?true:false)
                 };
@@ -172,53 +172,66 @@
         }
 
         function updateMovieDetails(movieDetails) {
-            titleElement = document.getElementById(movieTitleElementId);
-            ratingsElement = document.getElementById(movieRatingsElementId);
-            overviewElement = document.getElementById(movieOverviewElementId);
-            posterElement = document.getElementById(moviePosterElementId);
-            titleElement.innerHTML = `${movieDetails[titleKey]}`;
-            if(movieDetails[ratingsKey]) {
-                ratingsElement.innerHTML = `${movieDetails[ratingsKey]}/5.0`;
+            if(movieDetails!=undefined) {
+                titleElement = document.getElementById(movieTitleElementId);
+                ratingsElement = document.getElementById(movieRatingsElementId);
+                overviewElement = document.getElementById(movieOverviewElementId);
+                posterElement = document.getElementById(moviePosterElementId);
+                titleElement.innerHTML = `${movieDetails[titleKey]}`;
+                if(movieDetails[ratingsKey]) {
+                    ratingsElement.innerHTML = `${movieDetails[ratingsKey]}/5.0`;
+                }
+                else {
+                    ratingsElement.innerHTML = "";
+                }
+                overviewElement.innerHTML = `${movieDetails[overviewKey]}`;
             }
-            else {
-                ratingsElement.innerHTML = "";
-            }
-            overviewElement.innerHTML = `${movieDetails[overviewKey]}`;
-            // posterElement.innerHTML = `${movieDetails[titleKey]}`;
         }
 
         function updateLayouts(movies, callBase) {
             elementId = "";
+            containerId = "";
             if(callBase=='genre') {
+                containerId="genre-same-container"
                 elementId = 'genre-same';
             }
             else if(callBase=='collection') {
+                containerId="collection-same-container"
                 elementId = 'collection-same';
             }
             else if(callBase=='adult') {
+                containerId="adult-same-container"
                 elementId = 'adult-same';
             }
             else if(persons.includes(callBase)) {
+                containerId="person-same-container"
                 elementId = 'person-same';
             }
             const containerDiv = document.getElementById(elementId);
-            containerDiv.replaceChildren();
-            movies.forEach(element => {
-                const div = document.createElement('div');
-                div.className = 'movie-grid-item';
-                div.addEventListener('click', () => {
-                    goToMovieDetails(element._id);
+            const mainDiv = document.getElementById(containerId);
+            if(movies.length==0) {
+                mainDiv.replaceChildren();
+                mainDiv.offsetWidth;
+            }
+            else {
+                containerDiv.replaceChildren();
+                movies.forEach(element => {
+                    const div = document.createElement('div');
+                    div.className = 'movie-grid-item';
+                    div.addEventListener('click', () => {
+                        goToMovieDetails(element._id);
+                    });
+                    // element[posterKey]|| 
+                    div.innerHTML = `
+                        <div class="movie-grid-item">
+                            <img src="./images/sampleMoviePoster.jpg" alt="Movie Poster">
+                            <div>${element[titleKey]}</div>
+                        </div>
+                    `;
+                    containerDiv.appendChild(div);
                 });
-                // element[posterKey]|| 
-                div.innerHTML = `
-                    <div class="movie-grid-item">
-                        <img src="./images/sampleMoviePoster.jpg" alt="Movie Poster">
-                        <div>${element[titleKey]}</div>
-                    </div>
-                `;
-                containerDiv.appendChild(div);
-            });
-            containerDiv.offsetWidth;
+                containerDiv.offsetWidth;
+            }
         }
 
         getMovieDetails(currentMovieId);
