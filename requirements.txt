@@ -1,0 +1,6 @@
+uvicorn
+fastapi
+tqdm
+rdflib
+kagglehub
+pydantic

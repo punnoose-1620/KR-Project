@@ -1,4 +1,3 @@
-
 from constants import *
 
 example_query = """
