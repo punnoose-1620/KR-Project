@@ -67,6 +67,7 @@
                 }).then(data => {
                     console.log(`Response Data : ${data}`);
                     movies = JSON.parse(data)[resultKey];
+                    sessionStorage.setItem('movieData', JSON.stringify(movies));
                     updateResultsContainer(movies);
                 });
                 toggleSpinner(false);
@@ -117,7 +118,7 @@
                         });
                         // element[posterKey]|| 
                         div.innerHTML = `
-                            <img src="./images/sampleMoviePoster.jpg" alt="Movie Poster">
+                            <img src="${baseUrl}${element.posterKey}" alt="Movie Poster">
                             <div class="movie-details">
                                 <div class="movie-title">${element[titleKey]}</div>
                                 <div class="movie-year">Release Year: ${element.releaseYear}</div>

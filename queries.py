@@ -180,16 +180,13 @@ WHERE {{
   return givenWriterQuery
 
 # This gets all details of the film containing given ID
-def getFilmById(_id: str):
-    givenIdQuery = f""" PREFIX ns1: <{sampleNameSpace}>
+def getFilmById(_id:str):
+  givenIdQuery = f""" PREFIX ns1: <{sampleNameSpace}>
 
-    SELECT  ?movie ?predicate ?object
-    WHERE {{
-        ?movie ns1:{_id} ?id ;
-               ?predicate ?object .
-       FILTER(?id="{_id}")
-       
-    }}"""
-    
-    
-    return givenIdQuery
+SELECT DISTINCT ?movie ?predicate ?object
+WHERE {{
+    ?movie ns1:_id ?id ;
+           ?predicate ?object .
+    FILTER(CONTAINS(LCASE(?id), LCASE("{_id}")))
+}}"""
+  return givenIdQuery

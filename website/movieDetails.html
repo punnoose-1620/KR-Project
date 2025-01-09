@@ -11,14 +11,15 @@
     <header>
         <h1>Movie Details</h1>
     </header>
-
+    
     <!-- Details Page -->
     <div class="details-page">
         <div class="details-header">
             <img id="movie-poster" src="/image/istockphoto-453554783-612x612.jpg" alt="Movie Poster">
             <div class="details-content">
-                <h1 id="movie-title">Movie Title (2022)</h1>
+                <h1 id="movie-title">Movie Title</h1>
                 <div id="movie-ratings" class="rating">4.5 / 5</div>
+                <div id="movie-direcor"></div>
                 <p id="movie-overview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac mauris a nisl malesuada aliquet.</p>
             </div>
         </div>
@@ -46,6 +47,9 @@
     </div>
 
     <script>
+        //get movie data from local storage
+        const movieData = JSON.parse(sessionStorage.getItem('movieData'));
+    console.log(movieData);
         currentMovieId = sessionStorage.getItem('_id');
         loadingflag = false;
 
@@ -67,6 +71,9 @@
         movieRatingsElementId = 'movie-ratings';
         movieOverviewElementId = 'movie-overview';
         moviePosterElementId = 'movie-poster';
+        movieDirectorElementId='movie-direcor'
+        console.log(movieData[0][titleKey])
+        updateMovieDetails(movieData[0])  //call function update movie Details
 
         baseUrl = 'https://kr-project-production.up.railway.app'
 
@@ -126,6 +133,7 @@
                     console.log(`Response Data for similar ${callBase} : ${data}`);
                     movies = JSON.parse(data)[resultKey];
                     updateLayouts(movies, callBase)
+                   
                 });
             }
             catch(error) {
@@ -177,6 +185,7 @@
                 ratingsElement = document.getElementById(movieRatingsElementId);
                 overviewElement = document.getElementById(movieOverviewElementId);
                 posterElement = document.getElementById(moviePosterElementId);
+                directorElement=document.getElementById(movieDirectorElementId);
                 titleElement.innerHTML = `${movieDetails[titleKey]}`;
                 if(movieDetails[ratingsKey]) {
                     ratingsElement.innerHTML = `${movieDetails[ratingsKey]}/5.0`;
@@ -224,8 +233,12 @@
                     // element[posterKey]|| 
                     div.innerHTML = `
                         <div class="movie-grid-item">
-                            <img src="./images/sampleMoviePoster.jpg" alt="Movie Poster">
+                            <img src=${element[moviePosterElementId]} alt="Movie Poster">
                             <div>${element[titleKey]}</div>
+                            <div>${element[ratingsElement]}</div>
+                            <div>${element[directorElement]}</div>
+                            <div>${element[overviewElement]}</div>
+                        
                         </div>
                     `;
                     containerDiv.appendChild(div);
