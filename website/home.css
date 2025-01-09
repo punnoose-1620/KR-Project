@@ -4,6 +4,8 @@
     --background-color: #F5F5F5; /* Light Gray */
     --text-primary: #212121; /* Black */
     --text-secondary: #757575; /* Medium Gray */
+    --accent-color: #E0A800; /* Accent Gold */
+    --card-bg-color: #ffffff; /* White for Cards */
 }
 
 body {
@@ -13,7 +15,12 @@ body {
     color: var(--text-primary);
     background-image: url("../image/pexels-tima-miroshnichenko-7991180.jpg");
     background-size: cover; 
-    /* background-position: center; */
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
 }
 
 header {
@@ -21,18 +28,15 @@ header {
     color: white;
     padding: 1rem;
     text-align: center;
-}
-
-.empty-state-search {
-    font-size: large;
-    font-style: italic;
-    color: #757575;
-    /* color: red; */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .container {
+    width: 100%;
     padding: 2rem;
-    /* color: green; */
+    max-width: 1200px;
+    box-sizing: border-box;
 }
 
 .search-section {
@@ -40,7 +44,6 @@ header {
     justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
-    /* color: #FFC107; */
 }
 
 .search-section input[type="text"] {
@@ -48,7 +51,7 @@ header {
     width: 300px;
     border: 1px solid var(--primary-color);
     border-radius: 5px;
-    /* color: blue; */
+    font-size: 1rem;
 }
 
 .search-section button {
@@ -58,44 +61,103 @@ header {
     border-radius: 5px;
     color: var(--primary-color);
     cursor: pointer;
-    /* color: violet; */
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.search-section button:hover {
+    background-color: var(--accent-color);
+}
+
+#searchResultsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8rem;
 }
 
 .movie-card {
     display: flex;
-    background-color: white;
+    background-color: var(--card-bg-color);
     border: 3px solid #ddd;
     border-radius: 15px;
-    padding: 2rem;
+    padding: 1.5rem;
     margin-bottom: 1rem;
-    /* color: burlywood; */
-    border-color:#757575;
-    width: fit-content;
-    /* box-shadow:inset; */
+    border-color: #757575;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .movie-card img {
-    width: 100px;
+    width: 160px;
     height: 150px;
     margin-right: 1rem;
     border-radius: 5px;
-    /* color: crimson; */
 }
 
 .movie-details {
     display: flex;
     flex-direction: column;
-    /* color: darkblue; */
 }
 
 .movie-title {
     font-weight: bold;
     margin-bottom: 0.5rem;
-    /* color: darkslateblue; */
+    font-size: 1.25rem;
+    color: var(--primary-color);
 }
 
 .movie-year, .movie-language {
     color: var(--text-secondary);
     margin-bottom: 0.3rem;
-    /* color: darkred9; */
+    font-size: 1rem;
+}
+
+.empty-state-search {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .search-section input[type="text"] {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .movie-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .movie-card img {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 1rem;
+    }
+}
+
+.movie-details p {
+    font-size: 1rem;
+    color: red;
+    text-decoration: underline;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.movie-details p:hover {
+    color:darkred;
 }

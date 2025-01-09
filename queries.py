@@ -185,9 +185,9 @@ def getFilmById(_id: str):
 
     SELECT  ?movie ?predicate ?object
     WHERE {{
-        ?movie ns1:id ?id ;
+        ?movie ns1:{_id} ?id ;
                ?predicate ?object .
-       FILTER(?id={_id})
+       FILTER(?id="{_id}")
        
     }}"""
     
