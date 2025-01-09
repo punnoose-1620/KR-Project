@@ -110,6 +110,8 @@ def searchByGenre(input: NameFromUser):
 def getDetails(input: IdFromUser):
     logging.info("Get Movie Details Invoked....")
     logging.info(f"Get Movie Details Input Data : {json.dumps(input.getJson(), indent=4)}")
+    print("Get Movie Details Request Body : ",json.dumps(input.getJson(), indent=4))
     result = getMovieDetails(_id=input.movieId)
+    print("Get Movie Details Response : ",json.dumps(result, indent=4))
     logging.info(f"Get Movie Details Response Data : {json.dumps(result, indent=4)}")
     return json.dumps(result, indent=4)

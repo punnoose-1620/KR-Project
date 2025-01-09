@@ -44,8 +44,10 @@
 
         previousSearchValue = "";
 
+        baseUrl = "http://192.168.0.171:5000"
+
         async function getSearchResults(stringVal) {
-            searchUrl = "http://192.168.0.171:5000/search-by-name";
+            searchUrl = `${baseUrl}/search-by-name`;
             bodyData = {
                 'name': stringVal,
                 'queryType': ''
