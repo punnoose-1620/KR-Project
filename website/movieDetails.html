@@ -63,6 +63,7 @@
         overviewKey = 'hasOverview';
         ratingsKey = 'hasAverageRating';
         genreKey = 'ofGenre';
+        yearKey = 'hasReleaseYear';
         keywordsKey = 'hasKeywords';
         collectionsKey = 'partOfCollections';
         actorKey = 'actedBy'
@@ -186,13 +187,20 @@
                 overviewElement = document.getElementById(movieOverviewElementId);
                 posterElement = document.getElementById(moviePosterElementId);
                 directorElement=document.getElementById(movieDirectorElementId);
-                titleElement.innerHTML = `${movieDetails[titleKey]}`;
+
+                if(movieDetails[yearKey]!=undefined) {
+                    titleElement.innerHTML = `${movieDetails[titleKey]} (${movieDetails[yearKey]})`;
+                }
+                else {
+                    titleElement.innerHTML = `${movieDetails[titleKey]}`;
+                }
                 if(movieDetails[ratingsKey]) {
                     ratingsElement.innerHTML = `${movieDetails[ratingsKey]}/5.0`;
                 }
                 else {
                     ratingsElement.innerHTML = "";
                 }
+
                 overviewElement.innerHTML = `${movieDetails[overviewKey]}`;
             }
         }
@@ -225,6 +233,25 @@
             else {
                 containerDiv.replaceChildren();
                 movies.forEach(element => {
+                    title = ''
+                    poster = ''
+                    ratings = ''
+                    genre = ''
+                    overview = ''
+
+                    if(element[titleKey]!=undefined) {
+                        title = element[titleKey]
+                    }
+                    if(element[ratingsKey]!=undefined) {
+                        ratings = `${element[ratingsKey]}/5`
+                    }
+                    if(element[genreKey]!=undefined) {
+                        genre = element[genreKey]
+                    }
+                    if(element[overviewKey]!=undefined) {
+                        overview = element[overviewKey]
+                    }
+
                     const div = document.createElement('div');
                     div.className = 'movie-grid-item';
                     div.addEventListener('click', () => {
@@ -234,10 +261,9 @@
                     div.innerHTML = `
                         <div class="movie-grid-item">
                             <img src=${element[moviePosterElementId]} alt="Movie Poster">
-                            <div>${element[titleKey]}</div>
-                            <div>${element[ratingsElement]}</div>
-                            <div>${element[directorElement]}</div>
-                            <div>${element[overviewElement]}</div>
+                            <div>${title}</div>
+                            <div>${ratings}</div>
+                            <div>${genre}</div>
                         
                         </div>
                     `;

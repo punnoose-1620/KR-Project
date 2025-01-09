@@ -38,6 +38,7 @@
         adultKey = 'isAdult';
         languageKey = 'hasOriginalLanguage';
         posterKey = 'hasPoster';
+        yearKey = 'hasReleaseYear';
         spinnerElementId = "loadingSpinner";
         searchResultsContainerId = 'searchResultsContainer';
         searchEntryContainerId = "searchEntryField";
@@ -111,6 +112,11 @@
                 if(resultsList.length>0) {
                     searchResultsContainer.replaceChildren();
                     resultsList.forEach(element => {
+                        year = ''
+                        if(element[yearKey]!=undefined) {
+                            year = element[yearKey]
+                        }
+
                         const div = document.createElement('div');
                         div.className = 'movie-card';
                         div.addEventListener('click', () => {
@@ -121,7 +127,7 @@
                             <img src="${baseUrl}${element.posterKey}" alt="Movie Poster">
                             <div class="movie-details">
                                 <div class="movie-title">${element[titleKey]}</div>
-                                <div class="movie-year">Release Year: ${element.releaseYear}</div>
+                                <div class="movie-year">Release Year: ${year}</div>
                                 <div class="movie-language">Language: ${element[languageKey]}</div>
                                 <p>MoreDetails..</p>
                             </div>

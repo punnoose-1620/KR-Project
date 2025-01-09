@@ -11,8 +11,11 @@ from datetime import datetime
 from rdflib import Graph, URIRef, Literal, Namespace
 
 jsonMovieData = []
+additionalMovieYearData = {}
+additionalMoviePosterData = {}
 startTime = datetime.now()
 endTime = datetime.now()
+dataLimit = 150
 
 # Functions to read each individual CSV file and add relevant parameters to JSON data variable
  
@@ -190,7 +193,7 @@ def readMetaData(filePath:str):
                         item[languageKey] = originalLang
                         item[titleKey] = originalTitle
                         item[overviewKey] = overview
-                        item[posterKey] = posterPath
+                        item[posterKey] = "https://m.media-amazon.com/images/M/"+posterPath
                 if foundFlag==False:
                     movie_data = {
                         '_id' : _id,
@@ -201,7 +204,7 @@ def readMetaData(filePath:str):
                         languageKey : originalLang,
                         titleKey : originalTitle,
                         overviewKey : overview,
-                        posterKey: posterPath
+                        posterKey: "https://m.media-amazon.com/images/M/"+posterPath
                     }
                     jsonMovieData.append(movie_data)
             print("Duplicate MetaData Count : ", duplicateOverwrites)
@@ -463,12 +466,26 @@ def processRatings():
     checkMissingKeys(averateRatingKey)
     jsonMovieData = newJsonData
 
+# Function to drop entries that do not have the given key
+
+def dropEntries(key: str):
+    global jsonMovieData
+    initialLength = len(jsonMovieData)
+    newMoviesList = []
+    for movie in tqdm(jsonMovieData, desc="Dropping Keys...."):
+        if key in movie.keys():
+            if str(movie[key]).strip()!='':
+                newMoviesList.append(movie)
+    finalLength = len(newMoviesList)
+    print(f"{finalLength-initialLength} Entries Dropped based on {key}")
+    jsonMovieData = newMoviesList
+
 # Function to Write JSON data to JSON file for temporary storage
 
 def writeToJson(outputFile: str):
     try:
         with open(outputFile, mode='w', encoding='utf-8') as file:
-            json.dump(jsonMovieData[:101], file, indent=4, ensure_ascii=False)
+            json.dump(jsonMovieData[:dataLimit], file, indent=4, ensure_ascii=False)
         logging.info("Written to JSON File....")
         print(f"JSON data has been written to {outputFile}")
 
@@ -488,7 +505,7 @@ def writeToRdf(outputFile: str):
     temp = {}
     # Define a namespace for the properties
     ns = Namespace(sampleNameSpace)
-    for item in tqdm(jsonMovieData[:101], desc="Writing Data to RDF File...."):
+    for item in tqdm(jsonMovieData[:dataLimit], desc="Writing Data to RDF File...."):
         # Create a unique URI for each individual using the "_id"
         subject = URIRef(subjectRefUri+str(item['_id']))
 
@@ -583,6 +600,26 @@ def list_files_in_folder(folder_path):
     print("Final Data Count Taken : ",len(jsonMovieData[:101]))
     printSampleJsonData('types')
     checkMissingKeys('hasKeywords')
+    dropEntries(titleKey)
+
+    getAdditionalYearData()
+    print("Additional Year Data Count : ", len(additionalMovieYearData.keys()))
+    getAdditionalPosterData()
+    print("Additional Poster Data Count : ", len(additionalMoviePosterData.keys()))
+    year_match_count = 0
+    poster_match_count = 0
+    for movie in tqdm(jsonMovieData, desc="Getting Release Year for movies...."):
+        if titleKey in movie.keys():
+            title = str(movie[titleKey]).lower().strip()
+            if title in additionalMovieYearData.keys():
+                year_match_count = year_match_count+1
+                movie[releaseYearKey] = additionalMovieYearData[title]
+            if title in additionalMoviePosterData.keys():
+                poster_match_count = poster_match_count+1
+                movie[posterKey] = additionalMoviePosterData[title]
+    print(f"\n{year_match_count} years updated, {poster_match_count} posters updated")
+    # dropEntries(releaseYearKey)
+
     output_file_path = os.path.join(dataConverterOutputFolder,dataConverterOutputRdf)
     outputJsonFilePath = os.path.join(dataConverterOutputFolder,dataConverterOutputJson)
     outputSampleJsonFilePath = os.path.join(dataConverterOutputFolder,sampleDataFile)
@@ -610,6 +647,59 @@ def calculateTotalTime(typeFlag:str):
         print(hour_delta," hours, ", end=None)
     logging.info(f"Elapsed Time : {hour_delta} hours, {min_delta} minutes, {sec_delta} seconds")
     print(min_delta," minutes and ",sec_delta," seconds")  
+
+def getAdditionalYearData():
+    dataPath = kagglehub.dataset_download(secondaryDataset)
+    # Read from this set and update to jsonMovieData
+    filePath = ""
+    for root, _, files in os.walk(dataPath):
+        for file in files:
+            filePath = os.path.join(root,file)
+            try:
+                with open(filePath, mode='r', encoding='utf-8') as f:
+                    csv_reader = csv.reader(f)
+                    headers = next(csv_reader, None)
+                    print("Additional Data for Year Read with headers : ",headers)
+                    for row in tqdm(csv_reader, desc="Reading Secondary Data...."):
+                    # for row in csv_reader:
+                        title = str(row[1]).lower().strip()
+                        releaseDate = str(row[5]).strip()
+                        if len(releaseDate)>0 and ('-' in releaseDate):
+                            releaseYear = releaseDate.split('-')[0]
+                            if title not in additionalMovieYearData.keys():
+                                additionalMovieYearData[title] = releaseYear
+            except FileNotFoundError:
+                print(f"The file '{filePath}' does not exist.")
+            except Exception as e:
+                logging.error(f"Credits error : {e}")
+                print(f"An error occurred: {e}")
+
+def getAdditionalPosterData():
+    dataPath = kagglehub.dataset_download(tertiaryDataset)
+    # Read from this set and update to jsonMovieData
+    filePath = ""
+    for root, _, files in os.walk(dataPath):
+        for file in files:
+            filePath = os.path.join(root,file)
+            # print(f"Poster File : {file}, FilePath : {filePath}")
+            try:
+                with open(filePath, mode='r', encoding='utf-8') as f:
+                    csv_reader = csv.reader(f)
+                    headers = next(csv_reader, None)
+                    print("Additional Data for Posters Read with headers : ",headers)
+                    for row in tqdm(csv_reader, desc="Reading Secondary Data...."):
+                        poster = str(row[0])
+                        title = str(row[1]).lower().strip()
+                        releaseYear = str(row[2])
+                        if title not in additionalMovieYearData.keys():
+                            additionalMovieYearData[title] = releaseYear
+                        if title not in additionalMoviePosterData.keys():
+                            additionalMoviePosterData[title] = poster
+            except FileNotFoundError:
+                print(f"The file '{filePath}' does not exist.")
+            except Exception as e:
+                logging.error(f"Credits error : {e}")
+                print(f"An error occurred: {e}")
 
 def main():
     logging.info("Program started....")

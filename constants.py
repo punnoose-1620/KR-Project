@@ -1,5 +1,7 @@
 # Kaggle Dataset
 kaggleDataset = "rounakbanik/the-movies-dataset"
+secondaryDataset = "asaniczka/tmdb-movies-dataset-2023-930k-movies"
+tertiaryDataset = "harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows"
 
 # Relevant File Paths
 dataConverterOutputFolder = "dataset_processed"
@@ -36,6 +38,7 @@ titleKey = 'hasOriginalTitle'
 overviewKey = 'hasOverview'
 posterKey = 'hasPoster'
 averateRatingKey = 'hasAverageRating'
+releaseYearKey = 'hasReleaseYear'
 
 # These keywors will be ignored when finding similar results
 keywordsToIgnore = ['a','an','the','am','pm']
