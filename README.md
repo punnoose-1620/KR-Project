@@ -45,4 +45,13 @@ The endpoints are created using FastAPI and logging has been added so that every
 Additionally, all IP Address and Port related settings have been scripted directly into the endpoint file and needn't be inferred or mentioned when running it.
 
 ## Web Page
-Please add notes on the web page construction, and additional details after/during completion.
+Two Pages have been Set Up:
+- [`index.html`](./website/index.html) : This page contains a search area to search for movies within the database. The results of the search is presented as a clickable grid. The page has been set up in basic HTML with CSS script written in [`home.css`](./website/home.css) used to style the page. All API calls and other functions have been written as JS functions within the script tag of the HTML file.
+- [`movieDetails.html`](./website/movieDetails.html) : This page contains additional details about the movie that has been clicked from the search results. It shows all available movie details in an aesthetic format and additionally provides suggestions to similar movies from the same genre, same category, with similar cast and such. The page has been set up in basic HTML with CSS script written in [`movieDetails.css`](./website/movieDetails.css) used to style the page. All API calls and other functions have been written as JS functions within the script tag of the HTML file.
+
+## Project Structure
+A Basic layour or structure of the project has been developed to represent the flow of control throughout the project and how each value from each file is used in itself or in other files.
+![Project Flow Chart](./ReferenceImages/ProjectFlowChart.png)
+
+## Finale
+This project uses an RDF schema and provides an insight as to how graph databases can be used as a primitive alternative to Artificial Intelligence Models if the queries are designed and optimised well enough. There seem to be various limitations to the time it takes for queries to run as the dataset gets larger, but to a certain extent, this method would be a considerable alternative to AI models. 
