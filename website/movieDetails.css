@@ -76,6 +76,9 @@ header {
 }
 
 .movie-grid-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -88,12 +91,12 @@ header {
     transform: scale(1.05);
 }
 
-.movie-grid-item img {
-    width: 100%;
-    height: 150px;
+.movie-grid-item-img {
+    width: 100% !important;
+    height: 200px !important;
     object-fit: cover;
     border-radius: 8px;
-    border-bottom: 1px solid #ddd;
+    border: 1px solid #ddd;
 }
 
 .movie-grid-item div {
