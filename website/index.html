@@ -48,7 +48,11 @@
         baseUrl = "https://kr-project-production.up.railway.app"
 
         async function getSearchResults(stringVal) {
-            searchUrl = `${baseUrl}/search-by-name`;
+            titleSearchUrl = `${baseUrl}/search-by-name`;
+            genreSearchUrl = `${baseUrl}/search-by-genre`;
+            collectionSearchUrl = `${baseUrl}/search-by-collection`;
+            moviesTotal = []
+            
             bodyData = {
                 'name': stringVal,
                 'queryType': ''
@@ -62,14 +66,111 @@
                     },
                     body: JSON.stringify(bodyData)
                 };
-                fetch(searchUrl, params).then(response => {
+                fetch(titleSearchUrl, params).then(response => {
                     if(!response.ok) {throw new Error(`HTTP Error! Status: ${response.status}`);}
                     return response.json();
                 }).then(data => {
                     console.log(`Response Data : ${data}`);
                     movies = JSON.parse(data)[resultKey];
-                    sessionStorage.setItem('movieData', JSON.stringify(movies));
-                    updateResultsContainer(movies);
+                    if(movies.length>0) {
+                        updateResultsContainer(movies, true);
+                    }
+                });
+                toggleSpinner(false);
+            }
+            catch(error) {
+                console.log("Error : ", error);
+            }
+
+            bodyData = {
+                'name': stringVal,
+                'queryType': ''
+            };
+            try {
+                toggleSpinner(true);
+                params = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(bodyData)
+                };
+                fetch(genreSearchUrl, params).then(response => {
+                    if(!response.ok) {throw new Error(`HTTP Error! Status: ${response.status}`);}
+                    return response.json();
+                }).then(data => {
+                    console.log(`Response Data : ${data}`);
+                    movies = JSON.parse(data)[resultKey];
+                    if(moviesTotal.length>0) {
+                        updateResultsContainer(movies, false);
+                    }
+                    else {
+                        updateResultsContainer(movies, true);
+                    }
+                });
+                toggleSpinner(false);
+            }
+            catch(error) {
+                console.log("Error : ", error);
+            }
+
+            bodyData = {
+                'name': stringVal,
+                'queryType': ''
+            };
+            try {
+                toggleSpinner(true);
+                params = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(bodyData)
+                };
+                fetch(collectionSearchUrl, params).then(response => {
+                    if(!response.ok) {throw new Error(`HTTP Error! Status: ${response.status}`);}
+                    return response.json();
+                }).then(data => {
+                    console.log(`Response Data : ${data}`);
+                    movies = JSON.parse(data)[resultKey];
+                    if(moviesTotal.length>0) {
+                        updateResultsContainer(movies, false);
+                    }
+                    else {
+                        updateResultsContainer(movies, true);
+                    }
+                });
+                toggleSpinner(false);
+            }
+            catch(error) {
+                console.log("Error : ", error);
+            }
+
+            bodyData = {
+                'name': stringVal,
+                'queryType': ''
+            };
+            try {
+                toggleSpinner(true);
+                params = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(bodyData)
+                };
+                fetch(genreSearchUrl, params).then(response => {
+                    if(!response.ok) {throw new Error(`HTTP Error! Status: ${response.status}`);}
+                    return response.json();
+                }).then(data => {
+                    console.log(`Response Data : ${data}`);
+                    movies = JSON.parse(data)[resultKey];
+                    if(moviesTotal.length>0) {
+                        updateResultsContainer(movies, false);
+                    }
+                    else {
+                        updateResultsContainer(movies, true);
+                    }
                 });
                 toggleSpinner(false);
             }
@@ -94,6 +195,7 @@
             url="./movieDetails.html";
             sessionStorage.setItem('_id',id);
             window.open(url, '_self');
+            sessionStorage.setItem('movieData', JSON.stringify(moviesTotal));
         }
 
         function searchButtonClick() {
@@ -102,7 +204,7 @@
             previousSearchValue = searchValue;
         }
 
-        function updateResultsContainer(resultsList) {
+        function updateResultsContainer(resultsList, replaceFlag) {
             const searchResultsContainer = document.getElementById(searchResultsContainerId);
             console.log(`Search Results Element : ${searchResultsContainer}`);
             if(!searchResultsContainer) {
@@ -110,8 +212,9 @@
             }
             else {
                 if(resultsList.length>0) {
-                    searchResultsContainer.replaceChildren();
+                    if(replaceFlag==true) {searchResultsContainer.replaceChildren();}
                     resultsList.forEach(element => {
+                        moviesTotal.push(element)
                         year = ''
                         if(element[yearKey]!=undefined) {
                             year = element[yearKey]
@@ -145,7 +248,9 @@
                 
                         `;
                     toggleSpinner(false); 
-                    searchResultsContainer.replaceChildren(div);
+                    if(replaceFlag) {
+                        searchResultsContainer.replaceChildren(div);
+                    }
                 }
             }
             searchResultsContainer.offsetWidth;

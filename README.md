@@ -4,7 +4,7 @@ This project tries to create a movie recommendation system using Knowledge Graph
 ![Display Image](./images/display_image.webp)
 
 ## Data Source
-The data is loaded from a kaggle dataset named [The Movies Dataset by Rounakbanik](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset) that offers extensive movie data as multiple CSV files
+The data is loaded from a kaggle dataset named [The Movies Dataset by Rounakbanik](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset) that offers extensive movie data as multiple CSV files. Additional data was fetched from 2 other datasets from kaggle to fill the values according to the initial ontology. The [second dataset](https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies) was used for Year of Release and the [third dataset](https://www.kaggle.com/datasets/harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows) was used for Movie Poster Urls.
 
 ## Data Conversion
 The CSV files loaded from kaggle are first converted to RDF files since the project requires that the graph be presented as an application on an RDF Database.
@@ -52,6 +52,12 @@ Two Pages have been Set Up:
 ## Project Structure
 A Basic layour or structure of the project has been developed to represent the flow of control throughout the project and how each value from each file is used in itself or in other files.
 ![Project Flow Chart](./ReferenceImages/ProjectFlowChart.png)
+
+## Deployment
+The project backend has been deployed as a FastApi instance to a free hosting page called Railway. The HTML pages along with their CSS counterparts have been declared as API endpoints in the backend python file and is called accordingly, but for the user, presents as a HTML hosted page. 
+The URLs for the project is given below and will be disabled somewhere around March 2025 : 
+- [`API Calls`](https://kr-project-production.up.railway.app/docs)
+- [`Home Page`](https://kr-project-production.up.railway.app/index.html)
 
 ## Finale
 This project uses an RDF schema and provides an insight as to how graph databases can be used as a primitive alternative to Artificial Intelligence Models if the queries are designed and optimised well enough. There seem to be various limitations to the time it takes for queries to run as the dataset gets larger, but to a certain extent, this method would be a considerable alternative to AI models. 

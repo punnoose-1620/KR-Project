@@ -124,9 +124,9 @@ header {
 }
 
 .empty-state-search {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-style: italic;
-    color: var(--text-secondary);
+    color: white;
     text-align: center;
     margin-top: 2rem;
 }
