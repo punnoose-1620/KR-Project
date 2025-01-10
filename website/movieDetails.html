@@ -259,6 +259,8 @@
                         poster = element[posterKey]
                     }
 
+                   
+
                     const div = document.createElement('div');
                     div.className = 'movie-grid-item';
                     div.addEventListener('click', () => {
@@ -267,7 +269,7 @@
                     // element[posterKey]|| 
                     div.innerHTML = `
                         <div class="movie-grid-item">
-                            <img src=${poster} alt="Movie Poster">
+                            <img src="${poster}" alt="Image description">
                             <div>${title}</div>
                             <div>${ratings}</div>
                             <div>${genre}</div>
