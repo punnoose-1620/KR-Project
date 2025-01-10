@@ -3903,3 +3903,222 @@
 2025-01-10 00:33:33,652 - INFO - Calculating Total Elapsed Time....
 2025-01-10 00:33:33,652 - INFO - Elapsed Time : 0 hours, 9 minutes, 23.426 seconds
 2025-01-10 00:33:33,652 - INFO - Program finished....
+2025-01-10 00:54:37,385 - INFO - Program started....
+2025-01-10 00:54:37,494 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
+2025-01-10 00:54:37,823 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
+2025-01-10 00:54:37,823 - INFO - Dataset Downloaded....
+
+2025-01-10 00:54:37,823 - INFO - Reading Credits
+2025-01-10 00:54:37,823 - INFO - Credits file opened....
+2025-01-10 00:54:37,823 - INFO - Credits headers : ['cast', 'crew', 'id']
+2025-01-10 00:55:17,919 - INFO - Credits count : 45476
+2025-01-10 00:55:17,919 - INFO - Reading Credits Completed
+2025-01-10 00:55:17,919 - INFO - Begin Credits Processing....
+2025-01-10 00:55:17,928 - WARNING - 0 items found in movies without the key castList
+2025-01-10 00:55:17,929 - WARNING - 0 items found in movies without the key crewList
+2025-01-10 00:55:19,738 - INFO - Complete Credits Processing....
+2025-01-10 00:55:19,738 - INFO - Dropped 0 Items....
+2025-01-10 00:55:19,740 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>"
+}
+2025-01-10 00:55:19,743 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>"
+}
+2025-01-10 00:55:19,743 - INFO - Reading Keywords
+2025-01-10 00:55:19,743 - INFO - KeyWords file opened....
+2025-01-10 00:55:19,743 - INFO - KeyWords headers : ['id', 'keywords']
+2025-01-10 00:57:57,474 - INFO - Program started....
+2025-01-10 00:57:57,628 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
+2025-01-10 00:57:57,911 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/rounakbanik/the-movies-dataset HTTP/11" 200 None
+2025-01-10 00:57:57,912 - INFO - Dataset Downloaded....
+
+2025-01-10 00:57:57,912 - INFO - Reading Credits
+2025-01-10 00:57:57,912 - INFO - Credits file opened....
+2025-01-10 00:57:57,914 - INFO - Credits headers : ['cast', 'crew', 'id']
+2025-01-10 00:58:41,028 - INFO - Credits count : 45476
+2025-01-10 00:58:41,028 - INFO - Reading Credits Completed
+2025-01-10 00:58:41,028 - INFO - Begin Credits Processing....
+2025-01-10 00:58:41,028 - WARNING - 0 items found in movies without the key castList
+2025-01-10 00:58:41,034 - WARNING - 0 items found in movies without the key crewList
+2025-01-10 00:58:42,863 - INFO - Complete Credits Processing....
+2025-01-10 00:58:42,863 - INFO - Dropped 0 Items....
+2025-01-10 00:58:42,864 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>"
+}
+2025-01-10 00:58:42,866 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>"
+}
+2025-01-10 00:58:42,866 - INFO - Reading Keywords
+2025-01-10 00:58:42,866 - INFO - KeyWords file opened....
+2025-01-10 00:58:42,866 - INFO - KeyWords headers : ['id', 'keywords']
+2025-01-10 01:01:03,037 - INFO - KeyWords count : 46419
+2025-01-10 01:01:03,037 - INFO - Reading Keywords Completed
+2025-01-10 01:01:03,038 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>"
+}
+2025-01-10 01:01:03,038 - INFO - Reading Links
+2025-01-10 01:01:03,038 - INFO - Links file opened....
+2025-01-10 01:01:03,038 - INFO - Links headers : ['movieId', 'imdbId', 'tmdbId']
+2025-01-10 01:04:38,591 - INFO - Links count : 45843
+2025-01-10 01:04:38,591 - INFO - Reading Links Completed
+2025-01-10 01:04:38,593 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>",
+    "imdbId": "<class 'str'>",
+    "tmdbId": "<class 'str'>"
+}
+2025-01-10 01:04:38,593 - INFO - Reading MetaData
+2025-01-10 01:04:38,594 - INFO - MetaData file opened....
+2025-01-10 01:04:38,594 - INFO - MetaData headers : ['adult', 'belongs_to_collection', 'budget', 'genres', 'homepage', 'id', 'imdb_id', 'original_language', 'original_title', 'overview', 'popularity', 'poster_path', 'production_companies', 'production_countries', 'release_date', 'revenue', 'runtime', 'spoken_languages', 'status', 'tagline', 'title', 'video', 'vote_average', 'vote_count']
+2025-01-10 01:07:00,734 - ERROR - MetaData error : list index out of range
+2025-01-10 01:07:00,734 - INFO - Reading MetaData Completed
+2025-01-10 01:07:00,740 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>",
+    "imdbId": "<class 'str'>",
+    "tmdbId": "<class 'str'>",
+    "isAdult": "<class 'str'>",
+    "partOfCollections": "<class 'list'>",
+    "hasBudget": "<class 'str'>",
+    "ofGenre": "<class 'list'>",
+    "hasOriginalLanguage": "<class 'str'>",
+    "hasOriginalTitle": "<class 'str'>",
+    "hasOverview": "<class 'str'>",
+    "hasPoster": "<class 'str'>"
+}
+2025-01-10 01:07:00,740 - INFO - Reading Ratings
+2025-01-10 01:07:00,740 - INFO - Ratings file opened....
+2025-01-10 01:07:00,740 - INFO - Ratings headers : ['userId', 'movieId', 'rating', 'timestamp']
+2025-01-10 01:07:29,031 - DEBUG - Ratings object created with rating data based on ID....
+2025-01-10 01:07:29,031 - ERROR - Ratings error : unhashable type: 'dict_keys'
+2025-01-10 01:07:31,148 - INFO - Reading Ratings Completed
+2025-01-10 01:07:31,148 - INFO - Begin Ratings Processing....
+2025-01-10 01:07:31,164 - WARNING - 83640 items found in movies without the key hasRating
+2025-01-10 01:07:31,196 - INFO - Complete Ratings Processing....
+2025-01-10 01:07:31,196 - INFO - Dropped 0 Items
+2025-01-10 01:07:31,213 - WARNING - 83640 items found in movies without the key hasAverageRating
+2025-01-10 01:07:31,218 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>",
+    "imdbId": "<class 'str'>",
+    "tmdbId": "<class 'str'>",
+    "isAdult": "<class 'str'>",
+    "partOfCollections": "<class 'list'>",
+    "hasBudget": "<class 'str'>",
+    "ofGenre": "<class 'list'>",
+    "hasOriginalLanguage": "<class 'str'>",
+    "hasOriginalTitle": "<class 'str'>",
+    "hasOverview": "<class 'str'>",
+    "hasPoster": "<class 'str'>"
+}
+2025-01-10 01:07:31,218 - INFO - Calculating Total Elapsed Time....
+2025-01-10 01:07:31,218 - INFO - Elapsed Time : 0 hours, 10 minutes, -26.257 seconds
+2025-01-10 01:07:31,221 - INFO - Data Types : {
+    "_id": "<class 'str'>",
+    "actedBy": "<class 'list'>",
+    "directedBy": "<class 'list'>",
+    "writtenBy": "<class 'list'>",
+    "producedBy": "<class 'list'>",
+    "supportingArtists": "<class 'list'>",
+    "editedBy": "<class 'list'>",
+    "soundsBy": "<class 'list'>",
+    "visualEffectsBy": "<class 'list'>",
+    "lightingBy": "<class 'list'>",
+    "hasKeywords": "<class 'list'>",
+    "imdbId": "<class 'str'>",
+    "tmdbId": "<class 'str'>",
+    "isAdult": "<class 'str'>",
+    "partOfCollections": "<class 'list'>",
+    "hasBudget": "<class 'str'>",
+    "ofGenre": "<class 'list'>",
+    "hasOriginalLanguage": "<class 'str'>",
+    "hasOriginalTitle": "<class 'str'>",
+    "hasOverview": "<class 'str'>",
+    "hasPoster": "<class 'str'>"
+}
+2025-01-10 01:07:31,234 - WARNING - 38208 items found in movies without the key hasKeywords
+2025-01-10 01:07:31,343 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
+2025-01-10 01:07:31,684 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/asaniczka/tmdb-movies-dataset-2023-930k-movies HTTP/11" 200 None
+2025-01-10 01:07:39,269 - DEBUG - Starting new HTTPS connection (1): www.kaggle.com:443
+2025-01-10 01:07:39,571 - DEBUG - https://www.kaggle.com:443 "GET /api/v1/datasets/view/harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows HTTP/11" 200 None
+2025-01-10 01:07:39,709 - INFO - Written to JSON File....
+2025-01-10 01:07:39,710 - INFO - Begin Creating RDF Graph....
+2025-01-10 01:07:39,871 - INFO - RDF Graph Created....
+2025-01-10 01:07:39,871 - INFO - Begin Writing to RDF File....
+2025-01-10 01:07:40,256 - INFO - Completed Writing to RDF File....
+2025-01-10 01:07:40,318 - INFO - Calculating Total Elapsed Time....
+2025-01-10 01:07:40,321 - INFO - Elapsed Time : 0 hours, 10 minutes, -17.156 seconds
+2025-01-10 01:07:40,322 - INFO - Program finished....

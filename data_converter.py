@@ -193,7 +193,7 @@ def readMetaData(filePath:str):
                         item[languageKey] = originalLang
                         item[titleKey] = originalTitle
                         item[overviewKey] = overview
-                        item[posterKey] = "https://m.media-amazon.com/images/M/"+posterPath
+                        item[posterKey] = posterPath
                 if foundFlag==False:
                     movie_data = {
                         '_id' : _id,
@@ -204,7 +204,7 @@ def readMetaData(filePath:str):
                         languageKey : originalLang,
                         titleKey : originalTitle,
                         overviewKey : overview,
-                        posterKey: "https://m.media-amazon.com/images/M/"+posterPath
+                        posterKey: posterPath
                     }
                     jsonMovieData.append(movie_data)
             print("Duplicate MetaData Count : ", duplicateOverwrites)
@@ -474,8 +474,12 @@ def dropEntries(key: str):
     newMoviesList = []
     for movie in tqdm(jsonMovieData, desc="Dropping Keys...."):
         if key in movie.keys():
-            if str(movie[key]).strip()!='':
-                newMoviesList.append(movie)
+            if 'poster' in key.strip().lower():
+                if 'http' in movie[key]:
+                    newMoviesList.append(movie)
+            else:
+                if str(movie[key]).strip()!='':
+                    newMoviesList.append(movie)
     finalLength = len(newMoviesList)
     print(f"{finalLength-initialLength} Entries Dropped based on {key}")
     jsonMovieData = newMoviesList
@@ -618,7 +622,8 @@ def list_files_in_folder(folder_path):
                 poster_match_count = poster_match_count+1
                 movie[posterKey] = additionalMoviePosterData[title]
     print(f"\n{year_match_count} years updated, {poster_match_count} posters updated")
-    # dropEntries(releaseYearKey)
+    dropEntries(releaseYearKey)
+    dropEntries(posterKey)
 
     output_file_path = os.path.join(dataConverterOutputFolder,dataConverterOutputRdf)
     outputJsonFilePath = os.path.join(dataConverterOutputFolder,dataConverterOutputJson)
