@@ -188,6 +188,10 @@
                 posterElement = document.getElementById(moviePosterElementId);
                 directorElement=document.getElementById(movieDirectorElementId);
 
+                if(movieDetails[posterKey]!=undefined) {
+                    posterElement.src = movieDetails[posterKey];
+                }
+
                 if(movieDetails[yearKey]!=undefined) {
                     titleElement.innerHTML = `${movieDetails[titleKey]} (${movieDetails[yearKey]})`;
                 }
@@ -251,6 +255,9 @@
                     if(element[overviewKey]!=undefined) {
                         overview = element[overviewKey]
                     }
+                    if(element[posterKey]!=undefined) {
+                        poster = element[posterKey]
+                    }
 
                     const div = document.createElement('div');
                     div.className = 'movie-grid-item';
@@ -260,7 +267,7 @@
                     // element[posterKey]|| 
                     div.innerHTML = `
                         <div class="movie-grid-item">
-                            <img src=${element[moviePosterElementId]} alt="Movie Poster">
+                            <img src=${poster} alt="Movie Poster">
                             <div>${title}</div>
                             <div>${ratings}</div>
                             <div>${genre}</div>
