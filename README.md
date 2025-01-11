@@ -4,6 +4,8 @@ This project tries to create a movie recommendation system using Knowledge Graph
 ![Display Image](./images/display_image.webp)
 
 ## Data Source
+The ontology was inspired from a 11 year old github repository regarding a movies project. But the data populated in the directory was dummy data with unreliable connections between the values so the ontology of that project was populated with IMDB movie data from 3 different kaggle datasets to fill all the predicates.
+
 The data is loaded from a kaggle dataset named [The Movies Dataset by Rounakbanik](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset) that offers extensive movie data as multiple CSV files. Additional data was fetched from 2 other datasets from kaggle to fill the values according to the initial ontology. The [second dataset](https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies) was used for Year of Release and the [third dataset](https://www.kaggle.com/datasets/harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows) was used for Movie Poster Urls.
 
 ## Data Conversion
