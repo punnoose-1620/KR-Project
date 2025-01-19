@@ -1,7 +1,7 @@
 # KR-Project
 This project tries to create a movie recommendation system using Knowledge Graphs using the parameters of the movies the user is currently viewing.
 
-![Display Image](./images/display_image.webp)
+![Display Image](./images/display_image_1.webp)
 
 ## Data Source
 The ontology was inspired from a 11 year old github repository regarding a movies project. But the data populated in the directory was dummy data with unreliable connections between the values so the ontology of that project was populated with IMDB movie data from 3 different kaggle datasets to fill all the predicates.
@@ -57,7 +57,7 @@ A Basic layour or structure of the project has been developed to represent the f
 
 ## Deployment
 The project backend has been deployed as a FastApi instance to a free hosting page called Railway. The HTML pages along with their CSS counterparts have been declared as API endpoints in the backend python file and is called accordingly, but for the user, presents as a HTML hosted page. 
-The URLs for the project is given below and will be disabled somewhere around March 2025 : 
+The URLs for the project is given below and has been disabled on 17 Jan 2025 : 
 - [`API Calls`](https://kr-project-production.up.railway.app/docs)
 - [`Home Page`](https://kr-project-production.up.railway.app/index.html)
 
